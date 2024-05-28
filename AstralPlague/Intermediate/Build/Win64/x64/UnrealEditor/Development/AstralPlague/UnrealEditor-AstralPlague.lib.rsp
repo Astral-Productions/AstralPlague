@@ -1,0 +1,14 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-AstralPlague.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"D:\UnrealDev\AstralPlague\AstralPlague\Intermediate\Build\Win64\x64\AstralPlagueEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h.obj"
+"D:\UnrealDev\AstralPlague\AstralPlague\Intermediate\Build\Win64\x64\UnrealEditor\Development\AstralPlague\Module.AstralPlague.cpp.obj"
+"D:\UnrealDev\AstralPlague\AstralPlague\Intermediate\Build\Win64\x64\UnrealEditor\Development\AstralPlague\AstralPlayerController.cpp.obj"
+"D:\UnrealDev\AstralPlague\AstralPlague\Intermediate\Build\Win64\x64\UnrealEditor\Development\AstralPlague\AstralPlague.init.gen.cpp.obj"
+"D:\UnrealDev\AstralPlague\AstralPlague\Intermediate\Build\Win64\x64\UnrealEditor\Development\AstralPlague\Default.rc2.res"
+/OUT:"D:\UnrealDev\AstralPlague\AstralPlague\Intermediate\Build\Win64\x64\UnrealEditor\Development\AstralPlague\UnrealEditor-AstralPlague.lib"

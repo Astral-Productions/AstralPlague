@@ -9,11 +9,14 @@
 [attr]lfstext filter=lfs diff=lfstext merge=lfstext -text
 
 # UE file types
-*.uasset lock
-*.umap lock
+*.uasset lfs
+*.umap lfs
 *.udk lfs
 *.upk lfs
 
+#Blender
+*.blender lfs
+*.blender1 lfs
 --------------------------------------------------
 
 # 2D formats
