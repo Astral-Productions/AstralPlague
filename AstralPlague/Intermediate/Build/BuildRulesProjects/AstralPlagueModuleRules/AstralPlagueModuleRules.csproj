@@ -16,6 +16,7 @@
   </ItemGroup>
   <ItemGroup>
   <Compile Include="..\..\..\..\Plugins\CommonGame\Source\CommonGame.Build.cs"><Link>Plugins\CommonGame\Source\CommonGame.Build.cs</Link></Compile>
+  <Compile Include="..\..\..\..\Plugins\CommonUser\Source\CommonUser\CommonUser.Build.cs"><Link>Plugins\CommonUser\Source\CommonUser\CommonUser.Build.cs</Link></Compile>
   <Compile Include="..\..\..\..\Plugins\GameFeatures\AstralPlagueCore\Source\AstralPlagueCoreRuntime\AstralPlagueCoreRuntime.Build.cs"><Link>Plugins\GameFeatures\AstralPlagueCore\Source\AstralPlagueCoreRuntime\AstralPlagueCoreRuntime.Build.cs</Link></Compile>
   <Compile Include="..\..\..\..\Plugins\GameFeatures\NPCBehaviorSystem\Source\NPCBehaviorSystemRuntime\NPCBehaviorSystemRuntime.Build.cs"><Link>Plugins\GameFeatures\NPCBehaviorSystem\Source\NPCBehaviorSystemRuntime\NPCBehaviorSystemRuntime.Build.cs</Link></Compile>
   <Compile Include="..\..\..\..\Plugins\ModularGameplayActors\Source\ModularGameplayActors\ModularGameplayActors.Build.cs"><Link>Plugins\ModularGameplayActors\Source\ModularGameplayActors\ModularGameplayActors.Build.cs</Link></Compile>

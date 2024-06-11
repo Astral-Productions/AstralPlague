@@ -15,10 +15,14 @@ struct FActorInitStateChangedParams;
 struct FFrame;
 struct FGameplayTag;
 
+/**
+ * Component that adds functionality to all Pawn classes so it can be used for characters/vehicles/etc.
+ * This coordinates the initialization of other components.
+ */
 UCLASS()
 class ASTRALPLAGUE_API UAstralPawnExtensionComponent : public UPawnComponent, public IGameFrameworkInitStateInterface
 {
-		GENERATED_BODY()
+	GENERATED_BODY()
 
 public:
 

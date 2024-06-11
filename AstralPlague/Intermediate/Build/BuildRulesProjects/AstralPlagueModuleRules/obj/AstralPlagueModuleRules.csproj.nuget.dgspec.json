@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "D:\\UnrealDev\\AstralPlague\\AstralPlague\\Intermediate\\Build\\BuildRulesProjects\\AstralPlagueModuleRules\\AstralPlagueModuleRules.csproj": {}
+    "D:\\UnrealDev\\AstralPlague - Dev\\AstralPlague\\Intermediate\\Build\\BuildRulesProjects\\AstralPlagueModuleRules\\AstralPlagueModuleRules.csproj": {}
   },
   "projects": {
     "C:\\Program Files\\Epic Games\\UE_5.4\\Engine\\Intermediate\\Build\\BuildRulesProjects\\MarketplaceRules\\MarketplaceRules.csproj": {
@@ -1042,14 +1042,14 @@
         }
       }
     },
-    "D:\\UnrealDev\\AstralPlague\\AstralPlague\\Intermediate\\Build\\BuildRulesProjects\\AstralPlagueModuleRules\\AstralPlagueModuleRules.csproj": {
+    "D:\\UnrealDev\\AstralPlague - Dev\\AstralPlague\\Intermediate\\Build\\BuildRulesProjects\\AstralPlagueModuleRules\\AstralPlagueModuleRules.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\UnrealDev\\AstralPlague\\AstralPlague\\Intermediate\\Build\\BuildRulesProjects\\AstralPlagueModuleRules\\AstralPlagueModuleRules.csproj",
+        "projectUniqueName": "D:\\UnrealDev\\AstralPlague - Dev\\AstralPlague\\Intermediate\\Build\\BuildRulesProjects\\AstralPlagueModuleRules\\AstralPlagueModuleRules.csproj",
         "projectName": "AstralPlagueModuleRules",
-        "projectPath": "D:\\UnrealDev\\AstralPlague\\AstralPlague\\Intermediate\\Build\\BuildRulesProjects\\AstralPlagueModuleRules\\AstralPlagueModuleRules.csproj",
+        "projectPath": "D:\\UnrealDev\\AstralPlague - Dev\\AstralPlague\\Intermediate\\Build\\BuildRulesProjects\\AstralPlagueModuleRules\\AstralPlagueModuleRules.csproj",
         "packagesPath": "C:\\Users\\NovaB\\.nuget\\packages\\",
-        "outputPath": "D:\\UnrealDev\\AstralPlague\\AstralPlague\\Intermediate\\Build\\BuildRulesProjects\\AstralPlagueModuleRules\\obj\\",
+        "outputPath": "D:\\UnrealDev\\AstralPlague - Dev\\AstralPlague\\Intermediate\\Build\\BuildRulesProjects\\AstralPlagueModuleRules\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\NovaB\\AppData\\Roaming\\NuGet\\NuGet.Config",

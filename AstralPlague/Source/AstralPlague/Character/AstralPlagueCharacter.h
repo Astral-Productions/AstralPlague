@@ -2,63 +2,105 @@
 
 #pragma once
 
-
-
 #include "AbilitySystemInterface.h"
 #include "GameplayCueInterface.h"
 #include "GameplayTagAssetInterface.h"
 #include "ModularCharacter.h"
-#include "AstralPlagueCharacter.generated.h"
+#include "AstralPlague/Components/AstralStatsComponent.h"
 
+#include "AstralPlagueCharacter.generated.h"
 
 class AActor;
 class AController;
-class AAstralPlayerState;
 class AAstralPlayerController;
+class AAstralPlayerState;
+class FLifetimeProperty;
+class IRepChangedPropertyTracker;
 class UAbilitySystemComponent;
+class UInputComponent;
 class UAstralAbilitySystemComponent;
-class UAstralStatsComponent;
+class UAstralCameraComponent;
+class UAstralHealthComponent;
 class UAstralPawnExtensionComponent;
-class USpringArmComponent;
-class UCameraComponent;
-class UInputMappingContext;
-class UInputAction;
-struct FInputActionValue;
+class UObject;
+struct FFrame;
+struct FGameplayTag;
+struct FGameplayTagContainer;
 
-DECLARE_LOG_CATEGORY_EXTERN(LogTemplateCharacter, Log, All);
 
-UCLASS(config=Game)
-class AAstralPlagueCharacter : public AModularCharacter, public IAbilitySystemInterface, public IGameplayCueInterface, public IGameplayTagAssetInterface
+/**
+ * FAstralReplicatedAcceleration: Compressed representation of acceleration
+ */
+USTRUCT()
+struct FAstralReplicatedAcceleration
 {
 	GENERATED_BODY()
 
-	/** Camera boom positioning the camera behind the character */
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
-	USpringArmComponent* CameraBoom;
+	UPROPERTY()
+	uint8 AccelXYRadians = 0;	// Direction of XY accel component, quantized to represent [0, 2*pi]
 
-	/** Follow camera */
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
-	UCameraComponent* FollowCamera;
-	
-	/** MappingContext */
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
-	UInputMappingContext* DefaultMappingContext;
+	UPROPERTY()
+	uint8 AccelXYMagnitude = 0;	//Accel rate of XY component, quantized to represent [0, MaxAcceleration]
 
-	/** Jump Input Action */
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
-	UInputAction* JumpAction;
+	UPROPERTY()
+	int8 AccelZ = 0;	// Raw Z accel rate component, quantized to represent [-MaxAcceleration, MaxAcceleration]
+};
 
-	/** Move Input Action */
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
-	UInputAction* MoveAction;
+/** The type we use to send FastShared movement updates. */
+USTRUCT()
+struct FSharedRepMovement
+{
+	GENERATED_BODY()
 
-	/** Look Input Action */
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
-	UInputAction* LookAction;
+	FSharedRepMovement();
+
+	bool FillForCharacter(ACharacter* Character);
+	bool Equals(const FSharedRepMovement& Other, ACharacter* Character) const;
+
+	bool NetSerialize(FArchive& Ar, class UPackageMap* Map, bool& bOutSuccess);
+
+	UPROPERTY(Transient)
+	FRepMovement RepMovement;
+
+	UPROPERTY(Transient)
+	float RepTimeStamp = 0.0f;
+
+	UPROPERTY(Transient)
+	uint8 RepMovementMode = 0;
+
+	UPROPERTY(Transient)
+	bool bProxyIsJumpForceApplied = false;
+
+	UPROPERTY(Transient)
+	bool bIsCrouched = false;
+};
+
+template<>
+struct TStructOpsTypeTraits<FSharedRepMovement> : public TStructOpsTypeTraitsBase2<FSharedRepMovement>
+{
+	enum
+	{
+		WithNetSerializer = true,
+		WithNetSharedSerialization = true,
+	};
+};
+
+/**
+ * AAstralPlagueCharacter
+ *
+ *	The base character pawn class used by this project.
+ *	Responsible for sending events to pawn components.
+ *	New behavior should be added via pawn components when possible.
+ */
+UCLASS(Config = Game, Meta = (ShortTooltip = "The base character pawn class used by this project."))
+class ASTRALPLAGUE_API AAstralPlagueCharacter : public AModularCharacter, public IAbilitySystemInterface, public IGameplayCueInterface, public IGameplayTagAssetInterface
+{
+	GENERATED_BODY()
 
 public:
-	AAstralPlagueCharacter();
-	
+
+	AAstralPlagueCharacter(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
+
 	UFUNCTION(BlueprintCallable, Category = "Astral|Character")
 	AAstralPlayerController* GetAstralPlayerController() const;
 
@@ -69,25 +111,49 @@ public:
 	UAstralAbilitySystemComponent* GetAstralAbilitySystemComponent() const;
 	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 
-	//There isn't any Lyra docs on these, but they are pretty self explanatory in that they return the matching gameplay tags | FROM | the ability system component. No tags are stored directly on the character. 
 	virtual void GetOwnedGameplayTags(FGameplayTagContainer& TagContainer) const override;
 	virtual bool HasMatchingGameplayTag(FGameplayTag TagToCheck) const override;
 	virtual bool HasAllMatchingGameplayTags(const FGameplayTagContainer& TagContainer) const override;
 	virtual bool HasAnyMatchingGameplayTags(const FGameplayTagContainer& TagContainer) const override;
+
+	void ToggleCrouch();
+
+	//~AActor interface
+	virtual void PreInitializeComponents() override;
+	virtual void BeginPlay() override;
+	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
+	virtual void Reset() override;
+	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+	virtual void PreReplication(IRepChangedPropertyTracker& ChangedPropertyTracker) override;
+	//~End of AActor interface
+
+	//~APawn interface
+	virtual void NotifyControllerChanged() override;
+	//~End of APawn interface
 	
-protected:	
+
+	/** RPCs that is called on frames when default property replication is skipped. This replicates a single movement update to everyone. */
+	UFUNCTION(NetMulticast, unreliable)
+	void FastSharedReplication(const FSharedRepMovement& SharedRepMovement);
+
+	// Last FSharedRepMovement we sent, to avoid sending repeatedly.
+	FSharedRepMovement LastSharedReplication;
+
+	virtual bool UpdateSharedReplication();
+
+protected:
+
 	virtual void OnAbilitySystemInitialized();
 	virtual void OnAbilitySystemUninitialized();
 
 	virtual void PossessedBy(AController* NewController) override;
-	//virtual void UnPossessed() override;
+	virtual void UnPossessed() override;
 
-	//virtual void OnRep_Controller() override;
+	virtual void OnRep_Controller() override;
 	virtual void OnRep_PlayerState() override;
 
 	virtual void SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) override;
 
-	/*@todo Implement these according to Lyra
 	void InitializeGameplayTags();
 
 	virtual void FellOutOfWorld(const class UDamageType& dmgType) override;
@@ -115,31 +181,28 @@ protected:
 	virtual void OnEndCrouch(float HalfHeightAdjust, float ScaledHalfHeightAdjust) override;
 
 	virtual bool CanJumpInternal_Implementation() const;
-	*/
-	
-	/** Called for movement input */
-	void Move(const FInputActionValue& Value);
 
-	/** Called for looking input */
-	void Look(const FInputActionValue& Value);
-			
 private:
-	
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Astral|Character", Meta = (AllowPrivateAccess = "true"))
 	TObjectPtr<UAstralPawnExtensionComponent> PawnExtComponent;
-	
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Astral|Character", Meta = (AllowPrivateAccess = "true"))
 	TObjectPtr<UAstralStatsComponent> StatsComponent;
 
-protected:
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Astral|Character", Meta = (AllowPrivateAccess = "true"))
+	TObjectPtr<UAstralCameraComponent> CameraComponent;
 
-	// To add mapping context
-	virtual void BeginPlay();
+	UPROPERTY(Transient, ReplicatedUsing = OnRep_ReplicatedAcceleration)
+	FAstralReplicatedAcceleration ReplicatedAcceleration;
 
-public:
-	/** Returns CameraBoom subobject **/
-	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
-	/** Returns FollowCamera subobject **/
-	FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
+private:
+	UFUNCTION()
+	void OnControllerChangedTeam(UObject* TeamAgent, int32 OldTeam, int32 NewTeam);
+
+	UFUNCTION()
+	void OnRep_ReplicatedAcceleration();
+
+	UFUNCTION()
+	void OnRep_MyTeamID(FGenericTeamId OldTeamID);
 };
-

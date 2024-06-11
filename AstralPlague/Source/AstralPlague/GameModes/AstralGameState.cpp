@@ -31,6 +31,7 @@ AAstralGameState::AAstralGameState(const FObjectInitializer& ObjectInitializer)
 
 	ExperienceManagerComponent = CreateDefaultSubobject<UAstralExperienceManagerComponent>(TEXT("ExperienceManagerComponent"));
 
+	
 }
 
 void AAstralGameState::PreInitializeComponents()

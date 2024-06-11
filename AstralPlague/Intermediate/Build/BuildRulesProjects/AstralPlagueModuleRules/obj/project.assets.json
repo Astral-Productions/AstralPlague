@@ -8567,11 +8567,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\UnrealDev\\AstralPlague\\AstralPlague\\Intermediate\\Build\\BuildRulesProjects\\AstralPlagueModuleRules\\AstralPlagueModuleRules.csproj",
+      "projectUniqueName": "D:\\UnrealDev\\AstralPlague - Dev\\AstralPlague\\Intermediate\\Build\\BuildRulesProjects\\AstralPlagueModuleRules\\AstralPlagueModuleRules.csproj",
       "projectName": "AstralPlagueModuleRules",
-      "projectPath": "D:\\UnrealDev\\AstralPlague\\AstralPlague\\Intermediate\\Build\\BuildRulesProjects\\AstralPlagueModuleRules\\AstralPlagueModuleRules.csproj",
+      "projectPath": "D:\\UnrealDev\\AstralPlague - Dev\\AstralPlague\\Intermediate\\Build\\BuildRulesProjects\\AstralPlagueModuleRules\\AstralPlagueModuleRules.csproj",
       "packagesPath": "C:\\Users\\NovaB\\.nuget\\packages\\",
-      "outputPath": "D:\\UnrealDev\\AstralPlague\\AstralPlague\\Intermediate\\Build\\BuildRulesProjects\\AstralPlagueModuleRules\\obj\\",
+      "outputPath": "D:\\UnrealDev\\AstralPlague - Dev\\AstralPlague\\Intermediate\\Build\\BuildRulesProjects\\AstralPlagueModuleRules\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\NovaB\\AppData\\Roaming\\NuGet\\NuGet.Config",

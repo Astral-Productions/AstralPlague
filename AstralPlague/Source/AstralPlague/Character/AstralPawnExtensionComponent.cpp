@@ -26,7 +26,7 @@ UAstralPawnExtensionComponent::UAstralPawnExtensionComponent(const FObjectInitia
 	PrimaryComponentTick.bStartWithTickEnabled = false;
 	PrimaryComponentTick.bCanEverTick = false;
 
-	SetIsReplicatedByDefault(true);
+	SetIsReplicatedByDefault(false); //True in Lyra 
 
 	PawnData = nullptr;
 	AbilitySystemComponent = nullptr;
@@ -143,9 +143,8 @@ void UAstralPawnExtensionComponent::InitializeAbilitySystem(UAstralAbilitySystem
 	AbilitySystemComponent->InitAbilityActorInfo(InOwnerActor, Pawn);
 
 	if (ensure(PawnData))
-	{
-		//@Todo look at this implementation :) 
-		//InASC->SetTagRelationshipMapping(PawnData->TagRelationshipMapping);
+	{		
+		InASC->SetTagRelationshipMapping(PawnData->TagRelationshipMapping);
 	}
 
 	OnAbilitySystemInitialized.Broadcast();
@@ -165,8 +164,7 @@ void UAstralPawnExtensionComponent::UninitializeAbilitySystem()
 		AbilityTypesToIgnore.AddTag(AstralGameplayTags::Ability_Behavior_SurvivesDeath);
 
 		AbilitySystemComponent->CancelAbilities(nullptr, &AbilityTypesToIgnore);
-		//@Todo look at this implementation :) 
-		//AbilitySystemComponent->ClearAbilityInput();
+		AbilitySystemComponent->ClearAbilityInput();
 		AbilitySystemComponent->RemoveAllGameplayCues();
 
 		if (AbilitySystemComponent->GetOwnerActor() != nullptr)
@@ -278,8 +276,6 @@ void UAstralPawnExtensionComponent::HandleChangeInitState(UGameFrameworkComponen
 	{
 		// This is currently all handled by other components listening to this state change
 	}
-
-	InitializeAbilitySystem(GetPlayerState<AAstralPlayerState>()->GetAstralAbilitySystemComponent(),GetPlayerState<AAstralPlayerState>());
 }
 
 void UAstralPawnExtensionComponent::OnActorInitStateChanged(const FActorInitStateChangedParams& Params)

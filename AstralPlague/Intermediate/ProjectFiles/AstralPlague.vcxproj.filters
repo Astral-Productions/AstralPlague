@@ -12,7 +12,6 @@
       <Filter>Source</Filter>
     </None>
     <None Include="..\..\.vsconfig" />
-    <None Include="..\..\AstralPlague.png" />
     <Filter Include="Config">
       <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
     </Filter>
@@ -154,6 +153,18 @@
     <None Include="..\..\Plugins\CommonGame\CommonGame.uplugin">
       <Filter>Plugins\CommonGame</Filter>
     </None>
+    <Filter Include="Plugins\CommonUser">
+      <UniqueIdentifier>{8716E485-BC4A-3B38-8F39-874ACA390677}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Plugins\CommonUser\CommonUser.uplugin">
+      <Filter>Plugins\CommonUser</Filter>
+    </None>
+    <Filter Include="Plugins\CommonUser\Resources">
+      <UniqueIdentifier>{244EABB8-94D5-3428-81D6-CF7BA7F27A69}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Plugins\CommonUser\Resources\Icon128.png">
+      <Filter>Plugins\CommonUser\Resources</Filter>
+    </None>
     <Filter Include="Plugins\GameFeatures">
       <UniqueIdentifier>{33C51FE3-4BD4-3B9E-9F42-5CCDEE9DF75F}</UniqueIdentifier>
     </Filter>
@@ -175,23 +186,11 @@
     <None Include="..\..\Plugins\GameFeatures\NPCBehaviorSystem\NPCBehaviorSystem.uplugin">
       <Filter>Plugins\GameFeatures\NPCBehaviorSystem</Filter>
     </None>
-    <Filter Include="Plugins\GameFeatures\NPCBehaviorSystem\Resources">
-      <UniqueIdentifier>{FEC4FFE8-50ED-3B95-9B25-A5451B9EB781}</UniqueIdentifier>
-    </Filter>
-    <None Include="..\..\Plugins\GameFeatures\NPCBehaviorSystem\Resources\Icon128.png">
-      <Filter>Plugins\GameFeatures\NPCBehaviorSystem\Resources</Filter>
-    </None>
     <Filter Include="Plugins\GameFeatures\TestGameFeature">
       <UniqueIdentifier>{2F445D27-16D6-3EB8-A159-8E77BAD03433}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Plugins\GameFeatures\TestGameFeature\TestGameFeature.uplugin">
       <Filter>Plugins\GameFeatures\TestGameFeature</Filter>
-    </None>
-    <Filter Include="Plugins\GameFeatures\TestGameFeature\Resources">
-      <UniqueIdentifier>{A80120EB-1A52-348E-8C61-3B4F9D7CCC84}</UniqueIdentifier>
-    </Filter>
-    <None Include="..\..\Plugins\GameFeatures\TestGameFeature\Resources\Icon128.png">
-      <Filter>Plugins\GameFeatures\TestGameFeature\Resources</Filter>
     </None>
     <Filter Include="Plugins\ModularGameplayActors">
       <UniqueIdentifier>{E25759FB-664C-355F-8250-88BB112CE4AF}</UniqueIdentifier>
@@ -199,6 +198,57 @@
     <None Include="..\..\Plugins\ModularGameplayActors\ModularGameplayActors.uplugin">
       <Filter>Plugins\ModularGameplayActors</Filter>
     </None>
+    <Filter Include="Plugins\CommonUser\Source">
+      <UniqueIdentifier>{EEB044F2-392C-3506-9A79-6AB8BD3A1A6C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugins\CommonUser\Source\CommonUser">
+      <UniqueIdentifier>{02CB03AE-D248-3737-8859-DE3608D28AC0}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Plugins\CommonUser\Source\CommonUser\CommonUser.Build.cs">
+      <Filter>Plugins\CommonUser\Source\CommonUser</Filter>
+    </None>
+    <Filter Include="Plugins\CommonUser\Source\CommonUser\Private">
+      <UniqueIdentifier>{5D07534E-5D8C-3BD0-8EAA-69F91B8AA007}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Plugins\CommonUser\Source\CommonUser\Private\AsyncAction_CommonUserInitialize.cpp">
+      <Filter>Plugins\CommonUser\Source\CommonUser\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\CommonUser\Source\CommonUser\Private\CommonSessionSubsystem.cpp">
+      <Filter>Plugins\CommonUser\Source\CommonUser\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\CommonUser\Source\CommonUser\Private\CommonUserBasicPresence.cpp">
+      <Filter>Plugins\CommonUser\Source\CommonUser\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\CommonUser\Source\CommonUser\Private\CommonUserModule.cpp">
+      <Filter>Plugins\CommonUser\Source\CommonUser\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\CommonUser\Source\CommonUser\Private\CommonUserSubsystem.cpp">
+      <Filter>Plugins\CommonUser\Source\CommonUser\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Plugins\CommonUser\Source\CommonUser\Private\CommonUserTypes.cpp">
+      <Filter>Plugins\CommonUser\Source\CommonUser\Private</Filter>
+    </ClCompile>
+    <Filter Include="Plugins\CommonUser\Source\CommonUser\Public">
+      <UniqueIdentifier>{2A5F42F9-EE12-3762-8F6F-3EF3B4635964}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Plugins\CommonUser\Source\CommonUser\Public\AsyncAction_CommonUserInitialize.h">
+      <Filter>Plugins\CommonUser\Source\CommonUser\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Plugins\CommonUser\Source\CommonUser\Public\CommonSessionSubsystem.h">
+      <Filter>Plugins\CommonUser\Source\CommonUser\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Plugins\CommonUser\Source\CommonUser\Public\CommonUserBasicPresence.h">
+      <Filter>Plugins\CommonUser\Source\CommonUser\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Plugins\CommonUser\Source\CommonUser\Public\CommonUserModule.h">
+      <Filter>Plugins\CommonUser\Source\CommonUser\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Plugins\CommonUser\Source\CommonUser\Public\CommonUserSubsystem.h">
+      <Filter>Plugins\CommonUser\Source\CommonUser\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Plugins\CommonUser\Source\CommonUser\Public\CommonUserTypes.h">
+      <Filter>Plugins\CommonUser\Source\CommonUser\Public</Filter>
+    </ClInclude>
     <Filter Include="Plugins\GameFeatures\AstralPlagueCore\Source">
       <UniqueIdentifier>{0836E95C-A0E5-3192-86FC-E6494FC9A01F}</UniqueIdentifier>
     </Filter>

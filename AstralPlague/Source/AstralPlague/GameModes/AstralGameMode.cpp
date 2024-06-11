@@ -144,7 +144,19 @@ void AAstralGameMode::HandleMatchAssignmentIfNotExpectingOne()
 		ExperienceId = FPrimaryAssetId();
 	}
 
-	
+	// Final fallback to the default experience
+	if (!ExperienceId.IsValid())
+	{
+		/*if (TryDedicatedServerLogin())
+		{
+			// This will start to host as a dedicated server
+			return;
+		}*/
+
+		//@TODO: Pull this from a config setting or something
+		ExperienceId = FPrimaryAssetId(FPrimaryAssetType("LyraExperienceDefinition"), FName("B_LyraDefaultExperience"));
+		ExperienceIdSource = TEXT("Default");
+	}
 
 	OnMatchAssignmentGiven(ExperienceId, ExperienceIdSource);
 }

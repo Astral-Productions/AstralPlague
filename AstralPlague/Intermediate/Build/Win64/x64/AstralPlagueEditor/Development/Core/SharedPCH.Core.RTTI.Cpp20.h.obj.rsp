@@ -1,4 +1,4 @@
-"D:\UnrealDev\AstralPlague\AstralPlague\Intermediate\Build\Win64\x64\AstralPlagueEditor\Development\Core\SharedPCH.Core.RTTI.Cpp20.cpp"
+"D:\UnrealDev\AstralPlague - Dev\AstralPlague\Intermediate\Build\Win64\x64\AstralPlagueEditor\Development\Core\SharedPCH.Core.RTTI.Cpp20.cpp"
 /I "."
 /I "Runtime\Core\Public"
 /I "Runtime\Core\Internal"
@@ -9,10 +9,10 @@
 /external:I "C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\shared"
 /external:I "C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\um"
 /external:I "C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\winrt"
-/Yc"D:\UnrealDev\AstralPlague\AstralPlague\Intermediate\Build\Win64\x64\AstralPlagueEditor\Development\Core\SharedPCH.Core.RTTI.Cpp20.h"
-/Fp"D:\UnrealDev\AstralPlague\AstralPlague\Intermediate\Build\Win64\x64\AstralPlagueEditor\Development\Core\SharedPCH.Core.RTTI.Cpp20.h.pch"
-/Fo"D:\UnrealDev\AstralPlague\AstralPlague\Intermediate\Build\Win64\x64\AstralPlagueEditor\Development\Core\SharedPCH.Core.RTTI.Cpp20.h.obj"
-/sourceDependencies "D:\UnrealDev\AstralPlague\AstralPlague\Intermediate\Build\Win64\x64\AstralPlagueEditor\Development\Core\SharedPCH.Core.RTTI.Cpp20.h.dep.json"
+/Yc"D:\UnrealDev\AstralPlague - Dev\AstralPlague\Intermediate\Build\Win64\x64\AstralPlagueEditor\Development\Core\SharedPCH.Core.RTTI.Cpp20.h"
+/Fp"D:\UnrealDev\AstralPlague - Dev\AstralPlague\Intermediate\Build\Win64\x64\AstralPlagueEditor\Development\Core\SharedPCH.Core.RTTI.Cpp20.h.pch"
+/Fo"D:\UnrealDev\AstralPlague - Dev\AstralPlague\Intermediate\Build\Win64\x64\AstralPlagueEditor\Development\Core\SharedPCH.Core.RTTI.Cpp20.h.obj"
+/sourceDependencies "D:\UnrealDev\AstralPlague - Dev\AstralPlague\Intermediate\Build\Win64\x64\AstralPlagueEditor\Development\Core\SharedPCH.Core.RTTI.Cpp20.h.dep.json"
 /Zc:inline
 /nologo
 /Oi

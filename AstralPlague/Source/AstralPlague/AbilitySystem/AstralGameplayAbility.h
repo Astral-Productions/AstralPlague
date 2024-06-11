@@ -109,6 +109,7 @@ public:
 
 	void TryActivateAbilityOnSpawn(const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilitySpec& Spec) const;
 	
+	virtual void OnPawnAvatarSet();
 protected:
 
 	//~UGameplayAbility interface
@@ -125,7 +126,7 @@ protected:
 	virtual bool DoesAbilitySatisfyTagRequirements(const UAbilitySystemComponent& AbilitySystemComponent, const FGameplayTagContainer* SourceTags = nullptr, const FGameplayTagContainer* TargetTags = nullptr, OUT FGameplayTagContainer* OptionalRelevantTags = nullptr) const override;
 	//~End of UGameplayAbility interface
 
-	virtual void OnPawnAvatarSet();
+	
 
 	//virtual void GetAbilitySource(FGameplayAbilitySpecHandle Handle, const FGameplayAbilityActorInfo* ActorInfo, float& OutSourceLevel, const IAstralAbilitySourceInterface*& OutAbilitySource, AActor*& OutEffectCauser) const;
 

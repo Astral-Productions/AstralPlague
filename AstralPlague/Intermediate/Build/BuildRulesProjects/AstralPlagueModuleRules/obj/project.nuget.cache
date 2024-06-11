@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "w+0PNgrQx+pmzNDBFCYFDuJCYRbv4cdVYzgZuf2ahZQfA5EpDVElbKs7cfjYSpmnBJMfrIINid4g3mcm9Qy3JA==",
+  "dgSpecHash": "KQeTKDGj8d7oa7D6ggR9+UeZ24PAh07eyAnIJhhDku5p2QcJWjVV30783ZZeUuA91VohSBC7utL4r/8bEqSW8g==",
   "success": true,
-  "projectFilePath": "D:\\UnrealDev\\AstralPlague\\AstralPlague\\Intermediate\\Build\\BuildRulesProjects\\AstralPlagueModuleRules\\AstralPlagueModuleRules.csproj",
+  "projectFilePath": "D:\\UnrealDev\\AstralPlague - Dev\\AstralPlague\\Intermediate\\Build\\BuildRulesProjects\\AstralPlagueModuleRules\\AstralPlagueModuleRules.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\NovaB\\.nuget\\packages\\bitfaster.caching\\2.4.1\\bitfaster.caching.2.4.1.nupkg.sha512",
     "C:\\Users\\NovaB\\.nuget\\packages\\blake3\\0.5.1\\blake3.0.5.1.nupkg.sha512",

@@ -61,17 +61,15 @@ void UAstralAbilitySystemComponent::InitAbilityActorInfo(AActor* InOwnerActor, A
 				{
 					
 					if (UAstralGameplayAbility* AstralAbilityInstance = Cast<UAstralGameplayAbility>(AbilityInstance))
-					{
-						//@Todo Update this logic 
+					{						
 						// Ability instances may be missing for replays
-						//AstralAbilityInstance->OnPawnAvatarSet();
+						AstralAbilityInstance->OnPawnAvatarSet();
 					}
 				}
 			}
 			else
-			{
-				//@Todo Update this logic 
-				//AstralAbilityCDO->OnPawnAvatarSet();
+			{				
+				AstralAbilityCDO->OnPawnAvatarSet();
 			}
 		}
 

@@ -318,5 +318,3 @@ void AAstralPlayerController::OnUnPossess()
 
 	Super::OnUnPossess();
 }
-
-

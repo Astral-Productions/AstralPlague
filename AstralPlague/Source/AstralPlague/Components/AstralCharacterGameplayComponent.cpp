@@ -73,7 +73,7 @@ void UAstralCharacterGameplayComponent::OnRegister()
 	}
 }
 
-bool UAstralCharacterGameplayComponent::CanChangeInitState(UGameFrameworkComponentManager* Manager, FGameplayTag CurrentState, FGameplayTag DesiredState) const
+	bool UAstralCharacterGameplayComponent::CanChangeInitState(UGameFrameworkComponentManager* Manager, FGameplayTag CurrentState, FGameplayTag DesiredState) const
 {
 	check(Manager);
 
@@ -146,7 +146,7 @@ void UAstralCharacterGameplayComponent::HandleChangeInitState(UGameFrameworkComp
 {
 	if (CurrentState == AstralGameplayTags::InitState_DataAvailable && DesiredState == AstralGameplayTags::InitState_DataInitialized)
 	{
-		APawn* Pawn = GetPawn<APawn>();
+		APawn* Pawn = GetPawn<APawn>();		
 		AAstralPlayerState* AstralPS = GetPlayerState<AAstralPlayerState>();
 		if (!ensure(Pawn && AstralPS))
 		{
@@ -221,8 +221,6 @@ void UAstralCharacterGameplayComponent::EndPlay(const EEndPlayReason::Type EndPl
 
 	Super::EndPlay(EndPlayReason);
 }
-
-//@Todo Update this logic 
 
 void UAstralCharacterGameplayComponent::InitializePlayerInput(UInputComponent* PlayerInputComponent)
 {
@@ -304,7 +302,7 @@ void UAstralCharacterGameplayComponent::InitializePlayerInput(UInputComponent* P
 	UGameFrameworkComponentManager::SendGameFrameworkComponentExtensionEvent(const_cast<APawn*>(Pawn), NAME_BindInputsNow);
 }
 
-//@Todo Update this logic 
+
 
 void UAstralCharacterGameplayComponent::AddAdditionalInputConfig(const UAstralInputConfig* InputConfig)
 {
@@ -335,7 +333,7 @@ void UAstralCharacterGameplayComponent::AddAdditionalInputConfig(const UAstralIn
 	}
 }
 
-//@Todo Update this logic 
+
 void UAstralCharacterGameplayComponent::RemoveAdditionalInputConfig(const UAstralInputConfig* InputConfig)
 {
 	//@TODO: Implement me!

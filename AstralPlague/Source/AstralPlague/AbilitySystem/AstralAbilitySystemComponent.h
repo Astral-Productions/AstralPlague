@@ -38,8 +38,7 @@ public:
 
 	void ProcessAbilityInput(float DeltaTime, bool bGamePaused);
 	void ClearAbilityInput();
-
-
+	
 	bool IsActivationGroupBlocked(EAstralAbilityActivationGroup Group) const;
 	void AddAbilityToActivationGroup(EAstralAbilityActivationGroup Group, UAstralGameplayAbility* AstralAbility);
 	void RemoveAbilityFromActivationGroup(EAstralAbilityActivationGroup Group, UAstralGameplayAbility* AstralAbility);

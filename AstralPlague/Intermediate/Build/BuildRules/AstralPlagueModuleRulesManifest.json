@@ -1,13 +1,13 @@
 {
 	"SourceFiles": [
-		"D:\\UnrealDev\\AstralPlague\\AstralPlague\\Source\\AstralPlague\\AstralPlague.Build.cs",
-		"D:\\UnrealDev\\AstralPlague\\AstralPlague\\Plugins\\CommonGame\\Source\\CommonGame.Build.cs",
-		"D:\\UnrealDev\\AstralPlague\\AstralPlague\\Plugins\\CommonUser\\Source\\CommonUser\\CommonUser.Build.cs",
-		"D:\\UnrealDev\\AstralPlague\\AstralPlague\\Plugins\\GameFeatures\\AstralPlagueCore\\Source\\AstralPlagueCoreRuntime\\AstralPlagueCoreRuntime.Build.cs",
-		"D:\\UnrealDev\\AstralPlague\\AstralPlague\\Plugins\\GameFeatures\\NPCBehaviorSystem\\Source\\NPCBehaviorSystemRuntime\\NPCBehaviorSystemRuntime.Build.cs",
-		"D:\\UnrealDev\\AstralPlague\\AstralPlague\\Plugins\\ModularGameplayActors\\Source\\ModularGameplayActors\\ModularGameplayActors.Build.cs",
-		"D:\\UnrealDev\\AstralPlague\\AstralPlague\\Source\\AstralPlague.Target.cs",
-		"D:\\UnrealDev\\AstralPlague\\AstralPlague\\Source\\AstralPlagueEditor.Target.cs"
+		"D:\\UnrealDev\\AstralPlague - Dev\\AstralPlague\\Source\\AstralPlague\\AstralPlague.Build.cs",
+		"D:\\UnrealDev\\AstralPlague - Dev\\AstralPlague\\Plugins\\CommonGame\\Source\\CommonGame.Build.cs",
+		"D:\\UnrealDev\\AstralPlague - Dev\\AstralPlague\\Plugins\\CommonUser\\Source\\CommonUser\\CommonUser.Build.cs",
+		"D:\\UnrealDev\\AstralPlague - Dev\\AstralPlague\\Plugins\\GameFeatures\\AstralPlagueCore\\Source\\AstralPlagueCoreRuntime\\AstralPlagueCoreRuntime.Build.cs",
+		"D:\\UnrealDev\\AstralPlague - Dev\\AstralPlague\\Plugins\\GameFeatures\\NPCBehaviorSystem\\Source\\NPCBehaviorSystemRuntime\\NPCBehaviorSystemRuntime.Build.cs",
+		"D:\\UnrealDev\\AstralPlague - Dev\\AstralPlague\\Plugins\\ModularGameplayActors\\Source\\ModularGameplayActors\\ModularGameplayActors.Build.cs",
+		"D:\\UnrealDev\\AstralPlague - Dev\\AstralPlague\\Source\\AstralPlague.Target.cs",
+		"D:\\UnrealDev\\AstralPlague - Dev\\AstralPlague\\Source\\AstralPlagueEditor.Target.cs"
 	],
 	"EngineVersion": "5.4.1"
 }

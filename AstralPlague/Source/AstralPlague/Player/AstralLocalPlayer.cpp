@@ -43,6 +43,11 @@ UAstralSettingsLocal* UAstralLocalPlayer::GetLocalSettings() const
 	return UAstralSettingsLocal::Get();
 }
 
+void UAstralLocalPlayer::LoadSharedSettingsFromDisk(bool bForceLoad)
+{
+	
+}
+
 void UAstralLocalPlayer::OnAudioOutputDeviceChanged(const FString& InAudioOutputDeviceId)
 {
 	FOnCompletedDeviceSwap DevicesSwappedCallback;
@@ -54,5 +59,6 @@ void UAstralLocalPlayer::OnCompletedAudioDeviceSwap(const FSwapAudioOutputResult
 {
 	if (SwapResult.Result == ESwapAudioOutputDeviceResultState::Failure)
 	{
+		
 	}
 }

@@ -363,4 +363,5 @@ bool UAstralGameplayAbility::DoesAbilitySatisfyTagRequirements(const UAbilitySys
 
 void UAstralGameplayAbility::OnPawnAvatarSet()
 {
+	
 }
