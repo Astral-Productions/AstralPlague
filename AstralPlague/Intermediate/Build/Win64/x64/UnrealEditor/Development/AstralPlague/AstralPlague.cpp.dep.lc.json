@@ -1,14 +1,3 @@
-{
-    "Version": "1.2",
-    "Data": {
-        "Source": "d:\\unrealdev\\astralplague\\astralplague\\source\\astralplague\\astralplague.cpp",
-        "ProvidedModule": "",
-        "PCH": "d:\\unrealdev\\astralplague\\astralplague\\intermediate\\build\\win64\\x64\\astralplagueeditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
-        "Includes": [
-            "d:\\unrealdev\\astralplague\\astralplague\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\astralplague\\definitions.astralplague.h",
-            "d:\\unrealdev\\astralplague\\astralplague\\source\\astralplague\\astralplague.h"
-        ],
-        "ImportedModules": [],
-        "ImportedHeaderUnits": []
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:809872fd818048a5172425a9e4016b3d7d8ebceef0db4178e169f1f370b8adb7
+size 725

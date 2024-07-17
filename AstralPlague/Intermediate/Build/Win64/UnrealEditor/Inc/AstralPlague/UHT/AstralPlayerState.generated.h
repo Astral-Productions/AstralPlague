@@ -16,12 +16,26 @@ class UAstralAbilitySystemComponent;
 #endif
 #define ASTRALPLAGUE_AstralPlayerState_generated_h
 
-#define FID_AstralPlague_Source_AstralPlague_Player_AstralPlayerState_h_21_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_AstralPlague_Source_AstralPlague_Player_AstralPlayerState_h_22_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execGetGems); \
+	DECLARE_FUNCTION(execGetCharacterXP); \
+	DECLARE_FUNCTION(execGetCharacterLevel); \
+	DECLARE_FUNCTION(execGetMoveSpeed); \
+	DECLARE_FUNCTION(execGetStaminaRegenRate); \
+	DECLARE_FUNCTION(execGetMaxStamina); \
+	DECLARE_FUNCTION(execGetStamina); \
+	DECLARE_FUNCTION(execGetMaxSoulEnergy); \
+	DECLARE_FUNCTION(execGetSoulEnergy); \
+	DECLARE_FUNCTION(execGetHealthRegenRate); \
+	DECLARE_FUNCTION(execGetMaxHealth); \
+	DECLARE_FUNCTION(execGetHealth); \
+	DECLARE_FUNCTION(execShowAbilityConfirmCancelText); \
+	DECLARE_FUNCTION(execIsAlive); \
 	DECLARE_FUNCTION(execGetAstralAbilitySystemComponent); \
 	DECLARE_FUNCTION(execGetAstralPlayerController);
 
 
-#define FID_AstralPlague_Source_AstralPlague_Player_AstralPlayerState_h_21_INCLASS_NO_PURE_DECLS \
+#define FID_AstralPlague_Source_AstralPlague_Player_AstralPlayerState_h_22_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAAstralPlayerState(); \
 	friend struct Z_Construct_UClass_AAstralPlayerState_Statics; \
@@ -33,7 +47,7 @@ public: \
 	virtual UObject* _getUObject() const override { return const_cast<AAstralPlayerState*>(this); }
 
 
-#define FID_AstralPlague_Source_AstralPlague_Player_AstralPlayerState_h_21_ENHANCED_CONSTRUCTORS \
+#define FID_AstralPlague_Source_AstralPlague_Player_AstralPlayerState_h_22_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	AAstralPlayerState(AAstralPlayerState&&); \
@@ -45,13 +59,13 @@ public: \
 	NO_API virtual ~AAstralPlayerState();
 
 
-#define FID_AstralPlague_Source_AstralPlague_Player_AstralPlayerState_h_18_PROLOG
-#define FID_AstralPlague_Source_AstralPlague_Player_AstralPlayerState_h_21_GENERATED_BODY \
+#define FID_AstralPlague_Source_AstralPlague_Player_AstralPlayerState_h_19_PROLOG
+#define FID_AstralPlague_Source_AstralPlague_Player_AstralPlayerState_h_22_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_AstralPlague_Source_AstralPlague_Player_AstralPlayerState_h_21_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_AstralPlague_Source_AstralPlague_Player_AstralPlayerState_h_21_INCLASS_NO_PURE_DECLS \
-	FID_AstralPlague_Source_AstralPlague_Player_AstralPlayerState_h_21_ENHANCED_CONSTRUCTORS \
+	FID_AstralPlague_Source_AstralPlague_Player_AstralPlayerState_h_22_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_AstralPlague_Source_AstralPlague_Player_AstralPlayerState_h_22_INCLASS_NO_PURE_DECLS \
+	FID_AstralPlague_Source_AstralPlague_Player_AstralPlayerState_h_22_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

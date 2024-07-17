@@ -1,16 +1,3 @@
-{
-	"RemapUnityFiles": 
-	{
-		"Module.CommonUser.cpp.obj": [
-			"CommonUser.init.gen.cpp.obj",
-			"CommonUserBasicPresence.gen.cpp.obj",
-			"CommonUserTypes.gen.cpp.obj",
-			"AsyncAction_CommonUserInitialize.cpp.obj",
-			"CommonSessionSubsystem.cpp.obj",
-			"CommonUserBasicPresence.cpp.obj",
-			"CommonUserModule.cpp.obj",
-			"CommonUserSubsystem.cpp.obj",
-			"CommonUserTypes.cpp.obj"
-		]
-	}
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:aa008938efc8516e121bc6aaa5c60d2f1d45a92e622aef7c05eb10992d7465b6
+size 408

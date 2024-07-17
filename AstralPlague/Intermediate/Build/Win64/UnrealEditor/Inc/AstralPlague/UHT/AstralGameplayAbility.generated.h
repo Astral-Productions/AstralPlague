@@ -13,29 +13,27 @@ class AAstralPlagueCharacter;
 class AAstralPlayerController;
 class AController;
 class UAstralAbilitySystemComponent;
-class UAstralCharacterGameplayComponent;
 #ifdef ASTRALPLAGUE_AstralGameplayAbility_generated_h
 #error "AstralGameplayAbility.generated.h already included, missing '#pragma once' in AstralGameplayAbility.h"
 #endif
 #define ASTRALPLAGUE_AstralGameplayAbility_generated_h
 
-#define FID_AstralPlague_Source_AstralPlague_AbilitySystem_AstralGameplayAbility_h_66_GENERATED_BODY \
+#define FID_AstralPlague_Source_AstralPlague_AbilitySystem_AstralGameplayAbility_h_67_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FAstralAbilityMontageFailureMessage_Statics; \
 	ASTRALPLAGUE_API static class UScriptStruct* StaticStruct();
 
 
 template<> ASTRALPLAGUE_API UScriptStruct* StaticStruct<struct FAstralAbilityMontageFailureMessage>();
 
-#define FID_AstralPlague_Source_AstralPlague_AbilitySystem_AstralGameplayAbility_h_87_RPC_WRAPPERS_NO_PURE_DECLS \
-	DECLARE_FUNCTION(execGetAstralCharacterGameplayComponent); \
+#define FID_AstralPlague_Source_AstralPlague_AbilitySystem_AstralGameplayAbility_h_88_RPC_WRAPPERS_NO_PURE_DECLS \
 	DECLARE_FUNCTION(execGetAstralCharacterFromActorInfo); \
 	DECLARE_FUNCTION(execGetControllerFromActorInfo); \
 	DECLARE_FUNCTION(execGetAstralPlayerControllerFromActorInfo); \
 	DECLARE_FUNCTION(execGetAstralAbilitySystemComponentFromActorInfo);
 
 
-#define FID_AstralPlague_Source_AstralPlague_AbilitySystem_AstralGameplayAbility_h_87_CALLBACK_WRAPPERS
-#define FID_AstralPlague_Source_AstralPlague_AbilitySystem_AstralGameplayAbility_h_87_INCLASS_NO_PURE_DECLS \
+#define FID_AstralPlague_Source_AstralPlague_AbilitySystem_AstralGameplayAbility_h_88_CALLBACK_WRAPPERS
+#define FID_AstralPlague_Source_AstralPlague_AbilitySystem_AstralGameplayAbility_h_88_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUAstralGameplayAbility(); \
 	friend struct Z_Construct_UClass_UAstralGameplayAbility_Statics; \
@@ -44,7 +42,7 @@ public: \
 	DECLARE_SERIALIZER(UAstralGameplayAbility)
 
 
-#define FID_AstralPlague_Source_AstralPlague_AbilitySystem_AstralGameplayAbility_h_87_ENHANCED_CONSTRUCTORS \
+#define FID_AstralPlague_Source_AstralPlague_AbilitySystem_AstralGameplayAbility_h_88_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	UAstralGameplayAbility(UAstralGameplayAbility&&); \
@@ -56,14 +54,14 @@ public: \
 	NO_API virtual ~UAstralGameplayAbility();
 
 
-#define FID_AstralPlague_Source_AstralPlague_AbilitySystem_AstralGameplayAbility_h_84_PROLOG
-#define FID_AstralPlague_Source_AstralPlague_AbilitySystem_AstralGameplayAbility_h_87_GENERATED_BODY \
+#define FID_AstralPlague_Source_AstralPlague_AbilitySystem_AstralGameplayAbility_h_85_PROLOG
+#define FID_AstralPlague_Source_AstralPlague_AbilitySystem_AstralGameplayAbility_h_88_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_AstralPlague_Source_AstralPlague_AbilitySystem_AstralGameplayAbility_h_87_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_AstralPlague_Source_AstralPlague_AbilitySystem_AstralGameplayAbility_h_87_CALLBACK_WRAPPERS \
-	FID_AstralPlague_Source_AstralPlague_AbilitySystem_AstralGameplayAbility_h_87_INCLASS_NO_PURE_DECLS \
-	FID_AstralPlague_Source_AstralPlague_AbilitySystem_AstralGameplayAbility_h_87_ENHANCED_CONSTRUCTORS \
+	FID_AstralPlague_Source_AstralPlague_AbilitySystem_AstralGameplayAbility_h_88_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_AstralPlague_Source_AstralPlague_AbilitySystem_AstralGameplayAbility_h_88_CALLBACK_WRAPPERS \
+	FID_AstralPlague_Source_AstralPlague_AbilitySystem_AstralGameplayAbility_h_88_INCLASS_NO_PURE_DECLS \
+	FID_AstralPlague_Source_AstralPlague_AbilitySystem_AstralGameplayAbility_h_88_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

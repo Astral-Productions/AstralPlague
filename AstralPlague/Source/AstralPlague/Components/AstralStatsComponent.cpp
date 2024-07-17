@@ -9,7 +9,7 @@
 // Sets default values for this component's properties
 UAstralStatsComponent::UAstralStatsComponent(const FObjectInitializer& ObjectInitializer)
 {
-	/PrimaryComponentTick.bStartWithTickEnabled = false;
+	PrimaryComponentTick.bStartWithTickEnabled = false;
 	PrimaryComponentTick.bCanEverTick = false;
 
 	SetIsReplicatedByDefault(true);
@@ -57,7 +57,7 @@ void UAstralStatsComponent::InitializeWithAbilitySystem(UAstralAbilitySystemComp
 
 	OnHealthChanged.Broadcast(this, StatSet->GetHealth(), StatSet->GetHealth(), nullptr);
 	OnMaxHealthChanged.Broadcast(this, StatSet->GetHealth(), StatSet->GetHealth(), nullptr);
-
+}
 
 void UAstralStatsComponent::UninitializeFromAbilitySystem()
 {

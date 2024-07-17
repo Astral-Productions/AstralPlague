@@ -1,16 +1,3 @@
-{
-    "Version": "1.2",
-    "Data": {
-        "Source": "d:\\unrealdev\\astralplague\\astralplague\\source\\astralplague\\abilitysystem\\astralabilitysourceinterface.cpp",
-        "ProvidedModule": "",
-        "PCH": "d:\\unrealdev\\astralplague\\astralplague\\intermediate\\build\\win64\\x64\\astralplagueeditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
-        "Includes": [
-            "d:\\unrealdev\\astralplague\\astralplague\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\astralplague\\definitions.astralplague.h",
-            "d:\\unrealdev\\astralplague\\astralplague\\source\\astralplague\\abilitysystem\\astralabilitysourceinterface.h",
-            "d:\\unrealdev\\astralplague\\astralplague\\intermediate\\build\\win64\\unrealeditor\\inc\\astralplague\\uht\\astralabilitysourceinterface.generated.h",
-            "d:\\unrealdev\\astralplague\\astralplague\\intermediate\\build\\win64\\unrealeditor\\inc\\astralplague\\uht\\astralabilitysourceinterface.gen.cpp"
-        ],
-        "ImportedModules": [],
-        "ImportedHeaderUnits": []
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:b333e59c0c31f9b6a4e3969daeb881742e3dd62a07b75c0a9830bb971123c534
+size 1115

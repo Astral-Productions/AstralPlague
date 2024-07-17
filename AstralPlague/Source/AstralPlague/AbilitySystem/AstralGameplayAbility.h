@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "AstralAbilityCost.h"
 #include "Abilities/GameplayAbility.h"
+#include "AstralPlague/AstralPlague.h"
 #include "AstralPlague/Camera/AstralCameraMode.h"
 #include "AstralPlague/Components/AstralCharacterGameplayComponent.h"
 #include "AstralGameplayAbility.generated.h"
@@ -89,6 +90,10 @@ class ASTRALPLAGUE_API UAstralGameplayAbility : public UGameplayAbility
 public:
 	UAstralGameplayAbility(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
 
+	// Abilities with this set will automatically activate when the input is pressed
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Ability")
+	EAstralAbilityInputID AbilityInputID = EAstralAbilityInputID::None;
+	
 	UFUNCTION(BlueprintCallable, Category = "Astral|Ability")
 	UAstralAbilitySystemComponent* GetAstralAbilitySystemComponentFromActorInfo() const;
 
@@ -100,9 +105,6 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Astral|Ability")
 	AAstralPlagueCharacter* GetAstralCharacterFromActorInfo() const;
-
-	UFUNCTION(BlueprintCallable, Category = "Lyra|Ability")
-	UAstralCharacterGameplayComponent* GetAstralCharacterGameplayComponent() const;
 
 	EAstralAbilityActivationPolicy GetActivationPolicy() const { return ActivationPolicy; }
 	EAstralAbilityActivationGroup GetActivationGroup() const { return ActivationGroup; }

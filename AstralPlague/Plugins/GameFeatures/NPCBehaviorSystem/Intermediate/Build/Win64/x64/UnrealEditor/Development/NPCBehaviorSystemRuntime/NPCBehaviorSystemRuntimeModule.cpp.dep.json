@@ -1,14 +1,3 @@
-{
-    "Version": "1.2",
-    "Data": {
-        "Source": "d:\\unrealdev\\astralplague\\astralplague\\plugins\\gamefeatures\\npcbehaviorsystem\\source\\npcbehaviorsystemruntime\\private\\npcbehaviorsystemruntimemodule.cpp",
-        "ProvidedModule": "",
-        "PCH": "d:\\unrealdev\\astralplague\\astralplague\\intermediate\\build\\win64\\x64\\astralplagueeditor\\development\\unrealed\\sharedpch.unrealed.cpp20.h.pch",
-        "Includes": [
-            "d:\\unrealdev\\astralplague\\astralplague\\plugins\\gamefeatures\\npcbehaviorsystem\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\npcbehaviorsystemruntime\\definitions.npcbehaviorsystemruntime.h",
-            "d:\\unrealdev\\astralplague\\astralplague\\plugins\\gamefeatures\\npcbehaviorsystem\\source\\npcbehaviorsystemruntime\\public\\npcbehaviorsystemruntimemodule.h"
-        ],
-        "ImportedModules": [],
-        "ImportedHeaderUnits": []
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:5c52d4218e62ba036a90d51346ef23a7d1590e2d56c93d3ac8def29b75daa0ee
+size 937

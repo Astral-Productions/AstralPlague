@@ -1,13 +1,3 @@
-{
-    "Version": "1.2",
-    "Data": {
-        "Source": "d:\\unrealdev\\astralplague\\astralplague\\plugins\\modulargameplayactors\\source\\modulargameplayactors\\private\\modulargameplayactorsmodule.cpp",
-        "ProvidedModule": "",
-        "PCH": "d:\\unrealdev\\astralplague\\astralplague\\intermediate\\build\\win64\\x64\\astralplagueeditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
-        "Includes": [
-            "d:\\unrealdev\\astralplague\\astralplague\\plugins\\modulargameplayactors\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\modulargameplayactors\\definitions.modulargameplayactors.h"
-        ],
-        "ImportedModules": [],
-        "ImportedHeaderUnits": []
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:9ecf0622f42d95dcaa7e417a357ca4287e1120434582ffce9bd98d2951590e68
+size 744

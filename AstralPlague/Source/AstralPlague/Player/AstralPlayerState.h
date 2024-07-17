@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "AbilitySystemInterface.h"
 #include "AstralPlayerController.h"
+#include "GameplayTagContainer.h"
 #include "ModularPlayerState.h"
 #include "AstralPlague/GameModes/AstralExperienceDefinition.h"
 #include "AstralPlayerState.generated.h"
@@ -22,17 +23,12 @@ class ASTRALPLAGUE_API AAstralPlayerState : public AModularPlayerState, public I
 
 public:
 
+	AAstralPlayerState();
+	
 	AAstralPlayerState(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
 	
-	template <class T>
-	const T* GetPawnData() const { return Cast<T>(PawnData); }
+	class UDefaultAttributeSet* GetAttributeSetBase() const;
 	
-	void SetPawnData(const UAstralPawnData* InPawnData);
-	
-	//~AActor interface
-	virtual void PreInitializeComponents() override;
-	virtual void PostInitializeComponents() override;	
-	//~End of AActor interface
 	UFUNCTION(BlueprintCallable, Category = "Astral|PlayerState")
 	AAstralPlayerController* GetAstralPlayerController() const;
 	
@@ -44,15 +40,53 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Astral|PlayerState")
 	UAstralAbilitySystemComponent* GetAstralAbilitySystemComponent() const { return AbilitySystemComponent; }
 
-	static const FName NAME_AstralAbilityReady;
+UFUNCTION(BlueprintCallable, Category = "GASDocumentation|GDPlayerState")
+	bool IsAlive() const;
+
+	UFUNCTION(BlueprintCallable, Category = "GASDocumenation|GDPlayerState|UI")
+	void ShowAbilityConfirmCancelText(bool ShowText);
+
+
+	/**
+	* Getters for attributes from GDAttributeSetBase. Returns Current Value unless otherwise specified.
+	*/
+
+	UFUNCTION(BlueprintCallable, Category = "GASDocumentation|GDPlayerState|Attributes")
+	float GetHealth() const;
+
+	UFUNCTION(BlueprintCallable, Category = "GASDocumentation|GDPlayerState|Attributes")
+	float GetMaxHealth() const;
+
+	UFUNCTION(BlueprintCallable, Category = "GASDocumentation|GDPlayerState|Attributes")
+	float GetHealthRegenRate() const;
+
+	UFUNCTION(BlueprintCallable, Category = "GASDocumentation|GDPlayerState|Attributes")
+	float GetSoulEnergy() const;
+
+	UFUNCTION(BlueprintCallable, Category = "GASDocumentation|GDPlayerState|Attributes")
+	float GetMaxSoulEnergy() const;
+
+	UFUNCTION(BlueprintCallable, Category = "GASDocumentation|GDPlayerState|Attributes")
+	float GetStamina() const;
+
+	UFUNCTION(BlueprintCallable, Category = "GASDocumentation|GDPlayerState|Attributes")
+	float GetMaxStamina() const;
+
+	UFUNCTION(BlueprintCallable, Category = "GASDocumentation|GDPlayerState|Attributes")
+	float GetStaminaRegenRate() const;
+
+	UFUNCTION(BlueprintCallable, Category = "GASDocumentation|GDPlayerState|Attributes")
+	float GetMoveSpeed() const;
+
+	UFUNCTION(BlueprintCallable, Category = "GASDocumentation|GDPlayerState|Attributes")
+	int32 GetCharacterLevel() const;
+
+	UFUNCTION(BlueprintCallable, Category = "GASDocumentation|GDPlayerState|Attributes")
+	int32 GetCharacterXP() const;
+
 	
-private:
-	void OnExperienceLoaded(const UAstralExperienceDefinition* CurrentExperience);
-	
-protected:
-	
-	UPROPERTY()
-	TObjectPtr<const UAstralPawnData> PawnData;
+	UFUNCTION(BlueprintCallable, Category = "GASDocumentation|GDPlayerState|Attributes")
+	int32 GetGems() const;
 
 private:
 	// The ability system component subobject for game-wide things (primarily gameplay cues)
@@ -60,7 +94,42 @@ private:
 	TObjectPtr<UAstralAbilitySystemComponent> AbilitySystemComponent;
 
 	UPROPERTY()
-	TObjectPtr<const class UDefaultAttributeSet> StatsSet;
+	TObjectPtr<const class UDefaultAttributeSet> AttributeSetBase;
+
+	FGameplayTag DeadTag;
+
+	FDelegateHandle HealthChangedDelegateHandle;
+	FDelegateHandle MaxHealthChangedDelegateHandle;
+	FDelegateHandle HealthRegenRateChangedDelegateHandle;
+	FDelegateHandle ManaChangedDelegateHandle;
+	FDelegateHandle MaxManaChangedDelegateHandle;
+	FDelegateHandle ManaRegenRateChangedDelegateHandle;
+	FDelegateHandle StaminaChangedDelegateHandle;
+	FDelegateHandle MaxStaminaChangedDelegateHandle;
+	FDelegateHandle StaminaRegenRateChangedDelegateHandle;
+	FDelegateHandle XPChangedDelegateHandle;
+	FDelegateHandle GoldChangedDelegateHandle;
+	FDelegateHandle CharacterLevelChangedDelegateHandle;
+
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
+
+	// Attribute changed callbacks
+	virtual void HealthChanged(const FOnAttributeChangeData& Data);
+	virtual void MaxHealthChanged(const FOnAttributeChangeData& Data);
+	virtual void HealthRegenRateChanged(const FOnAttributeChangeData& Data);
+	virtual void ManaChanged(const FOnAttributeChangeData& Data);
+	virtual void MaxManaChanged(const FOnAttributeChangeData& Data);
+	virtual void ManaRegenRateChanged(const FOnAttributeChangeData& Data);
+	virtual void StaminaChanged(const FOnAttributeChangeData& Data);
+	virtual void MaxStaminaChanged(const FOnAttributeChangeData& Data);
+	virtual void StaminaRegenRateChanged(const FOnAttributeChangeData& Data);
+	virtual void XPChanged(const FOnAttributeChangeData& Data);
+	virtual void GoldChanged(const FOnAttributeChangeData& Data);
+	virtual void CharacterLevelChanged(const FOnAttributeChangeData& Data);
+
+	// Tag change callbacks
+	virtual void StunTagChanged(const FGameplayTag CallbackTag, int32 NewCount);
 };
 
 

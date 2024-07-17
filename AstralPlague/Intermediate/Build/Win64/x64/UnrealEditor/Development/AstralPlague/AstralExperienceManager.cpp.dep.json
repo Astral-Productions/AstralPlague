@@ -1,16 +1,3 @@
-{
-    "Version": "1.2",
-    "Data": {
-        "Source": "d:\\unrealdev\\astralplague\\astralplague\\source\\astralplague\\gamemodes\\astralexperiencemanager.cpp",
-        "ProvidedModule": "",
-        "PCH": "d:\\unrealdev\\astralplague\\astralplague\\intermediate\\build\\win64\\x64\\astralplagueeditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
-        "Includes": [
-            "d:\\unrealdev\\astralplague\\astralplague\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\astralplague\\definitions.astralplague.h",
-            "d:\\unrealdev\\astralplague\\astralplague\\source\\astralplague\\gamemodes\\astralexperiencemanager.h",
-            "d:\\unrealdev\\astralplague\\astralplague\\intermediate\\build\\win64\\unrealeditor\\inc\\astralplague\\uht\\astralexperiencemanager.generated.h",
-            "d:\\unrealdev\\astralplague\\astralplague\\intermediate\\build\\win64\\unrealeditor\\inc\\astralplague\\uht\\astralexperiencemanager.gen.cpp"
-        ],
-        "ImportedModules": [],
-        "ImportedHeaderUnits": []
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:1ae8cfa4118f05c7b31af1765696fc548ae6fc86bdd66f20370874abbc341912
+size 1087

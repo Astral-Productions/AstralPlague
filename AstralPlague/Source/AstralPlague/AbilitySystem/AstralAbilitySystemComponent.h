@@ -21,7 +21,9 @@ class ASTRALPLAGUE_API UAstralAbilitySystemComponent : public UAbilitySystemComp
 public:
 	UAstralAbilitySystemComponent(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
 	
-
+	bool bCharacterAbilitiesGiven = false;
+	bool bStartupEffectsApplied = false;
+	
 	//~UActorComponent interface
 	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
 	//~End of UActorComponent interface

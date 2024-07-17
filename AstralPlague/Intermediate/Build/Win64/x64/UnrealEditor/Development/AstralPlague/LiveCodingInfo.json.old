@@ -64,6 +64,7 @@
 			"AstralPawnExtensionComponent.cpp.obj",
 			"AstralPlagueCharacter.cpp.obj",
 			"AstralCharacterGameplayComponent.cpp.obj",
+			"AstralGameFeaturePolicy.cpp.obj",
 			"AstralGameMode.cpp.obj",
 			"AstralLocalPlayer.cpp.obj",
 			"AstralPlayerController.cpp.obj",

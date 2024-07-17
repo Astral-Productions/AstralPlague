@@ -1,14 +1,3 @@
-{
-	"Targets": [
-		{
-			"Name": "AstralPlague",
-			"Path": "..\\Source\\AstralPlague.Target.cs",
-			"Type": "Game"
-		},
-		{
-			"Name": "AstralPlagueEditor",
-			"Path": "..\\Source\\AstralPlagueEditor.Target.cs",
-			"Type": "Editor"
-		}
-	]
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:dbad5d8c5e268d9139860d08a4d782edebc290a345b5dc1e553748e07c318a1c
+size 252

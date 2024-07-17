@@ -982,24 +982,12 @@
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <ClInclude Include="..\..\Source\AstralPlague\Character\AstralPawnData.h" />
-    <ClCompile Include="..\..\Source\AstralPlague\Character\AstralPawnExtensionComponent.cpp">
-      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_4)</AdditionalIncludeDirectories>
-      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_4)</ForcedIncludeFiles>
-      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\AstralPlague\Character\AstralPawnExtensionComponent.h" />
     <ClCompile Include="..\..\Source\AstralPlague\Character\AstralPlagueCharacter.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_4)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_4)</ForcedIncludeFiles>
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <ClInclude Include="..\..\Source\AstralPlague\Character\AstralPlagueCharacter.h" />
-    <ClCompile Include="..\..\Source\AstralPlague\Components\AstralCharacterGameplayComponent.cpp">
-      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_4)</AdditionalIncludeDirectories>
-      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_4)</ForcedIncludeFiles>
-      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\AstralPlague\Components\AstralCharacterGameplayComponent.h" />
     <ClCompile Include="..\..\Source\AstralPlague\GameFeatures\GameFeatureAction_AddAbilities.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_4)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_4)</ForcedIncludeFiles>

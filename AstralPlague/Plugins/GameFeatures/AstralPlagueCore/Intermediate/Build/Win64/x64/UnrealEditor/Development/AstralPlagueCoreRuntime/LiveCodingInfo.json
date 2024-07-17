@@ -1,8 +1,3 @@
-{
-	"RemapUnityFiles": 
-	{
-		"Module.AstralPlagueCoreRuntime.cpp.obj": [
-			"AstralPlagueCoreRuntimeModule.cpp.obj"
-		]
-	}
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:999a9b3379a7f84ecf074989a81603c1cda6effcd1b49383027d75e3d67e3af6
+size 130

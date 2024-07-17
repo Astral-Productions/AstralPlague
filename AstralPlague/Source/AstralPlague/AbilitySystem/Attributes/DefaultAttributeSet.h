@@ -41,7 +41,18 @@ public:
 	ATTRIBUTE_ACCESSORS(UDefaultAttributeSet, Health);
 	ATTRIBUTE_ACCESSORS(UDefaultAttributeSet, MaxHealth);
 	ATTRIBUTE_ACCESSORS(UDefaultAttributeSet, Healing);
+	ATTRIBUTE_ACCESSORS(UDefaultAttributeSet, HealthRegenRate);
+	ATTRIBUTE_ACCESSORS(UDefaultAttributeSet, SoulEnergy);
+	ATTRIBUTE_ACCESSORS(UDefaultAttributeSet, MaxSoulEnergy);
+	ATTRIBUTE_ACCESSORS(UDefaultAttributeSet, Stamina);
+	ATTRIBUTE_ACCESSORS(UDefaultAttributeSet, MaxStamina);
+	ATTRIBUTE_ACCESSORS(UDefaultAttributeSet, StaminaRegenRate);
+	ATTRIBUTE_ACCESSORS(UDefaultAttributeSet, CharacterLevel);
+	ATTRIBUTE_ACCESSORS(UDefaultAttributeSet, CharacterXP);
+	ATTRIBUTE_ACCESSORS(UDefaultAttributeSet, CharacterGems);
 	ATTRIBUTE_ACCESSORS(UDefaultAttributeSet, Damage);
+	ATTRIBUTE_ACCESSORS(UDefaultAttributeSet, MoveSpeed);
+	
 
 
 private:
@@ -52,6 +63,48 @@ private:
 	// The current max health attribute.  Max health is an attribute since gameplay effects can modify it.
 	UPROPERTY(BlueprintReadOnly, Category = "Astral|Health", Meta = (AllowPrivateAccess = true))
 	FGameplayAttributeData MaxHealth;
+
+	// The health regeneration rate. We can change this as needed if buffs are applied.
+	UPROPERTY(BlueprintReadOnly, Category = "Astral|Health", Meta = (AllowPrivateAccess = true))
+	FGameplayAttributeData HealthRegenRate;
+	
+	// Soul Energy acts as mana for ability casts or special activations. It has a sister attribute called MaxSoulEnergy that can be referenced for the max energy/mana we can contain 
+	UPROPERTY(BlueprintReadOnly, Category = "Astral|Health", Meta = (AllowPrivateAccess = true))
+	FGameplayAttributeData SoulEnergy;
+	
+	// Soul Energy acts as mana for ability casts or special activations. This is the max energy/mana the player can have. 
+	UPROPERTY(BlueprintReadOnly, Category = "Astral|Health", Meta = (AllowPrivateAccess = true))
+	FGameplayAttributeData MaxSoulEnergy;
+	
+	// Stamina is an internal value that isn't shown to the player. Repeated actions of the same kind will slowly drain the player's stamina and cause them to get exhausted.
+	UPROPERTY(BlueprintReadOnly, Category = "Astral|Health", Meta = (AllowPrivateAccess = true))
+	FGameplayAttributeData Stamina;
+
+	// Stamina is an internal value that isn't shown to the player. Repeated actions of the same kind will slowly drain the player's stamina and cause them to get exhausted.
+	UPROPERTY(BlueprintReadOnly, Category = "Astral|Health", Meta = (AllowPrivateAccess = true))
+	FGameplayAttributeData MaxStamina;
+
+	//How quickly Stamina regenerates. 
+	UPROPERTY(BlueprintReadOnly, Category = "Astral|Health", Meta = (AllowPrivateAccess = true))
+	FGameplayAttributeData StaminaRegenRate;
+
+	//The player's front facing level used for ability upgrades.
+	UPROPERTY(BlueprintReadOnly, Category = "Astral|Health", Meta = (AllowPrivateAccess = true))
+	FGameplayAttributeData CharacterLevel;
+
+	//The player's progress towards the next level (i.e. 100/250 xp)
+	UPROPERTY(BlueprintReadOnly, Category = "Astral|Health", Meta = (AllowPrivateAccess = true))
+	FGameplayAttributeData CharacterXP;
+
+	//Gems are the game's currency acting as a way to purchase items or other things from shopkeepers.
+	UPROPERTY(BlueprintReadOnly, Category = "Astral|Health", Meta = (AllowPrivateAccess = true))
+	FGameplayAttributeData CharacterGems;
+
+	//Gems are the game's currency acting as a way to purchase items or other things from shopkeepers.
+	UPROPERTY(BlueprintReadOnly, Category = "Astral|Health", Meta = (AllowPrivateAccess = true))
+	FGameplayAttributeData MoveSpeed;
+
+	
 
 	// Used to track when the health reaches 0.
 	bool bOutOfHealth;

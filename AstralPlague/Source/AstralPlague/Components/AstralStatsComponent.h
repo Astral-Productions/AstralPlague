@@ -9,7 +9,6 @@
 
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FAstralHealth_DeathEvent, AActor*, OwningActor);
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_FourParams(FAstralHealth_AttributeChanged, UAstralHealthComponent*, HealthComponent, float, OldValue, float, NewValue, AActor*, Instigator);
 
 /**
  * EAstralDeathState

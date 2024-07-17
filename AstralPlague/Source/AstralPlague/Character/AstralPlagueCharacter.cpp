@@ -61,10 +61,6 @@ AAstralPlagueCharacter::AAstralPlagueCharacter(const FObjectInitializer& ObjectI
 	AstralMoveComp->bCanWalkOffLedgesWhenCrouching = true;
 	AstralMoveComp->SetCrouchedHalfHeight(65.0f);
 
-	PawnExtComponent = CreateDefaultSubobject<UAstralPawnExtensionComponent>(TEXT("PawnExtensionComponent"));
-	PawnExtComponent->OnAbilitySystemInitialized_RegisterAndCall(FSimpleMulticastDelegate::FDelegate::CreateUObject(this, &ThisClass::OnAbilitySystemInitialized));
-	PawnExtComponent->OnAbilitySystemUninitialized_Register(FSimpleMulticastDelegate::FDelegate::CreateUObject(this, &ThisClass::OnAbilitySystemUninitialized));
-
 	StatsComponent = CreateDefaultSubobject<UAstralStatsComponent>(TEXT("StatsComponent"));
 	StatsComponent->OnDeathStarted.AddDynamic(this, &ThisClass::OnDeathStarted);
 	StatsComponent->OnDeathFinished.AddDynamic(this, &ThisClass::OnDeathFinished);
@@ -78,11 +74,13 @@ AAstralPlagueCharacter::AAstralPlagueCharacter(const FObjectInitializer& ObjectI
 
 	BaseEyeHeight = 80.0f;
 	CrouchedEyeHeight = 50.0f;
-}
 
-void AAstralPlagueCharacter::PreInitializeComponents()
-{
-	Super::PreInitializeComponents();
+	HitDirectionFrontTag = FGameplayTag::RequestGameplayTag(FName("Effect.HitReact.Front"));
+	HitDirectionBackTag = FGameplayTag::RequestGameplayTag(FName("Effect.HitReact.Back"));
+	HitDirectionRightTag = FGameplayTag::RequestGameplayTag(FName("Effect.HitReact.Right"));
+	HitDirectionLeftTag = FGameplayTag::RequestGameplayTag(FName("Effect.HitReact.Left"));
+	DeadTag = FGameplayTag::RequestGameplayTag(FName("State.Dead"));
+	EffectRemoveOnDeathTag = FGameplayTag::RequestGameplayTag(FName("Effect.RemoveOnDeath"));
 }
 
 void AAstralPlagueCharacter::BeginPlay()
@@ -90,59 +88,6 @@ void AAstralPlagueCharacter::BeginPlay()
 	Super::BeginPlay();
 
 	UWorld* World = GetWorld();
-}
-
-void AAstralPlagueCharacter::EndPlay(const EEndPlayReason::Type EndPlayReason)
-{
-	Super::EndPlay(EndPlayReason);
-
-	UWorld* World = GetWorld();
-
-	
-}
-
-void AAstralPlagueCharacter::Reset()
-{
-	DisableMovementAndCollision();
-
-	K2_OnReset();
-
-	UninitAndDestroy();
-}
-
-void AAstralPlagueCharacter::GetLifetimeReplicatedProps(TArray< FLifetimeProperty >& OutLifetimeProps) const
-{
-	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
-
-	DOREPLIFETIME_CONDITION(ThisClass, ReplicatedAcceleration, COND_SimulatedOnly);
-}
-
-void AAstralPlagueCharacter::PreReplication(IRepChangedPropertyTracker& ChangedPropertyTracker)
-{
-	Super::PreReplication(ChangedPropertyTracker);
-
-	if (UCharacterMovementComponent* MovementComponent = GetCharacterMovement())
-	{
-		// Compress Acceleration: XY components as direction + magnitude, Z component as direct value
-		const double MaxAccel = MovementComponent->MaxAcceleration;
-		const FVector CurrentAccel = MovementComponent->GetCurrentAcceleration();
-		double AccelXYRadians, AccelXYMagnitude;
-		FMath::CartesianToPolar(CurrentAccel.X, CurrentAccel.Y, AccelXYMagnitude, AccelXYRadians);
-
-		ReplicatedAcceleration.AccelXYRadians   = FMath::FloorToInt((AccelXYRadians / TWO_PI) * 255.0);     // [0, 2PI] -> [0, 255]
-		ReplicatedAcceleration.AccelXYMagnitude = FMath::FloorToInt((AccelXYMagnitude / MaxAccel) * 255.0);	// [0, MaxAccel] -> [0, 255]
-		ReplicatedAcceleration.AccelZ           = FMath::FloorToInt((CurrentAccel.Z / MaxAccel) * 127.0);   // [-MaxAccel, MaxAccel] -> [-127, 127]
-	}
-}
-
-void AAstralPlagueCharacter::NotifyControllerChanged()
-{
-
-
-	Super::NotifyControllerChanged();
-
-	
-
 }
 
 AAstralPlayerController* AAstralPlagueCharacter::GetAstralPlayerController() const
@@ -159,104 +104,11 @@ UAstralAbilitySystemComponent* AAstralPlagueCharacter::GetAstralAbilitySystemCom
 {
 	return Cast<UAstralAbilitySystemComponent>(GetAbilitySystemComponent());
 }
-
 UAbilitySystemComponent* AAstralPlagueCharacter::GetAbilitySystemComponent() const
 {
-	if (PawnExtComponent == nullptr)
-	{
-		return nullptr;
-	}
-
-	return PawnExtComponent->GetAstralAbilitySystemComponent();
+	return AbilitySystemComponent.Get();
 }
 
-void AAstralPlagueCharacter::OnAbilitySystemInitialized()
-{
-	UAstralAbilitySystemComponent* AstralASC = GetAstralAbilitySystemComponent();
-	check(AstralASC);
-
-	StatsComponent->InitializeWithAbilitySystem(AstralASC);
-
-	InitializeGameplayTags();
-}
-
-void AAstralPlagueCharacter::OnAbilitySystemUninitialized()
-{
-	StatsComponent->UninitializeFromAbilitySystem();
-}
-
-void AAstralPlagueCharacter::PossessedBy(AController* NewController)
-{
-
-
-	Super::PossessedBy(NewController);
-
-	PawnExtComponent->HandleControllerChanged();
-
-	
-}
-
-void AAstralPlagueCharacter::UnPossessed()
-{
-	AController* const OldController = Controller;
-
-	// Stop listening for changes from the old controller
-	
-
-	Super::UnPossessed();
-
-	PawnExtComponent->HandleControllerChanged();
-
-	// Determine what the new team ID should be afterwards
-
-}
-
-void AAstralPlagueCharacter::OnRep_Controller()
-{
-	Super::OnRep_Controller();
-
-	PawnExtComponent->HandleControllerChanged();
-}
-
-void AAstralPlagueCharacter::OnRep_PlayerState()
-{
-	Super::OnRep_PlayerState();
-
-	PawnExtComponent->HandlePlayerStateReplicated();
-}
-
-void AAstralPlagueCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
-{
-	Super::SetupPlayerInputComponent(PlayerInputComponent);
-
-	PawnExtComponent->SetupPlayerInputComponent();
-}
-
-void AAstralPlagueCharacter::InitializeGameplayTags()
-{
-	// Clear tags that may be lingering on the ability system from the previous pawn.
-	if (UAstralAbilitySystemComponent* AstralASC = GetAstralAbilitySystemComponent())
-	{
-		for (const TPair<uint8, FGameplayTag>& TagMapping : AstralGameplayTags::MovementModeTagMap)
-		{
-			if (TagMapping.Value.IsValid())
-			{
-				AstralASC->SetLooseGameplayTagCount(TagMapping.Value, 0);
-			}
-		}
-
-		for (const TPair<uint8, FGameplayTag>& TagMapping : AstralGameplayTags::CustomMovementModeTagMap)
-		{
-			if (TagMapping.Value.IsValid())
-			{
-				AstralASC->SetLooseGameplayTagCount(TagMapping.Value, 0);
-			}
-		}
-
-		UAstralCharacterMovementComponent* AstralMoveComp = CastChecked<UAstralCharacterMovementComponent>(GetCharacterMovement());
-		SetMovementModeTag(AstralMoveComp->MovementMode, AstralMoveComp->CustomMovementMode, true);
-	}
-}
 
 void AAstralPlagueCharacter::GetOwnedGameplayTags(FGameplayTagContainer& TagContainer) const
 {
@@ -296,10 +148,6 @@ bool AAstralPlagueCharacter::HasAnyMatchingGameplayTags(const FGameplayTagContai
 	return false;
 }
 
-void AAstralPlagueCharacter::FellOutOfWorld(const class UDamageType& dmgType)
-{
-	StatsComponent->DamageSelfDestruct(/*bFellOutOfWorld=*/ true);
-}
 
 void AAstralPlagueCharacter::OnDeathStarted(AActor*)
 {
@@ -331,8 +179,6 @@ void AAstralPlagueCharacter::DisableMovementAndCollision()
 
 void AAstralPlagueCharacter::DestroyDueToDeath()
 {
-	K2_OnDeathFinished();
-
 	UninitAndDestroy();
 }
 
@@ -350,169 +196,13 @@ void AAstralPlagueCharacter::UninitAndDestroy()
 	{
 		if (AstralASC->GetAvatarActor() == this)
 		{
-			PawnExtComponent->UninitializeAbilitySystem();
+			/*PawnExtComponent->UninitializeAbilitySystem();*/
 		}
 	}
 
 	SetActorHiddenInGame(true);
 }
 
-void AAstralPlagueCharacter::OnMovementModeChanged(EMovementMode PrevMovementMode, uint8 PreviousCustomMode)
-{
-	Super::OnMovementModeChanged(PrevMovementMode, PreviousCustomMode);
-
-	UAstralCharacterMovementComponent* AstralMoveComp = CastChecked<UAstralCharacterMovementComponent>(GetCharacterMovement());
-
-	SetMovementModeTag(PrevMovementMode, PreviousCustomMode, false);
-	SetMovementModeTag(AstralMoveComp->MovementMode, AstralMoveComp->CustomMovementMode, true);
-}
-
-void AAstralPlagueCharacter::SetMovementModeTag(EMovementMode MovementMode, uint8 CustomMovementMode, bool bTagEnabled)
-{
-	if (UAstralAbilitySystemComponent* AstralASC = GetAstralAbilitySystemComponent())
-	{
-		const FGameplayTag* MovementModeTag = nullptr;
-		if (MovementMode == MOVE_Custom)
-		{
-			MovementModeTag = AstralGameplayTags::CustomMovementModeTagMap.Find(CustomMovementMode);
-		}
-		else
-		{
-			MovementModeTag = AstralGameplayTags::MovementModeTagMap.Find(MovementMode);
-		}
-
-		if (MovementModeTag && MovementModeTag->IsValid())
-		{
-			AstralASC->SetLooseGameplayTagCount(*MovementModeTag, (bTagEnabled ? 1 : 0));
-		}
-	}
-}
-
-void AAstralPlagueCharacter::ToggleCrouch()
-{
-	const UAstralCharacterMovementComponent* AstralMoveComp = CastChecked<UAstralCharacterMovementComponent>(GetCharacterMovement());
-
-	if (bIsCrouched || AstralMoveComp->bWantsToCrouch)
-	{
-		UnCrouch();
-	}
-	else if (AstralMoveComp->IsMovingOnGround())
-	{
-		Crouch();
-	}
-}
-
-void AAstralPlagueCharacter::OnStartCrouch(float HalfHeightAdjust, float ScaledHalfHeightAdjust)
-{
-	if (UAstralAbilitySystemComponent* AstralASC = GetAstralAbilitySystemComponent())
-	{
-		AstralASC->SetLooseGameplayTagCount(AstralGameplayTags::Status_Crouching, 1);
-	}
-
-
-	Super::OnStartCrouch(HalfHeightAdjust, ScaledHalfHeightAdjust);
-}
-
-void AAstralPlagueCharacter::OnEndCrouch(float HalfHeightAdjust, float ScaledHalfHeightAdjust)
-{
-	if (UAstralAbilitySystemComponent* AstralASC = GetAstralAbilitySystemComponent())
-	{
-		AstralASC->SetLooseGameplayTagCount(AstralGameplayTags::Status_Crouching, 0);
-	}
-
-	Super::OnEndCrouch(HalfHeightAdjust, ScaledHalfHeightAdjust);
-}
-
-bool AAstralPlagueCharacter::CanJumpInternal_Implementation() const
-{
-	// same as ACharacter's implementation but without the crouch check
-	return JumpIsAllowedInternal();
-}
-
-void AAstralPlagueCharacter::OnRep_ReplicatedAcceleration()
-{
-	if (UAstralCharacterMovementComponent* AstralMovementComponent = Cast<UAstralCharacterMovementComponent>(GetCharacterMovement()))
-	{
-		// Decompress Acceleration
-		const double MaxAccel         = AstralMovementComponent->MaxAcceleration;
-		const double AccelXYMagnitude = double(ReplicatedAcceleration.AccelXYMagnitude) * MaxAccel / 255.0; // [0, 255] -> [0, MaxAccel]
-		const double AccelXYRadians   = double(ReplicatedAcceleration.AccelXYRadians) * TWO_PI / 255.0;     // [0, 255] -> [0, 2PI]
-
-		FVector UnpackedAcceleration(FVector::ZeroVector);
-		FMath::PolarToCartesian(AccelXYMagnitude, AccelXYRadians, UnpackedAcceleration.X, UnpackedAcceleration.Y);
-		UnpackedAcceleration.Z = double(ReplicatedAcceleration.AccelZ) * MaxAccel / 127.0; // [-127, 127] -> [-MaxAccel, MaxAccel]
-
-		AstralMovementComponent->SetReplicatedAcceleration(UnpackedAcceleration);
-	}
-}
-
-
-
-bool AAstralPlagueCharacter::UpdateSharedReplication()
-{
-	if (GetLocalRole() == ROLE_Authority)
-	{
-		FSharedRepMovement SharedMovement;
-		if (SharedMovement.FillForCharacter(this))
-		{
-			// Only call FastSharedReplication if data has changed since the last frame.
-			// Skipping this call will cause replication to reuse the same bunch that we previously
-			// produced, but not send it to clients that already received. (But a new client who has not received
-			// it, will get it this frame)
-			if (!SharedMovement.Equals(LastSharedReplication, this))
-			{
-				LastSharedReplication = SharedMovement;
-				ReplicatedMovementMode = SharedMovement.RepMovementMode;
-
-				FastSharedReplication(SharedMovement);
-			}
-			return true;
-		}
-	}
-
-	// We cannot fastrep right now. Don't send anything.
-	return false;
-}
-
-void AAstralPlagueCharacter::FastSharedReplication_Implementation(const FSharedRepMovement& SharedRepMovement)
-{
-	if (GetWorld()->IsPlayingReplay())
-	{
-		return;
-	}
-
-	// Timestamp is checked to reject old moves.
-	if (GetLocalRole() == ROLE_SimulatedProxy)
-	{
-		// Timestamp
-		ReplicatedServerLastTransformUpdateTimeStamp = SharedRepMovement.RepTimeStamp;
-
-		// Movement mode
-		if (ReplicatedMovementMode != SharedRepMovement.RepMovementMode)
-		{
-			ReplicatedMovementMode = SharedRepMovement.RepMovementMode;
-			GetCharacterMovement()->bNetworkMovementModeChanged = true;
-			GetCharacterMovement()->bNetworkUpdateReceived = true;
-		}
-
-		// Location, Rotation, Velocity, etc.
-		FRepMovement& MutableRepMovement = GetReplicatedMovement_Mutable();
-		MutableRepMovement = SharedRepMovement.RepMovement;
-
-		// This also sets LastRepMovement
-		OnRep_ReplicatedMovement();
-
-		// Jump force
-		bProxyIsJumpForceApplied = SharedRepMovement.bProxyIsJumpForceApplied;
-
-		// Crouch
-		if (bIsCrouched != SharedRepMovement.bIsCrouched)
-		{
-			bIsCrouched = SharedRepMovement.bIsCrouched;
-			OnRep_IsCrouched();
-		}
-	}
-}
 
 FSharedRepMovement::FSharedRepMovement()
 {
@@ -603,4 +293,308 @@ bool FSharedRepMovement::NetSerialize(FArchive& Ar, class UPackageMap* Map, bool
 	}
 
 	return true;
+}
+
+int32 AAstralPlagueCharacter::GetAbilityLevel(EAstralAbilityInputID InputID) const
+{
+	return 1;
+}
+
+void AAstralPlagueCharacter::RemoveCharacterAbilities()
+{
+	if (GetLocalRole() != ROLE_Authority || !AbilitySystemComponent.IsValid() || !AbilitySystemComponent->bCharacterAbilitiesGiven)
+	{
+		return;
+	}
+
+	// Remove any abilities added from a previous call. This checks to make sure the ability is in the startup 'CharacterAbilities' array.
+	TArray<FGameplayAbilitySpecHandle> AbilitiesToRemove;
+	for (const FGameplayAbilitySpec& Spec : AbilitySystemComponent->GetActivatableAbilities())
+	{
+		if ((Spec.SourceObject == this) && CharacterAbilities.Contains(Spec.Ability->GetClass()))
+		{
+			AbilitiesToRemove.Add(Spec.Handle);
+		}
+	}
+
+	// Do in two passes so the removal happens after we have the full list
+	for (int32 i = 0; i < AbilitiesToRemove.Num(); i++)
+	{
+		AbilitySystemComponent->ClearAbility(AbilitiesToRemove[i]);
+	}
+
+	AbilitySystemComponent->bCharacterAbilitiesGiven = false;
+}
+
+EAstralHitReactDirection AAstralPlagueCharacter::GetHitReactDirection(const FVector & ImpactPoint)
+{
+	const FVector& ActorLocation = GetActorLocation();
+	// PointPlaneDist is super cheap - 1 vector subtraction, 1 dot product.
+	float DistanceToFrontBackPlane = FVector::PointPlaneDist(ImpactPoint, ActorLocation, GetActorRightVector());
+	float DistanceToRightLeftPlane = FVector::PointPlaneDist(ImpactPoint, ActorLocation, GetActorForwardVector());
+
+
+	if (FMath::Abs(DistanceToFrontBackPlane) <= FMath::Abs(DistanceToRightLeftPlane))
+	{
+		// Determine if Front or Back
+
+		// Can see if it's left or right of Left/Right plane which would determine Front or Back
+		if (DistanceToRightLeftPlane >= 0)
+		{
+			return EAstralHitReactDirection::Front;
+		}
+		else
+		{
+			return EAstralHitReactDirection::Back;
+		}
+	}
+	else
+	{
+		// Determine if Right or Left
+
+		if (DistanceToFrontBackPlane >= 0)
+		{
+			return EAstralHitReactDirection::Right;
+		}
+		else
+		{
+			return EAstralHitReactDirection::Left;
+		}
+	}
+
+	return EAstralHitReactDirection::Front;
+}
+
+void AAstralPlagueCharacter::PlayHitReact_Implementation(FGameplayTag HitDirection, AActor * DamageCauser)
+{
+	if (IsAlive())
+	{
+		if (HitDirection == HitDirectionLeftTag)
+		{
+			ShowHitReact.Broadcast(EAstralHitReactDirection::Left);
+		}
+		else if (HitDirection == HitDirectionFrontTag)
+		{
+			ShowHitReact.Broadcast(EAstralHitReactDirection::Front);
+		}
+		else if (HitDirection == HitDirectionRightTag)
+		{
+			ShowHitReact.Broadcast(EAstralHitReactDirection::Right);
+		}
+		else if (HitDirection == HitDirectionBackTag)
+		{
+			ShowHitReact.Broadcast(EAstralHitReactDirection::Back);
+		}
+	}
+}
+
+bool AAstralPlagueCharacter::PlayHitReact_Validate(FGameplayTag HitDirection, AActor * DamageCauser)
+{
+	return true;
+}
+
+int32 AAstralPlagueCharacter::GetCharacterLevel() const
+{
+	if (AttributeSetBase.IsValid())
+	{
+		return static_cast<int32>(AttributeSetBase->GetCharacterLevel());
+	}
+
+	return 0;
+}
+
+float AAstralPlagueCharacter::GetHealth() const
+{
+	if (AttributeSetBase.IsValid())
+	{
+		return AttributeSetBase->GetHealth();
+	}
+
+	return 0.0f;
+}
+
+float AAstralPlagueCharacter::GetMaxHealth() const
+{
+	if (AttributeSetBase.IsValid())
+	{
+		return AttributeSetBase->GetMaxHealth();
+	}
+
+	return 0.0f;
+}
+
+float AAstralPlagueCharacter::GetSoulEnergy() const
+{
+	if (AttributeSetBase.IsValid())
+	{
+		return AttributeSetBase->GetSoulEnergy();
+	}
+
+	return 0.0f;
+}
+
+float AAstralPlagueCharacter::GetStamina() const
+{
+	if (AttributeSetBase.IsValid())
+	{
+		return AttributeSetBase->GetStamina();
+	}
+
+	return 0.0f;
+}
+
+float AAstralPlagueCharacter::GetMaxStamina() const
+{
+	if (AttributeSetBase.IsValid())
+	{
+		return AttributeSetBase->GetMaxStamina();
+	}
+
+	return 0.0f;
+}
+
+float AAstralPlagueCharacter::GetMoveSpeed() const
+{
+	if (AttributeSetBase.IsValid())
+	{
+		return AttributeSetBase->GetMoveSpeed();
+	}
+
+	return 0.0f;
+}
+
+float AAstralPlagueCharacter::GetMoveSpeedBaseValue() const
+{
+	if (AttributeSetBase.IsValid())
+	{
+		return AttributeSetBase->GetMoveSpeedAttribute().GetGameplayAttributeData(AttributeSetBase.Get())->GetBaseValue();
+	}
+
+	return 0.0f;
+}
+
+// Run on Server and all clients
+void AAstralPlagueCharacter::Die()
+{
+	// Only runs on Server
+	RemoveCharacterAbilities();
+
+	GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+	GetCharacterMovement()->GravityScale = 0;
+	GetCharacterMovement()->Velocity = FVector(0);
+
+	OnCharacterDied.Broadcast(this);
+
+	if (AbilitySystemComponent.IsValid())
+	{
+		AbilitySystemComponent->CancelAllAbilities();
+
+		FGameplayTagContainer EffectTagsToRemove;
+		EffectTagsToRemove.AddTag(EffectRemoveOnDeathTag);
+		int32 NumEffectsRemoved = AbilitySystemComponent->RemoveActiveEffectsWithTags(EffectTagsToRemove);
+
+		AbilitySystemComponent->AddLooseGameplayTag(DeadTag);
+	}
+
+	if (DeathMontage)
+	{
+		PlayAnimMontage(DeathMontage);
+	}
+	else
+	{
+		FinishDying();
+	}
+}
+
+void AAstralPlagueCharacter::FinishDying()
+{
+	Destroy();
+}
+
+
+void AAstralPlagueCharacter::AddCharacterAbilities()
+{
+	// Grant abilities, but only on the server	
+	if (GetLocalRole() != ROLE_Authority || !AbilitySystemComponent.IsValid() || AbilitySystemComponent->bCharacterAbilitiesGiven)
+	{
+		return;
+	}
+
+	for (TSubclassOf<UAstralGameplayAbility>& StartupAbility : CharacterAbilities)
+	{
+		AbilitySystemComponent->GiveAbility(
+			FGameplayAbilitySpec(StartupAbility, GetAbilityLevel(StartupAbility.GetDefaultObject()->AbilityInputID), static_cast<int32>(StartupAbility.GetDefaultObject()->AbilityInputID), this));
+	}
+
+	AbilitySystemComponent->bCharacterAbilitiesGiven = true;
+}
+
+void AAstralPlagueCharacter::InitializeAttributes()
+{
+	if (!AbilitySystemComponent.IsValid())
+	{
+		return;
+	}
+
+	if (!DefaultAttributes)
+	{
+		UE_LOG(LogTemp, Error, TEXT("%s() Missing AttributeSetBase for %s. Please fill in the character's Blueprint."), *FString(__FUNCTION__), *GetName());
+		return;
+	}
+
+	// Can run on Server and Client
+	FGameplayEffectContextHandle EffectContext = AbilitySystemComponent->MakeEffectContext();
+	EffectContext.AddSourceObject(this);
+
+	FGameplayEffectSpecHandle NewHandle = AbilitySystemComponent->MakeOutgoingSpec(DefaultAttributes, GetCharacterLevel(), EffectContext);
+	if (NewHandle.IsValid())
+	{
+		FActiveGameplayEffectHandle ActiveGEHandle = AbilitySystemComponent->ApplyGameplayEffectSpecToTarget(*NewHandle.Data.Get(), AbilitySystemComponent.Get());
+	}
+}
+
+void AAstralPlagueCharacter::AddStartupEffects()
+{
+	if (GetLocalRole() != ROLE_Authority || !AbilitySystemComponent.IsValid() || AbilitySystemComponent->bStartupEffectsApplied)
+	{
+		return;
+	}
+
+	FGameplayEffectContextHandle EffectContext = AbilitySystemComponent->MakeEffectContext();
+	EffectContext.AddSourceObject(this);
+
+	for (TSubclassOf<UGameplayEffect> GameplayEffect : StartupEffects)
+	{
+		FGameplayEffectSpecHandle NewHandle = AbilitySystemComponent->MakeOutgoingSpec(GameplayEffect, GetCharacterLevel(), EffectContext);
+		if (NewHandle.IsValid())
+		{
+			FActiveGameplayEffectHandle ActiveGEHandle = AbilitySystemComponent->ApplyGameplayEffectSpecToTarget(*NewHandle.Data.Get(), AbilitySystemComponent.Get());
+		}
+	}
+
+	AbilitySystemComponent->bStartupEffectsApplied = true;
+}
+
+void AAstralPlagueCharacter::SetHealth(float Health)
+{
+	if (AttributeSetBase.IsValid())
+	{
+		AttributeSetBase->SetHealth(Health);
+	}
+}
+
+void AAstralPlagueCharacter::SetSoulEnergy(float Mana)
+{
+	if (AttributeSetBase.IsValid())
+	{
+		AttributeSetBase->SetSoulEnergy(Mana);
+	}
+}
+
+void AAstralPlagueCharacter::SetStamina(float Stamina)
+{
+	if (AttributeSetBase.IsValid())
+	{
+		AttributeSetBase->SetStamina(Stamina);
+	}
 }

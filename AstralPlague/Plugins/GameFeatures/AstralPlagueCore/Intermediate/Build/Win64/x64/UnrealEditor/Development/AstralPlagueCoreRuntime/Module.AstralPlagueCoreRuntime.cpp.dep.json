@@ -1,15 +1,3 @@
-{
-    "Version": "1.2",
-    "Data": {
-        "Source": "d:\\unrealdev\\astralplague - dev\\astralplague\\plugins\\gamefeatures\\astralplaguecore\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\astralplaguecoreruntime\\module.astralplaguecoreruntime.cpp",
-        "ProvidedModule": "",
-        "PCH": "d:\\unrealdev\\astralplague - dev\\astralplague\\intermediate\\build\\win64\\x64\\astralplagueeditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
-        "Includes": [
-            "d:\\unrealdev\\astralplague - dev\\astralplague\\plugins\\gamefeatures\\astralplaguecore\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\astralplaguecoreruntime\\definitions.astralplaguecoreruntime.h",
-            "d:\\unrealdev\\astralplague - dev\\astralplague\\plugins\\gamefeatures\\astralplaguecore\\source\\astralplaguecoreruntime\\private\\astralplaguecoreruntimemodule.cpp",
-            "d:\\unrealdev\\astralplague - dev\\astralplague\\plugins\\gamefeatures\\astralplaguecore\\source\\astralplaguecoreruntime\\public\\astralplaguecoreruntimemodule.h"
-        ],
-        "ImportedModules": [],
-        "ImportedHeaderUnits": []
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:b3facd802d4d072e586f2aeebdf0638414a0435651343a5770f9fee458ce64e3
+size 1193

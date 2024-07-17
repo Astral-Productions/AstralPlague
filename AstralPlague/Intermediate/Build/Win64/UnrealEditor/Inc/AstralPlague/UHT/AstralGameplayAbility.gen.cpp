@@ -15,11 +15,11 @@ ASTRALPLAGUE_API UClass* Z_Construct_UClass_AAstralPlagueCharacter_NoRegister();
 ASTRALPLAGUE_API UClass* Z_Construct_UClass_AAstralPlayerController_NoRegister();
 ASTRALPLAGUE_API UClass* Z_Construct_UClass_UAstralAbilityCost_NoRegister();
 ASTRALPLAGUE_API UClass* Z_Construct_UClass_UAstralAbilitySystemComponent_NoRegister();
-ASTRALPLAGUE_API UClass* Z_Construct_UClass_UAstralCharacterGameplayComponent_NoRegister();
 ASTRALPLAGUE_API UClass* Z_Construct_UClass_UAstralGameplayAbility();
 ASTRALPLAGUE_API UClass* Z_Construct_UClass_UAstralGameplayAbility_NoRegister();
 ASTRALPLAGUE_API UEnum* Z_Construct_UEnum_AstralPlague_EAstralAbilityActivationGroup();
 ASTRALPLAGUE_API UEnum* Z_Construct_UEnum_AstralPlague_EAstralAbilityActivationPolicy();
+ASTRALPLAGUE_API UEnum* Z_Construct_UEnum_AstralPlague_EAstralAbilityInputID();
 ASTRALPLAGUE_API UScriptStruct* Z_Construct_UScriptStruct_FAstralAbilityMontageFailureMessage();
 ENGINE_API UClass* Z_Construct_UClass_AController_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_APlayerController_NoRegister();
@@ -340,51 +340,6 @@ DEFINE_FUNCTION(UAstralGameplayAbility::execGetAstralCharacterFromActorInfo)
 }
 // End Class UAstralGameplayAbility Function GetAstralCharacterFromActorInfo
 
-// Begin Class UAstralGameplayAbility Function GetAstralCharacterGameplayComponent
-struct Z_Construct_UFunction_UAstralGameplayAbility_GetAstralCharacterGameplayComponent_Statics
-{
-	struct AstralGameplayAbility_eventGetAstralCharacterGameplayComponent_Parms
-	{
-		UAstralCharacterGameplayComponent* ReturnValue;
-	};
-#if WITH_METADATA
-	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "Category", "Lyra|Ability" },
-		{ "ModuleRelativePath", "AbilitySystem/AstralGameplayAbility.h" },
-	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ReturnValue_MetaData[] = {
-		{ "EditInline", "true" },
-	};
-#endif // WITH_METADATA
-	static const UECodeGen_Private::FObjectPropertyParams NewProp_ReturnValue;
-	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
-	static const UECodeGen_Private::FFunctionParams FuncParams;
-};
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UAstralGameplayAbility_GetAstralCharacterGameplayComponent_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000080588, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AstralGameplayAbility_eventGetAstralCharacterGameplayComponent_Parms, ReturnValue), Z_Construct_UClass_UAstralCharacterGameplayComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ReturnValue_MetaData), NewProp_ReturnValue_MetaData) };
-const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UAstralGameplayAbility_GetAstralCharacterGameplayComponent_Statics::PropPointers[] = {
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UAstralGameplayAbility_GetAstralCharacterGameplayComponent_Statics::NewProp_ReturnValue,
-};
-static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UAstralGameplayAbility_GetAstralCharacterGameplayComponent_Statics::PropPointers) < 2048);
-const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UAstralGameplayAbility_GetAstralCharacterGameplayComponent_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UAstralGameplayAbility, nullptr, "GetAstralCharacterGameplayComponent", nullptr, nullptr, Z_Construct_UFunction_UAstralGameplayAbility_GetAstralCharacterGameplayComponent_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UAstralGameplayAbility_GetAstralCharacterGameplayComponent_Statics::PropPointers), sizeof(Z_Construct_UFunction_UAstralGameplayAbility_GetAstralCharacterGameplayComponent_Statics::AstralGameplayAbility_eventGetAstralCharacterGameplayComponent_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UAstralGameplayAbility_GetAstralCharacterGameplayComponent_Statics::Function_MetaDataParams), Z_Construct_UFunction_UAstralGameplayAbility_GetAstralCharacterGameplayComponent_Statics::Function_MetaDataParams) };
-static_assert(sizeof(Z_Construct_UFunction_UAstralGameplayAbility_GetAstralCharacterGameplayComponent_Statics::AstralGameplayAbility_eventGetAstralCharacterGameplayComponent_Parms) < MAX_uint16);
-UFunction* Z_Construct_UFunction_UAstralGameplayAbility_GetAstralCharacterGameplayComponent()
-{
-	static UFunction* ReturnFunction = nullptr;
-	if (!ReturnFunction)
-	{
-		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UAstralGameplayAbility_GetAstralCharacterGameplayComponent_Statics::FuncParams);
-	}
-	return ReturnFunction;
-}
-DEFINE_FUNCTION(UAstralGameplayAbility::execGetAstralCharacterGameplayComponent)
-{
-	P_FINISH;
-	P_NATIVE_BEGIN;
-	*(UAstralCharacterGameplayComponent**)Z_Param__Result=P_THIS->GetAstralCharacterGameplayComponent();
-	P_NATIVE_END;
-}
-// End Class UAstralGameplayAbility Function GetAstralCharacterGameplayComponent
-
 // Begin Class UAstralGameplayAbility Function GetAstralPlayerControllerFromActorInfo
 struct Z_Construct_UFunction_UAstralGameplayAbility_GetAstralPlayerControllerFromActorInfo_Statics
 {
@@ -581,7 +536,6 @@ void UAstralGameplayAbility::StaticRegisterNativesUAstralGameplayAbility()
 	static const FNameNativePtrPair Funcs[] = {
 		{ "GetAstralAbilitySystemComponentFromActorInfo", &UAstralGameplayAbility::execGetAstralAbilitySystemComponentFromActorInfo },
 		{ "GetAstralCharacterFromActorInfo", &UAstralGameplayAbility::execGetAstralCharacterFromActorInfo },
-		{ "GetAstralCharacterGameplayComponent", &UAstralGameplayAbility::execGetAstralCharacterGameplayComponent },
 		{ "GetAstralPlayerControllerFromActorInfo", &UAstralGameplayAbility::execGetAstralPlayerControllerFromActorInfo },
 		{ "GetControllerFromActorInfo", &UAstralGameplayAbility::execGetControllerFromActorInfo },
 	};
@@ -602,6 +556,16 @@ struct Z_Construct_UClass_UAstralGameplayAbility_Statics
 		{ "IncludePath", "AbilitySystem/AstralGameplayAbility.h" },
 		{ "ModuleRelativePath", "AbilitySystem/AstralGameplayAbility.h" },
 		{ "ObjectInitializerConstructorDeclared", "" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_AbilityInputID_MetaData[] = {
+		{ "Category", "Ability" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// Abilities with this set will automatically activate when the input is pressed\n" },
+#endif
+		{ "ModuleRelativePath", "AbilitySystem/AstralGameplayAbility.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Abilities with this set will automatically activate when the input is pressed" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ActivationPolicy_MetaData[] = {
 		{ "Category", "Astral|Ability Activation" },
@@ -676,6 +640,8 @@ struct Z_Construct_UClass_UAstralGameplayAbility_Statics
 #endif
 	};
 #endif // WITH_METADATA
+	static const UECodeGen_Private::FBytePropertyParams NewProp_AbilityInputID_Underlying;
+	static const UECodeGen_Private::FEnumPropertyParams NewProp_AbilityInputID;
 	static const UECodeGen_Private::FBytePropertyParams NewProp_ActivationPolicy_Underlying;
 	static const UECodeGen_Private::FEnumPropertyParams NewProp_ActivationPolicy;
 	static const UECodeGen_Private::FBytePropertyParams NewProp_ActivationGroup_Underlying;
@@ -695,7 +661,6 @@ struct Z_Construct_UClass_UAstralGameplayAbility_Statics
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
 		{ &Z_Construct_UFunction_UAstralGameplayAbility_GetAstralAbilitySystemComponentFromActorInfo, "GetAstralAbilitySystemComponentFromActorInfo" }, // 643849834
 		{ &Z_Construct_UFunction_UAstralGameplayAbility_GetAstralCharacterFromActorInfo, "GetAstralCharacterFromActorInfo" }, // 1791217519
-		{ &Z_Construct_UFunction_UAstralGameplayAbility_GetAstralCharacterGameplayComponent, "GetAstralCharacterGameplayComponent" }, // 76337321
 		{ &Z_Construct_UFunction_UAstralGameplayAbility_GetAstralPlayerControllerFromActorInfo, "GetAstralPlayerControllerFromActorInfo" }, // 297426697
 		{ &Z_Construct_UFunction_UAstralGameplayAbility_GetControllerFromActorInfo, "GetControllerFromActorInfo" }, // 1334968853
 		{ &Z_Construct_UFunction_UAstralGameplayAbility_K2_OnAbilityAdded, "K2_OnAbilityAdded" }, // 2599326410
@@ -708,6 +673,8 @@ struct Z_Construct_UClass_UAstralGameplayAbility_Statics
 	};
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
+const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_UAstralGameplayAbility_Statics::NewProp_AbilityInputID_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_UAstralGameplayAbility_Statics::NewProp_AbilityInputID = { "AbilityInputID", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAstralGameplayAbility, AbilityInputID), Z_Construct_UEnum_AstralPlague_EAstralAbilityInputID, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_AbilityInputID_MetaData), NewProp_AbilityInputID_MetaData) }; // 1629908191
 const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_UAstralGameplayAbility_Statics::NewProp_ActivationPolicy_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_UAstralGameplayAbility_Statics::NewProp_ActivationPolicy = { "ActivationPolicy", nullptr, (EPropertyFlags)0x0020080000010015, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAstralGameplayAbility, ActivationPolicy), Z_Construct_UEnum_AstralPlague_EAstralAbilityActivationPolicy, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ActivationPolicy_MetaData), NewProp_ActivationPolicy_MetaData) }; // 3629455750
 const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_UAstralGameplayAbility_Statics::NewProp_ActivationGroup_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
@@ -726,6 +693,8 @@ void Z_Construct_UClass_UAstralGameplayAbility_Statics::NewProp_bLogCancelation_
 }
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UAstralGameplayAbility_Statics::NewProp_bLogCancelation = { "bLogCancelation", nullptr, (EPropertyFlags)0x0020080000010001, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(UAstralGameplayAbility), &Z_Construct_UClass_UAstralGameplayAbility_Statics::NewProp_bLogCancelation_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bLogCancelation_MetaData), NewProp_bLogCancelation_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UAstralGameplayAbility_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAstralGameplayAbility_Statics::NewProp_AbilityInputID_Underlying,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAstralGameplayAbility_Statics::NewProp_AbilityInputID,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAstralGameplayAbility_Statics::NewProp_ActivationPolicy_Underlying,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAstralGameplayAbility_Statics::NewProp_ActivationPolicy,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAstralGameplayAbility_Statics::NewProp_ActivationGroup_Underlying,
@@ -788,10 +757,10 @@ struct Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_AbilitySystem_
 		{ FAstralAbilityMontageFailureMessage::StaticStruct, Z_Construct_UScriptStruct_FAstralAbilityMontageFailureMessage_Statics::NewStructOps, TEXT("AstralAbilityMontageFailureMessage"), &Z_Registration_Info_UScriptStruct_AstralAbilityMontageFailureMessage, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FAstralAbilityMontageFailureMessage), 2659600194U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UAstralGameplayAbility, UAstralGameplayAbility::StaticClass, TEXT("UAstralGameplayAbility"), &Z_Registration_Info_UClass_UAstralGameplayAbility, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAstralGameplayAbility), 1809758436U) },
+		{ Z_Construct_UClass_UAstralGameplayAbility, UAstralGameplayAbility::StaticClass, TEXT("UAstralGameplayAbility"), &Z_Registration_Info_UClass_UAstralGameplayAbility, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAstralGameplayAbility), 137813519U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_AbilitySystem_AstralGameplayAbility_h_1115933658(TEXT("/Script/AstralPlague"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_AbilitySystem_AstralGameplayAbility_h_1068041690(TEXT("/Script/AstralPlague"),
 	Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_AbilitySystem_AstralGameplayAbility_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_AbilitySystem_AstralGameplayAbility_h_Statics::ClassInfo),
 	Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_AbilitySystem_AstralGameplayAbility_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_AbilitySystem_AstralGameplayAbility_h_Statics::ScriptStructInfo),
 	Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_AbilitySystem_AstralGameplayAbility_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_AbilitySystem_AstralGameplayAbility_h_Statics::EnumInfo));

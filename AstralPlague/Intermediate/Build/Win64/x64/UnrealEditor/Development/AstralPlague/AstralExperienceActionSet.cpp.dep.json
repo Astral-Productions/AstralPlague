@@ -1,20 +1,3 @@
-{
-    "Version": "1.2",
-    "Data": {
-        "Source": "d:\\unrealdev\\astralplague\\astralplague\\source\\astralplague\\gamemodes\\astralexperienceactionset.cpp",
-        "ProvidedModule": "",
-        "PCH": "d:\\unrealdev\\astralplague\\astralplague\\intermediate\\build\\win64\\x64\\astralplagueeditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
-        "Includes": [
-            "d:\\unrealdev\\astralplague\\astralplague\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\astralplague\\definitions.astralplague.h",
-            "d:\\unrealdev\\astralplague\\astralplague\\source\\astralplague\\gamemodes\\astralexperienceactionset.h",
-            "d:\\unrealdev\\astralplague\\astralplague\\intermediate\\build\\win64\\unrealeditor\\inc\\astralplague\\uht\\astralexperienceactionset.generated.h",
-            "c:\\program files\\epic games\\ue_5.4\\engine\\plugins\\runtime\\gamefeatures\\source\\gamefeatures\\public\\gamefeatureaction.h",
-            "c:\\program files\\epic games\\ue_5.4\\engine\\plugins\\runtime\\gamefeatures\\intermediate\\build\\win64\\unrealeditor\\inc\\gamefeatures\\uht\\gamefeatureaction.generated.h",
-            "c:\\program files\\epic games\\ue_5.4\\engine\\source\\runtime\\coreuobject\\public\\misc\\datavalidation.h",
-            "c:\\program files\\epic games\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\coreuobject\\uht\\datavalidation.generated.h",
-            "d:\\unrealdev\\astralplague\\astralplague\\intermediate\\build\\win64\\unrealeditor\\inc\\astralplague\\uht\\astralexperienceactionset.gen.cpp"
-        ],
-        "ImportedModules": [],
-        "ImportedHeaderUnits": []
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:1014ed2227fd97e6cde29ed900cd4bfc240136ac21fe2005e266b50b6dcb59c3
+size 1710
