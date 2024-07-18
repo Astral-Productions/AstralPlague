@@ -35,9 +35,9 @@
 /NODEFAULTLIB:"LIBCD"
 /NODEFAULTLIB:"LIBCPD"
 /FUNCTIONPADMIN:6
-"D:\UnrealDev\AstralPlague - Copy\AstralPlague\Intermediate\Build\Win64\x64\AstralPlagueEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h.obj"
-"D:\UnrealDev\AstralPlague - Copy\AstralPlague\Plugins\CommonUser\Intermediate\Build\Win64\x64\UnrealEditor\Development\CommonUser\Module.CommonUser.cpp.obj"
-"D:\UnrealDev\AstralPlague - Copy\AstralPlague\Plugins\CommonUser\Intermediate\Build\Win64\x64\UnrealEditor\Development\CommonUser\Default.rc2.res"
+"C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Intermediate\Build\Win64\x64\AstralPlagueEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h.obj"
+"C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Plugins\CommonUser\Intermediate\Build\Win64\x64\UnrealEditor\Development\CommonUser\Module.CommonUser.cpp.obj"
+"C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Plugins\CommonUser\Intermediate\Build\Win64\x64\UnrealEditor\Development\CommonUser\Default.rc2.res"
 "..\Plugins\Online\OnlineSubsystemUtils\Intermediate\Build\Win64\x64\UnrealEditor\Development\OnlineSubsystemUtils\UnrealEditor-OnlineSubsystemUtils.lib"
 "..\Intermediate\Build\Win64\x64\UnrealEditor\Development\CoreOnline\UnrealEditor-CoreOnline.lib"
 "..\Intermediate\Build\Win64\x64\UnrealEditor\Development\CoreUObject\UnrealEditor-CoreUObject.lib"
@@ -76,7 +76,7 @@
 "imm32.lib"
 "uiautomationcore.lib"
 "DXGI.lib"
-/OUT:"D:\UnrealDev\AstralPlague - Copy\AstralPlague\Plugins\CommonUser\Binaries\Win64\UnrealEditor-CommonUser.dll"
-/IMPLIB:"D:\UnrealDev\AstralPlague - Copy\AstralPlague\Plugins\CommonUser\Intermediate\Build\Win64\x64\UnrealEditor\Development\CommonUser\UnrealEditor-CommonUser.sup.lib"
-/PDB:"D:\UnrealDev\AstralPlague - Copy\AstralPlague\Plugins\CommonUser\Binaries\Win64\UnrealEditor-CommonUser.pdb"
+/OUT:"C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Plugins\CommonUser\Binaries\Win64\UnrealEditor-CommonUser.dll"
+/IMPLIB:"C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Plugins\CommonUser\Intermediate\Build\Win64\x64\UnrealEditor\Development\CommonUser\UnrealEditor-CommonUser.sup.lib"
+/PDB:"C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Plugins\CommonUser\Binaries\Win64\UnrealEditor-CommonUser.pdb"
 /ignore:4078

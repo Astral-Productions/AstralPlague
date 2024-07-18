@@ -27,7 +27,7 @@ public:
 	
 	AAstralPlayerState(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
 	
-	class UDefaultAttributeSet* GetAttributeSetBase() const;
+	class UCharacterAttributeSet* GetAttributeSetBase() const;
 	
 	UFUNCTION(BlueprintCallable, Category = "Astral|PlayerState")
 	AAstralPlayerController* GetAstralPlayerController() const;
@@ -94,7 +94,9 @@ private:
 	TObjectPtr<UAstralAbilitySystemComponent> AbilitySystemComponent;
 
 	UPROPERTY()
-	TObjectPtr<const class UDefaultAttributeSet> AttributeSetBase;
+	UCharacterAttributeSet* CharacterAttributeSet;
+	UPROPERTY()
+	TObjectPtr<const class UProgressionAttributeSet> ProgressionAttributeSet;
 
 	FGameplayTag DeadTag;
 
@@ -108,7 +110,7 @@ private:
 	FDelegateHandle MaxStaminaChangedDelegateHandle;
 	FDelegateHandle StaminaRegenRateChangedDelegateHandle;
 	FDelegateHandle XPChangedDelegateHandle;
-	FDelegateHandle GoldChangedDelegateHandle;
+	FDelegateHandle GemsChangedDelegateHandle;
 	FDelegateHandle CharacterLevelChangedDelegateHandle;
 
 	// Called when the game starts or when spawned
@@ -118,14 +120,13 @@ private:
 	virtual void HealthChanged(const FOnAttributeChangeData& Data);
 	virtual void MaxHealthChanged(const FOnAttributeChangeData& Data);
 	virtual void HealthRegenRateChanged(const FOnAttributeChangeData& Data);
-	virtual void ManaChanged(const FOnAttributeChangeData& Data);
-	virtual void MaxManaChanged(const FOnAttributeChangeData& Data);
-	virtual void ManaRegenRateChanged(const FOnAttributeChangeData& Data);
+	virtual void SoulEnergyChanged(const FOnAttributeChangeData& Data);
+	virtual void MaxSoulEnergyChanged(const FOnAttributeChangeData& Data);
 	virtual void StaminaChanged(const FOnAttributeChangeData& Data);
 	virtual void MaxStaminaChanged(const FOnAttributeChangeData& Data);
 	virtual void StaminaRegenRateChanged(const FOnAttributeChangeData& Data);
 	virtual void XPChanged(const FOnAttributeChangeData& Data);
-	virtual void GoldChanged(const FOnAttributeChangeData& Data);
+	virtual void GemsChanged(const FOnAttributeChangeData& Data);
 	virtual void CharacterLevelChanged(const FOnAttributeChangeData& Data);
 
 	// Tag change callbacks

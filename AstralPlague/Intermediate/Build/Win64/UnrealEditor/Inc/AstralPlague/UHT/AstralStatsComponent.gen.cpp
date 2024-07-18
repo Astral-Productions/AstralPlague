@@ -13,7 +13,7 @@ void EmptyLinkFunctionForGeneratedCodeAstralStatsComponent() {}
 ASTRALPLAGUE_API UClass* Z_Construct_UClass_UAstralAbilitySystemComponent_NoRegister();
 ASTRALPLAGUE_API UClass* Z_Construct_UClass_UAstralStatsComponent();
 ASTRALPLAGUE_API UClass* Z_Construct_UClass_UAstralStatsComponent_NoRegister();
-ASTRALPLAGUE_API UClass* Z_Construct_UClass_UDefaultAttributeSet_NoRegister();
+ASTRALPLAGUE_API UClass* Z_Construct_UClass_UCharacterAttributeSet_NoRegister();
 ASTRALPLAGUE_API UEnum* Z_Construct_UEnum_AstralPlague_EAstralDeathState();
 ASTRALPLAGUE_API UFunction* Z_Construct_UDelegateFunction_AstralPlague_AstralHealth_DeathEvent__DelegateSignature();
 ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
@@ -594,11 +594,11 @@ struct Z_Construct_UClass_UAstralStatsComponent_Statics
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_OnDeathStarted_MetaData[] = {
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "// Delegate fired when the death sequence has started.\n" },
+		{ "Comment", "/*// Delegate fired when the health value has changed. This is called on the client but the instigator may not be valid\n\x09UPROPERTY(BlueprintAssignable)\n\x09""FAstralHealth_AttributeChanged OnHealthChanged;\n\n\x09// Delegate fired when the max health value has changed. This is called on the client but the instigator may not be valid\n\x09UPROPERTY(BlueprintAssignable)\n\x09""FAstralHealth_AttributeChanged OnMaxHealthChanged;*/// Delegate fired when the death sequence has started.\n" },
 #endif
 		{ "ModuleRelativePath", "Components/AstralStatsComponent.h" },
 #if !UE_BUILD_SHIPPING
-		{ "ToolTip", "Delegate fired when the death sequence has started." },
+		{ "ToolTip", "// Delegate fired when the health value has changed. This is called on the client but the instigator may not be valid\n       UPROPERTY(BlueprintAssignable)\n       FAstralHealth_AttributeChanged OnHealthChanged;\n\n       // Delegate fired when the max health value has changed. This is called on the client but the instigator may not be valid\n       UPROPERTY(BlueprintAssignable)\n       FAstralHealth_AttributeChanged OnMaxHealthChanged;// Delegate fired when the death sequence has started." },
 #endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_OnDeathFinished_MetaData[] = {
@@ -669,7 +669,7 @@ struct Z_Construct_UClass_UAstralStatsComponent_Statics
 const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_UAstralStatsComponent_Statics::NewProp_OnDeathStarted = { "OnDeathStarted", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAstralStatsComponent, OnDeathStarted), Z_Construct_UDelegateFunction_AstralPlague_AstralHealth_DeathEvent__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_OnDeathStarted_MetaData), NewProp_OnDeathStarted_MetaData) }; // 2577562279
 const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_UAstralStatsComponent_Statics::NewProp_OnDeathFinished = { "OnDeathFinished", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAstralStatsComponent, OnDeathFinished), Z_Construct_UDelegateFunction_AstralPlague_AstralHealth_DeathEvent__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_OnDeathFinished_MetaData), NewProp_OnDeathFinished_MetaData) }; // 2577562279
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UAstralStatsComponent_Statics::NewProp_AbilitySystemComponent = { "AbilitySystemComponent", nullptr, (EPropertyFlags)0x0124080000080008, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAstralStatsComponent, AbilitySystemComponent), Z_Construct_UClass_UAstralAbilitySystemComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_AbilitySystemComponent_MetaData), NewProp_AbilitySystemComponent_MetaData) };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UAstralStatsComponent_Statics::NewProp_StatSet = { "StatSet", nullptr, (EPropertyFlags)0x0124080000080008, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAstralStatsComponent, StatSet), Z_Construct_UClass_UDefaultAttributeSet_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_StatSet_MetaData), NewProp_StatSet_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UAstralStatsComponent_Statics::NewProp_StatSet = { "StatSet", nullptr, (EPropertyFlags)0x0124080000080008, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAstralStatsComponent, StatSet), Z_Construct_UClass_UCharacterAttributeSet_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_StatSet_MetaData), NewProp_StatSet_MetaData) };
 const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_UAstralStatsComponent_Statics::NewProp_DeathState_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_UAstralStatsComponent_Statics::NewProp_DeathState = { "DeathState", "OnRep_DeathState", (EPropertyFlags)0x0020080100000020, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAstralStatsComponent, DeathState), Z_Construct_UEnum_AstralPlague_EAstralDeathState, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_DeathState_MetaData), NewProp_DeathState_MetaData) }; // 3287210796
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UAstralStatsComponent_Statics::PropPointers[] = {
@@ -725,18 +725,18 @@ UAstralStatsComponent::~UAstralStatsComponent() {}
 // End Class UAstralStatsComponent
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_Components_AstralStatsComponent_h_Statics
+struct Z_CompiledInDeferFile_FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_Components_AstralStatsComponent_h_Statics
 {
 	static constexpr FEnumRegisterCompiledInInfo EnumInfo[] = {
 		{ EAstralDeathState_StaticEnum, TEXT("EAstralDeathState"), &Z_Registration_Info_UEnum_EAstralDeathState, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3287210796U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UAstralStatsComponent, UAstralStatsComponent::StaticClass, TEXT("UAstralStatsComponent"), &Z_Registration_Info_UClass_UAstralStatsComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAstralStatsComponent), 3973556042U) },
+		{ Z_Construct_UClass_UAstralStatsComponent, UAstralStatsComponent::StaticClass, TEXT("UAstralStatsComponent"), &Z_Registration_Info_UClass_UAstralStatsComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAstralStatsComponent), 1490101110U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_Components_AstralStatsComponent_h_382055211(TEXT("/Script/AstralPlague"),
-	Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_Components_AstralStatsComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_Components_AstralStatsComponent_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_Components_AstralStatsComponent_h_4237265170(TEXT("/Script/AstralPlague"),
+	Z_CompiledInDeferFile_FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_Components_AstralStatsComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_Components_AstralStatsComponent_h_Statics::ClassInfo),
 	nullptr, 0,
-	Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_Components_AstralStatsComponent_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_Components_AstralStatsComponent_h_Statics::EnumInfo));
+	Z_CompiledInDeferFile_FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_Components_AstralStatsComponent_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_Components_AstralStatsComponent_h_Statics::EnumInfo));
 // End Registration
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

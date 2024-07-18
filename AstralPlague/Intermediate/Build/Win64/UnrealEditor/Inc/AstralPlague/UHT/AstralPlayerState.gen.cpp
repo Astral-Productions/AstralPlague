@@ -14,7 +14,8 @@ ASTRALPLAGUE_API UClass* Z_Construct_UClass_AAstralPlayerController_NoRegister()
 ASTRALPLAGUE_API UClass* Z_Construct_UClass_AAstralPlayerState();
 ASTRALPLAGUE_API UClass* Z_Construct_UClass_AAstralPlayerState_NoRegister();
 ASTRALPLAGUE_API UClass* Z_Construct_UClass_UAstralAbilitySystemComponent_NoRegister();
-ASTRALPLAGUE_API UClass* Z_Construct_UClass_UDefaultAttributeSet_NoRegister();
+ASTRALPLAGUE_API UClass* Z_Construct_UClass_UCharacterAttributeSet_NoRegister();
+ASTRALPLAGUE_API UClass* Z_Construct_UClass_UProgressionAttributeSet_NoRegister();
 GAMEPLAYABILITIES_API UClass* Z_Construct_UClass_UAbilitySystemInterface_NoRegister();
 MODULARGAMEPLAYACTORS_API UClass* Z_Construct_UClass_AModularPlayerState();
 UPackage* Z_Construct_UPackage__Script_AstralPlague();
@@ -768,14 +769,20 @@ struct Z_Construct_UClass_AAstralPlayerState_Statics
 		{ "ToolTip", "The ability system component subobject for game-wide things (primarily gameplay cues)" },
 #endif
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_AttributeSetBase_MetaData[] = {
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CharacterAttributeSet_MetaData[] = {
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Player/AstralPlayerState.h" },
+		{ "NativeConstTemplateArg", "" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ProgressionAttributeSet_MetaData[] = {
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Player/AstralPlayerState.h" },
 		{ "NativeConstTemplateArg", "" },
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_AbilitySystemComponent;
-	static const UECodeGen_Private::FObjectPropertyParams NewProp_AttributeSetBase;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_CharacterAttributeSet;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_ProgressionAttributeSet;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
@@ -804,10 +811,12 @@ struct Z_Construct_UClass_AAstralPlayerState_Statics
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AAstralPlayerState_Statics::NewProp_AbilitySystemComponent = { "AbilitySystemComponent", nullptr, (EPropertyFlags)0x01440000000a0009, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AAstralPlayerState, AbilitySystemComponent), Z_Construct_UClass_UAstralAbilitySystemComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_AbilitySystemComponent_MetaData), NewProp_AbilitySystemComponent_MetaData) };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AAstralPlayerState_Statics::NewProp_AttributeSetBase = { "AttributeSetBase", nullptr, (EPropertyFlags)0x0144000000080008, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AAstralPlayerState, AttributeSetBase), Z_Construct_UClass_UDefaultAttributeSet_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_AttributeSetBase_MetaData), NewProp_AttributeSetBase_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AAstralPlayerState_Statics::NewProp_CharacterAttributeSet = { "CharacterAttributeSet", nullptr, (EPropertyFlags)0x0144000000080008, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AAstralPlayerState, CharacterAttributeSet), Z_Construct_UClass_UCharacterAttributeSet_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CharacterAttributeSet_MetaData), NewProp_CharacterAttributeSet_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AAstralPlayerState_Statics::NewProp_ProgressionAttributeSet = { "ProgressionAttributeSet", nullptr, (EPropertyFlags)0x0144000000080008, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AAstralPlayerState, ProgressionAttributeSet), Z_Construct_UClass_UProgressionAttributeSet_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ProgressionAttributeSet_MetaData), NewProp_ProgressionAttributeSet_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AAstralPlayerState_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAstralPlayerState_Statics::NewProp_AbilitySystemComponent,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAstralPlayerState_Statics::NewProp_AttributeSetBase,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAstralPlayerState_Statics::NewProp_CharacterAttributeSet,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAstralPlayerState_Statics::NewProp_ProgressionAttributeSet,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AAstralPlayerState_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_AAstralPlayerState_Statics::DependentSingletons[])() = {
@@ -850,14 +859,14 @@ AAstralPlayerState::~AAstralPlayerState() {}
 // End Class AAstralPlayerState
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_Player_AstralPlayerState_h_Statics
+struct Z_CompiledInDeferFile_FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_Player_AstralPlayerState_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AAstralPlayerState, AAstralPlayerState::StaticClass, TEXT("AAstralPlayerState"), &Z_Registration_Info_UClass_AAstralPlayerState, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AAstralPlayerState), 43245429U) },
+		{ Z_Construct_UClass_AAstralPlayerState, AAstralPlayerState::StaticClass, TEXT("AAstralPlayerState"), &Z_Registration_Info_UClass_AAstralPlayerState, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AAstralPlayerState), 3063091939U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_Player_AstralPlayerState_h_2177737617(TEXT("/Script/AstralPlague"),
-	Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_Player_AstralPlayerState_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_Player_AstralPlayerState_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_Player_AstralPlayerState_h_78222053(TEXT("/Script/AstralPlague"),
+	Z_CompiledInDeferFile_FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_Player_AstralPlayerState_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_Player_AstralPlayerState_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration

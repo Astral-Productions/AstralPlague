@@ -5,8 +5,9 @@
 
 #include "AstralPlague/AbilitySystem/AstralAbilitySet.h"
 #include "AstralPlague/AbilitySystem/AstralAbilitySystemComponent.h"
-#include "AstralPlague/AbilitySystem/Attributes/DefaultAttributeSet.h"
-
+#include "..\AbilitySystem\Attributes\AstralAttributeSet.h"
+#include "AstralPlague/AbilitySystem/Attributes/UProgressionAttributeSet.h"
+#include "AstralPlague/UI/AstralHUDWidget.h"
 
 
 AAstralPlayerState::AAstralPlayerState(const FObjectInitializer& ObjectInitializer)
@@ -19,8 +20,9 @@ AAstralPlayerState::AAstralPlayerState(const FObjectInitializer& ObjectInitializ
 	AbilitySystemComponent->SetIsReplicated(true);
 	AbilitySystemComponent->SetReplicationMode(EGameplayEffectReplicationMode::Full); //Unless we enable multiplayer full replication is the best bet
 
-	AttributeSetBase = CreateDefaultSubobject<UDefaultAttributeSet>(TEXT("StatsSet"));
-
+	CharacterAttributeSet = CreateDefaultSubobject<UCharacterAttributeSet>(TEXT("CharacterAttributeSet"));
+	ProgressionAttributeSet = CreateDefaultSubobject<UProgressionAttributeSet>(TEXT("CharacterAttributeSet"));
+	
 	// Set PlayerState's NetUpdateFrequency to the same as the Character.
 	// Default is very low for PlayerStates and introduces perceived lag in the ability system.
 	// 100 is probably way too high for a shipping game, you can adjust to fit your needs.
@@ -43,9 +45,9 @@ AAstralPlayerController* AAstralPlayerState::GetAstralPlayerController() const
 }
 
 
-UDefaultAttributeSet * AAstralPlayerState::GetAttributeSetBase() const
+UCharacterAttributeSet * AAstralPlayerState::GetAttributeSetBase() const
 {
-	return AttributeSetBase;
+	return CharacterAttributeSet;
 }
 
 bool AAstralPlayerState::IsAlive() const
@@ -58,7 +60,7 @@ void AAstralPlayerState::ShowAbilityConfirmCancelText(bool ShowText)
 	AAstralPlayerController* PC = Cast<AAstralPlayerController>(GetOwner());
 	if (PC)
 	{
-		UGDHUDWidget* HUD = PC->GetHUD();
+		UAstralHUDWidget* HUD = PC->GetHUD();
 		if (HUD)
 		{
 			HUD->ShowAbilityConfirmCancelText(ShowText);
@@ -68,63 +70,63 @@ void AAstralPlayerState::ShowAbilityConfirmCancelText(bool ShowText)
 
 float AAstralPlayerState::GetHealth() const
 {
-	return AttributeSetBase->GetHealth();
+	return CharacterAttributeSet->GetHealth();
 }
 
 float AAstralPlayerState::GetMaxHealth() const
 {
-	return AttributeSetBase->GetMaxHealth();
+	return CharacterAttributeSet->GetMaxHealth();
 }
 
 float AAstralPlayerState::GetHealthRegenRate() const
 {
-	return AttributeSetBase->GetHealthRegenRate();
+	return CharacterAttributeSet->GetHealthRegenRate();
 }
 
 float AAstralPlayerState::GetSoulEnergy() const
 {
-	return AttributeSetBase->GetSoulEnergy();
+	return CharacterAttributeSet->GetSoulEnergy();
 }
 
 float AAstralPlayerState::GetMaxSoulEnergy() const
 {
-	return AttributeSetBase->GetMaxSoulEnergy();
+	return CharacterAttributeSet->GetMaxSoulEnergy();
 }
 
 float AAstralPlayerState::GetStamina() const
 {
-	return AttributeSetBase->GetStamina();
+	return CharacterAttributeSet->GetStamina();
 }
 
 float AAstralPlayerState::GetMaxStamina() const
 {
-	return AttributeSetBase->GetMaxStamina();
+	return CharacterAttributeSet->GetMaxStamina();
 }
 
 float AAstralPlayerState::GetStaminaRegenRate() const
 {
-	return AttributeSetBase->GetStaminaRegenRate();
+	return CharacterAttributeSet->GetStaminaRegenRate();
 }
 
 float AAstralPlayerState::GetMoveSpeed() const
 {
-	return AttributeSetBase->GetMoveSpeed();
+	return CharacterAttributeSet->GetMoveSpeed();
 }
 
 int32 AAstralPlayerState::GetCharacterLevel() const
 {
-	return AttributeSetBase->GetCharacterLevel();
+	return ProgressionAttributeSet->GetCharacterLevel();
 }
 
 int32 AAstralPlayerState::GetCharacterXP() const
 {
-	return AttributeSetBase->GetCharacterXP();
+	return ProgressionAttributeSet->GetCharacterXP();
 }
 
 
 int32 AAstralPlayerState::GetGems() const
 {
-	return AttributeSetBase->GetCharacterGems();
+	return ProgressionAttributeSet->GetCharacterGems();
 }
 
 void AAstralPlayerState::BeginPlay()
@@ -134,17 +136,17 @@ void AAstralPlayerState::BeginPlay()
 	if (AbilitySystemComponent)
 	{
 		// Attribute change callbacks
-		HealthChangedDelegateHandle = AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AttributeSetBase->GetHealthAttribute()).AddUObject(this, &AAstralPlayerState::HealthChanged);
-		MaxHealthChangedDelegateHandle = AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AttributeSetBase->GetMaxHealthAttribute()).AddUObject(this, &AAstralPlayerState::MaxHealthChanged);
-		HealthRegenRateChangedDelegateHandle = AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AttributeSetBase->GetHealthRegenRateAttribute()).AddUObject(this, &AAstralPlayerState::HealthRegenRateChanged);
-		ManaChangedDelegateHandle = AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AttributeSetBase->GetSoulEnergyAttribute()).AddUObject(this, &AAstralPlayerState::ManaChanged);
-		MaxManaChangedDelegateHandle = AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AttributeSetBase-> GetMaxSoulEnergyAttribute()).AddUObject(this, &AAstralPlayerState::MaxManaChanged);		
-		StaminaChangedDelegateHandle = AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AttributeSetBase->GetStaminaAttribute()).AddUObject(this, &AAstralPlayerState::StaminaChanged);
-		MaxStaminaChangedDelegateHandle = AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AttributeSetBase->GetMaxStaminaAttribute()).AddUObject(this, &AAstralPlayerState::MaxStaminaChanged);
-		StaminaRegenRateChangedDelegateHandle = AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AttributeSetBase->GetStaminaRegenRateAttribute()).AddUObject(this, &AAstralPlayerState::StaminaRegenRateChanged);
-		XPChangedDelegateHandle = AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AttributeSetBase->GetCharacterXPAttribute()).AddUObject(this, &AAstralPlayerState::XPChanged);
-		GoldChangedDelegateHandle = AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AttributeSetBase->GetCharacterGemsAttribute()).AddUObject(this, &AAstralPlayerState::GoldChanged);
-		CharacterLevelChangedDelegateHandle = AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AttributeSetBase->GetCharacterLevelAttribute()).AddUObject(this, &AAstralPlayerState::CharacterLevelChanged);
+		HealthChangedDelegateHandle = AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(CharacterAttributeSet->GetHealthAttribute()).AddUObject(this, &AAstralPlayerState::HealthChanged);
+		MaxHealthChangedDelegateHandle = AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(CharacterAttributeSet->GetMaxHealthAttribute()).AddUObject(this, &AAstralPlayerState::MaxHealthChanged);
+		HealthRegenRateChangedDelegateHandle = AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(CharacterAttributeSet->GetHealthRegenRateAttribute()).AddUObject(this, &AAstralPlayerState::HealthRegenRateChanged);
+		ManaChangedDelegateHandle = AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(CharacterAttributeSet->GetSoulEnergyAttribute()).AddUObject(this, &AAstralPlayerState::SoulEnergyChanged);
+		MaxManaChangedDelegateHandle = AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(CharacterAttributeSet-> GetMaxSoulEnergyAttribute()).AddUObject(this, &AAstralPlayerState::MaxSoulEnergyChanged);		
+		StaminaChangedDelegateHandle = AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(CharacterAttributeSet->GetStaminaAttribute()).AddUObject(this, &AAstralPlayerState::StaminaChanged);
+		MaxStaminaChangedDelegateHandle = AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(CharacterAttributeSet->GetMaxStaminaAttribute()).AddUObject(this, &AAstralPlayerState::MaxStaminaChanged);
+		StaminaRegenRateChangedDelegateHandle = AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(CharacterAttributeSet->GetStaminaRegenRateAttribute()).AddUObject(this, &AAstralPlayerState::StaminaRegenRateChanged);
+		XPChangedDelegateHandle = AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(ProgressionAttributeSet->GetCharacterXPAttribute()).AddUObject(this, &AAstralPlayerState::XPChanged);
+		GemsChangedDelegateHandle = AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(ProgressionAttributeSet->GetCharacterGemsAttribute()).AddUObject(this, &AAstralPlayerState::GemsChanged);
+		CharacterLevelChangedDelegateHandle = AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(ProgressionAttributeSet->GetCharacterLevelAttribute()).AddUObject(this, &AAstralPlayerState::CharacterLevelChanged);
 
 		// Tag change callbacks
 		AbilitySystemComponent->RegisterGameplayTagEvent(FGameplayTag::RequestGameplayTag(FName("State.Debuff.Stun")), EGameplayTagEventType::NewOrRemoved).AddUObject(this, &AAstralPlayerState::StunTagChanged);
@@ -198,7 +200,7 @@ void AAstralPlayerState::MaxHealthChanged(const FOnAttributeChangeData & Data)
 	AAstralPlayerController* PC = Cast<AAstralPlayerController>(GetOwner());
 	if (PC)
 	{
-		UGDHUDWidget* HUD = PC->GetHUD();
+		UAstralHUDWidget* HUD = PC->GetHUD();
 		if (HUD)
 		{
 			HUD->SetMaxHealth(MaxHealth);
@@ -214,7 +216,7 @@ void AAstralPlayerState::HealthRegenRateChanged(const FOnAttributeChangeData & D
 	AAstralPlayerController* PC = Cast<AAstralPlayerController>(GetOwner());
 	if (PC)
 	{
-		UGDHUDWidget* HUD = PC->GetHUD();
+		UAstralHUDWidget* HUD = PC->GetHUD();
 		if (HUD)
 		{
 			HUD->SetHealthRegenRate(HealthRegenRate);
@@ -222,7 +224,7 @@ void AAstralPlayerState::HealthRegenRateChanged(const FOnAttributeChangeData & D
 	}
 }
 
-void AAstralPlayerState::ManaChanged(const FOnAttributeChangeData & Data)
+void AAstralPlayerState::SoulEnergyChanged(const FOnAttributeChangeData & Data)
 {
 	float Mana = Data.NewValue;
 
@@ -241,7 +243,7 @@ void AAstralPlayerState::ManaChanged(const FOnAttributeChangeData & Data)
 	// Handled in the UI itself using the AsyncTaskAttributeChanged node as an example how to do it in Blueprint
 }
 
-void AAstralPlayerState::MaxManaChanged(const FOnAttributeChangeData & Data)
+void AAstralPlayerState::MaxSoulEnergyChanged(const FOnAttributeChangeData & Data)
 {
 	float MaxMana = Data.NewValue;
 
@@ -252,7 +254,7 @@ void AAstralPlayerState::MaxManaChanged(const FOnAttributeChangeData & Data)
 		UGDFloatingStatusBarWidget* HeroFloatingStatusBar = Hero->GetFloatingStatusBar();
 		if (HeroFloatingStatusBar)
 		{
-			HeroFloatingStatusBar->SetManaPercentage(GetMana() / MaxMana);
+			HeroFloatingStatusBar->SetManaPercentage(GetSoulEnergy() / MaxMana);
 		}
 	}
 
@@ -260,26 +262,10 @@ void AAstralPlayerState::MaxManaChanged(const FOnAttributeChangeData & Data)
 	AAstralPlayerController* PC = Cast<AAstralPlayerController>(GetOwner());
 	if (PC)
 	{
-		UGDHUDWidget* HUD = PC->GetHUD();
+		UAstralHUDWidget* HUD = PC->GetHUD();
 		if (HUD)
 		{
-			HUD->SetMaxMana(MaxMana);
-		}
-	}
-}
-
-void AAstralPlayerState::ManaRegenRateChanged(const FOnAttributeChangeData & Data)
-{
-	float ManaRegenRate = Data.NewValue;
-
-	// Update the HUD
-	AAstralPlayerController* PC = Cast<AAstralPlayerController>(GetOwner());
-	if (PC)
-	{
-		UGDHUDWidget* HUD = PC->GetHUD();
-		if (HUD)
-		{
-			HUD->SetManaRegenRate(ManaRegenRate);
+			HUD->SetMaxSoulEnergy(MaxMana);
 		}
 	}
 }
@@ -300,7 +286,7 @@ void AAstralPlayerState::MaxStaminaChanged(const FOnAttributeChangeData & Data)
 	AAstralPlayerController* PC = Cast<AAstralPlayerController>(GetOwner());
 	if (PC)
 	{
-		UGDHUDWidget* HUD = PC->GetHUD();
+		UAstralHUDWidget* HUD = PC->GetHUD();
 		if (HUD)
 		{
 			HUD->SetMaxStamina(MaxStamina);
@@ -316,7 +302,7 @@ void AAstralPlayerState::StaminaRegenRateChanged(const FOnAttributeChangeData & 
 	AAstralPlayerController* PC = Cast<AAstralPlayerController>(GetOwner());
 	if (PC)
 	{
-		UGDHUDWidget* HUD = PC->GetHUD();
+		UAstralHUDWidget* HUD = PC->GetHUD();
 		if (HUD)
 		{
 			HUD->SetStaminaRegenRate(StaminaRegenRate);
@@ -332,7 +318,7 @@ void AAstralPlayerState::XPChanged(const FOnAttributeChangeData & Data)
 	AAstralPlayerController* PC = Cast<AAstralPlayerController>(GetOwner());
 	if (PC)
 	{
-		UGDHUDWidget* HUD = PC->GetHUD();
+		UAstralHUDWidget* HUD = PC->GetHUD();
 		if (HUD)
 		{
 			HUD->SetExperience(XP);
@@ -340,7 +326,7 @@ void AAstralPlayerState::XPChanged(const FOnAttributeChangeData & Data)
 	}
 }
 
-void AAstralPlayerState::GoldChanged(const FOnAttributeChangeData & Data)
+void AAstralPlayerState::GemsChanged(const FOnAttributeChangeData & Data)
 {
 	float Gold = Data.NewValue;
 
@@ -348,10 +334,10 @@ void AAstralPlayerState::GoldChanged(const FOnAttributeChangeData & Data)
 	AAstralPlayerController* PC = Cast<AAstralPlayerController>(GetOwner());
 	if (PC)
 	{
-		UGDHUDWidget* HUD = PC->GetHUD();
+		UAstralHUDWidget* HUD = PC->GetHUD();
 		if (HUD)
 		{
-			HUD->SetGold(Gold);
+			HUD->SetGems(Gold);
 		}
 	}
 }
@@ -364,10 +350,10 @@ void AAstralPlayerState::CharacterLevelChanged(const FOnAttributeChangeData & Da
 	AAstralPlayerController* PC = Cast<AAstralPlayerController>(GetOwner());
 	if (PC)
 	{
-		UGDHUDWidget* HUD = PC->GetHUD();
+		UAstralHUDWidget* HUD = PC->GetHUD();
 		if (HUD)
 		{
-			HUD->SetHeroLevel(CharacterLevel);
+			HUD->SetCharacterLevel(CharacterLevel);
 		}
 	}
 }

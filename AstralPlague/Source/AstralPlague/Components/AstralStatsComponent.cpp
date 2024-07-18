@@ -27,21 +27,21 @@ void UAstralStatsComponent::InitializeWithAbilitySystem(UAstralAbilitySystemComp
 
 	if (AbilitySystemComponent)
 	{
-		UE_LOG(LogAstral, Error, TEXT("AstralHealthComponent: Health component for owner [%s] has already been initialized with an ability system."), *GetNameSafe(Owner));
+		UE_LOG(LogAstral, Error, TEXT("AstralStatsComponent: Health component for owner [%s] has already been initialized with an ability system."), *GetNameSafe(Owner));
 		return;
 	}
 
 	AbilitySystemComponent = InASC;
 	if (!AbilitySystemComponent)
 	{
-		UE_LOG(LogAstral, Error, TEXT("AstralHealthComponent: Cannot initialize health component for owner [%s] with NULL ability system."), *GetNameSafe(Owner));
+		UE_LOG(LogAstral, Error, TEXT("AstralStatsComponent: Cannot initialize health component for owner [%s] with NULL ability system."), *GetNameSafe(Owner));
 		return;
 	}
 
-	StatSet = AbilitySystemComponent->GetSet<UAstralStatSet>();
+	StatSet = AbilitySystemComponent->GetSet<UDefaultAttributeSet>();
 	if (!StatSet)
 	{
-		UE_LOG(LogAstral, Error, TEXT("AstralHealthComponent: Cannot initialize health component for owner [%s] with NULL health set on the ability system."), *GetNameSafe(Owner));
+		UE_LOG(LogAstral, Error, TEXT("AstralStatsComponent: Cannot initialize health component for owner [%s] with NULL health set on the ability system."), *GetNameSafe(Owner));
 		return;
 	}
 
@@ -75,7 +75,7 @@ void UAstralStatsComponent::UninitializeFromAbilitySystem()
 }
 
 
-void UAstralHealthComponent::ClearGameplayTags()
+void UAstralStatsComponent::ClearGameplayTags()
 {
 	if (AbilitySystemComponent)
 	{
@@ -84,17 +84,17 @@ void UAstralHealthComponent::ClearGameplayTags()
 	}
 }
 
-float UAstralHealthComponent::GetHealth() const
+float UAstralStatsComponent::GetHealth() const
 {
 	return (StatSet ? StatSet->GetHealth() : 0.0f);
 }
 
-float UAstralHealthComponent::GetMaxHealth() const
+float UAstralStatsComponent::GetMaxHealth() const
 {
 	return (StatSet ? StatSet->GetMaxHealth() : 0.0f);
 }
 
-float UAstralHealthComponent::GetHealthNormalized() const
+float UAstralStatsComponent::GetHealthNormalized() const
 {
 	if (StatSet)
 	{
@@ -107,17 +107,17 @@ float UAstralHealthComponent::GetHealthNormalized() const
 	return 0.0f;
 }
 
-void UAstralHealthComponent::HandleHealthChanged(AActor* DamageInstigator, AActor* DamageCauser, const FGameplayEffectSpec* DamageEffectSpec, float DamageMagnitude, float OldValue, float NewValue)
+void UAstralStatsComponent::HandleHealthChanged(AActor* DamageInstigator, AActor* DamageCauser, const FGameplayEffectSpec* DamageEffectSpec, float DamageMagnitude, float OldValue, float NewValue)
 {
 	OnHealthChanged.Broadcast(this, OldValue, NewValue, DamageInstigator);
 }
 
-void UAstralHealthComponent::HandleMaxHealthChanged(AActor* DamageInstigator, AActor* DamageCauser, const FGameplayEffectSpec* DamageEffectSpec, float DamageMagnitude, float OldValue, float NewValue)
+void UAstralStatsComponent::HandleMaxHealthChanged(AActor* DamageInstigator, AActor* DamageCauser, const FGameplayEffectSpec* DamageEffectSpec, float DamageMagnitude, float OldValue, float NewValue)
 {
 	OnMaxHealthChanged.Broadcast(this, OldValue, NewValue, DamageInstigator);
 }
 
-void UAstralHealthComponent::HandleOutOfHealth(AActor* DamageInstigator, AActor* DamageCauser, const FGameplayEffectSpec* DamageEffectSpec, float DamageMagnitude, float OldValue, float NewValue)
+void UAstralStatsComponent::HandleOutOfHealth(AActor* DamageInstigator, AActor* DamageCauser, const FGameplayEffectSpec* DamageEffectSpec, float DamageMagnitude, float OldValue, float NewValue)
 {
 #if WITH_SERVER_CODE
 	if (AbilitySystemComponent && DamageEffectSpec)
@@ -159,7 +159,7 @@ void UAstralHealthComponent::HandleOutOfHealth(AActor* DamageInstigator, AActor*
 #endif // #if WITH_SERVER_CODE
 }
 
-void UAstralHealthComponent::OnRep_DeathState(EAstralDeathState OldDeathState)
+void UAstralStatsComponent::OnRep_DeathState(EAstralDeathState OldDeathState)
 {
 	const EAstralDeathState NewDeathState = DeathState;
 
@@ -169,7 +169,7 @@ void UAstralHealthComponent::OnRep_DeathState(EAstralDeathState OldDeathState)
 	if (OldDeathState > NewDeathState)
 	{
 		// The server is trying to set us back but we've already predicted past the server state.
-		UE_LOG(LogAstral, Warning, TEXT("AstralHealthComponent: Predicted past server death state [%d] -> [%d] for owner [%s]."), (uint8)OldDeathState, (uint8)NewDeathState, *GetNameSafe(GetOwner()));
+		UE_LOG(LogAstral, Warning, TEXT("AstralStatsComponent: Predicted past server death state [%d] -> [%d] for owner [%s]."), (uint8)OldDeathState, (uint8)NewDeathState, *GetNameSafe(GetOwner()));
 		return;
 	}
 
@@ -186,7 +186,7 @@ void UAstralHealthComponent::OnRep_DeathState(EAstralDeathState OldDeathState)
 		}
 		else
 		{
-			UE_LOG(LogAstral, Error, TEXT("AstralHealthComponent: Invalid death transition [%d] -> [%d] for owner [%s]."), (uint8)OldDeathState, (uint8)NewDeathState, *GetNameSafe(GetOwner()));
+			UE_LOG(LogAstral, Error, TEXT("AstralStatsComponent: Invalid death transition [%d] -> [%d] for owner [%s]."), (uint8)OldDeathState, (uint8)NewDeathState, *GetNameSafe(GetOwner()));
 		}
 	}
 	else if (OldDeathState == EAstralDeathState::DeathStarted)
@@ -197,14 +197,14 @@ void UAstralHealthComponent::OnRep_DeathState(EAstralDeathState OldDeathState)
 		}
 		else
 		{
-			UE_LOG(LogAstral, Error, TEXT("AstralHealthComponent: Invalid death transition [%d] -> [%d] for owner [%s]."), (uint8)OldDeathState, (uint8)NewDeathState, *GetNameSafe(GetOwner()));
+			UE_LOG(LogAstral, Error, TEXT("AstralStatsComponent: Invalid death transition [%d] -> [%d] for owner [%s]."), (uint8)OldDeathState, (uint8)NewDeathState, *GetNameSafe(GetOwner()));
 		}
 	}
 
-	ensureMsgf((DeathState == NewDeathState), TEXT("AstralHealthComponent: Death transition failed [%d] -> [%d] for owner [%s]."), (uint8)OldDeathState, (uint8)NewDeathState, *GetNameSafe(GetOwner()));
+	ensureMsgf((DeathState == NewDeathState), TEXT("AstralStatsComponent: Death transition failed [%d] -> [%d] for owner [%s]."), (uint8)OldDeathState, (uint8)NewDeathState, *GetNameSafe(GetOwner()));
 }
 
-void UAstralHealthComponent::StartDeath()
+void UAstralStatsComponent::StartDeath()
 {
 	if (DeathState != EAstralDeathState::NotDead)
 	{
@@ -226,7 +226,7 @@ void UAstralHealthComponent::StartDeath()
 	Owner->ForceNetUpdate();
 }
 
-void UAstralHealthComponent::FinishDeath()
+void UAstralStatsComponent::FinishDeath()
 {
 	if (DeathState != EAstralDeathState::DeathStarted)
 	{
@@ -248,14 +248,14 @@ void UAstralHealthComponent::FinishDeath()
 	Owner->ForceNetUpdate();
 }
 
-void UAstralHealthComponent::DamageSelfDestruct(bool bFellOutOfWorld)
+void UAstralStatsComponent::DamageSelfDestruct(bool bFellOutOfWorld)
 {
 	if ((DeathState == EAstralDeathState::NotDead) && AbilitySystemComponent)
 	{
 		const TSubclassOf<UGameplayEffect> DamageGE = UAstralAssetManager::GetSubclass(UAstralGameData::Get().DamageGameplayEffect_SetByCaller);
 		if (!DamageGE)
 		{
-			UE_LOG(LogAstral, Error, TEXT("AstralHealthComponent: DamageSelfDestruct failed for owner [%s]. Unable to find gameplay effect [%s]."), *GetNameSafe(GetOwner()), *UAstralGameData::Get().DamageGameplayEffect_SetByCaller.GetAssetName());
+			UE_LOG(LogAstral, Error, TEXT("AstralStatsComponent: DamageSelfDestruct failed for owner [%s]. Unable to find gameplay effect [%s]."), *GetNameSafe(GetOwner()), *UAstralGameData::Get().DamageGameplayEffect_SetByCaller.GetAssetName());
 			return;
 		}
 
@@ -264,7 +264,7 @@ void UAstralHealthComponent::DamageSelfDestruct(bool bFellOutOfWorld)
 
 		if (!Spec)
 		{
-			UE_LOG(LogAstral, Error, TEXT("AstralHealthComponent: DamageSelfDestruct failed for owner [%s]. Unable to make outgoing spec for [%s]."), *GetNameSafe(GetOwner()), *GetNameSafe(DamageGE));
+			UE_LOG(LogAstral, Error, TEXT("AstralStatsComponent: DamageSelfDestruct failed for owner [%s]. Unable to make outgoing spec for [%s]."), *GetNameSafe(GetOwner()), *GetNameSafe(DamageGE));
 			return;
 		}
 

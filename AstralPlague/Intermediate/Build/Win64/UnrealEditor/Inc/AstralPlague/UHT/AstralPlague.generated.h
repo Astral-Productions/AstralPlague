@@ -16,7 +16,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define ASTRALPLAGUE_AstralPlague_generated_h
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_AstralPlague_Source_AstralPlague_AstralPlague_h
+#define CURRENT_FILE_ID FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_AstralPlague_h
 
 
 #define FOREACH_ENUM_EASTRALHITREACTDIRECTION(op) \

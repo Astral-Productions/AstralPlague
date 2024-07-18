@@ -1,11 +1,11 @@
-"D:\UnrealDev\AstralPlague\AstralPlague\Plugins\CommonGame\Intermediate\Build\Win64\UnrealEditor\Inc\CommonGame\UHT\CommonGame.init.gen.cpp"
-/FI"D:\UnrealDev\AstralPlague\AstralPlague\Intermediate\Build\Win64\x64\AstralPlagueEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h"
-/FI"D:\UnrealDev\AstralPlague\AstralPlague\Plugins\CommonGame\Intermediate\Build\Win64\x64\UnrealEditor\Development\CommonGame\Definitions.CommonGame.h"
-/Yu"D:\UnrealDev\AstralPlague\AstralPlague\Intermediate\Build\Win64\x64\AstralPlagueEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h"
-/Fp"D:\UnrealDev\AstralPlague\AstralPlague\Intermediate\Build\Win64\x64\AstralPlagueEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h.pch"
-/Fo"D:\UnrealDev\AstralPlague\AstralPlague\Plugins\CommonGame\Intermediate\Build\Win64\x64\UnrealEditor\Development\CommonGame\CommonGame.init.gen.cpp.obj"
-/sourceDependencies "D:\UnrealDev\AstralPlague\AstralPlague\Plugins\CommonGame\Intermediate\Build\Win64\x64\UnrealEditor\Development\CommonGame\CommonGame.init.gen.cpp.dep.json"
-@"D:\UnrealDev\AstralPlague\AstralPlague\Plugins\CommonGame\Intermediate\Build\Win64\x64\UnrealEditor\Development\CommonGame\CommonGame.Shared.rsp"
+"C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Plugins\CommonGame\Intermediate\Build\Win64\UnrealEditor\Inc\CommonGame\UHT\CommonGame.init.gen.cpp"
+/FI"C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Intermediate\Build\Win64\x64\AstralPlagueEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h"
+/FI"C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Plugins\CommonGame\Intermediate\Build\Win64\x64\UnrealEditor\Development\CommonGame\Definitions.CommonGame.h"
+/Yu"C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Intermediate\Build\Win64\x64\AstralPlagueEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h"
+/Fp"C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Intermediate\Build\Win64\x64\AstralPlagueEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h.pch"
+/Fo"C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Plugins\CommonGame\Intermediate\Build\Win64\x64\UnrealEditor\Development\CommonGame\CommonGame.init.gen.cpp.obj"
+/sourceDependencies "C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Plugins\CommonGame\Intermediate\Build\Win64\x64\UnrealEditor\Development\CommonGame\CommonGame.init.gen.cpp.dep.json"
+@"C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Plugins\CommonGame\Intermediate\Build\Win64\x64\UnrealEditor\Development\CommonGame\CommonGame.Shared.rsp"
 /Zc:inline
 /nologo
 /Oi

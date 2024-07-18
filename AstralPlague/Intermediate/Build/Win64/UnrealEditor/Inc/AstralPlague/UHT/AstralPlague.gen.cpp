@@ -192,16 +192,16 @@ UEnum* Z_Construct_UEnum_AstralPlague_EAstralAbilityInputID()
 // End Enum EAstralAbilityInputID
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_AstralPlague_h_Statics
+struct Z_CompiledInDeferFile_FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_AstralPlague_h_Statics
 {
 	static constexpr FEnumRegisterCompiledInInfo EnumInfo[] = {
 		{ EAstralHitReactDirection_StaticEnum, TEXT("EAstralHitReactDirection"), &Z_Registration_Info_UEnum_EAstralHitReactDirection, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 267192895U) },
 		{ EAstralAbilityInputID_StaticEnum, TEXT("EAstralAbilityInputID"), &Z_Registration_Info_UEnum_EAstralAbilityInputID, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 1629908191U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_AstralPlague_h_999670941(TEXT("/Script/AstralPlague"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_AstralPlague_h_999670941(TEXT("/Script/AstralPlague"),
 	nullptr, 0,
 	nullptr, 0,
-	Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_AstralPlague_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_AstralPlague_h_Statics::EnumInfo));
+	Z_CompiledInDeferFile_FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_AstralPlague_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_AstralPlague_h_Statics::EnumInfo));
 // End Registration
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

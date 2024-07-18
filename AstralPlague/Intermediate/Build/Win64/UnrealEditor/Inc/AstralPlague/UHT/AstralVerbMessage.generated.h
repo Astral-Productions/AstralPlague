@@ -14,7 +14,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define ASTRALPLAGUE_AstralVerbMessage_generated_h
 
-#define FID_AstralPlague_Source_AstralPlague_Messages_AstralVerbMessage_h_14_GENERATED_BODY \
+#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_Messages_AstralVerbMessage_h_14_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FLyraVerbMessage_Statics; \
 	ASTRALPLAGUE_API static class UScriptStruct* StaticStruct();
 
@@ -22,7 +22,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 template<> ASTRALPLAGUE_API UScriptStruct* StaticStruct<struct FLyraVerbMessage>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_AstralPlague_Source_AstralPlague_Messages_AstralVerbMessage_h
+#define CURRENT_FILE_ID FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_Messages_AstralVerbMessage_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

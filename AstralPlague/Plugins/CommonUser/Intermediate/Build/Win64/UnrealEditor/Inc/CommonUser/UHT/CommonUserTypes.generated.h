@@ -14,7 +14,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define COMMONUSER_CommonUserTypes_generated_h
 
-#define FID_AstralPlague_Plugins_CommonUser_Source_CommonUser_Public_CommonUserTypes_h_199_GENERATED_BODY \
+#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Plugins_CommonUser_Source_CommonUser_Public_CommonUserTypes_h_199_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FOnlineResultInformation_Statics; \
 	COMMONUSER_API static class UScriptStruct* StaticStruct();
 
@@ -22,7 +22,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 template<> COMMONUSER_API UScriptStruct* StaticStruct<struct FOnlineResultInformation>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_AstralPlague_Plugins_CommonUser_Source_CommonUser_Public_CommonUserTypes_h
+#define CURRENT_FILE_ID FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Plugins_CommonUser_Source_CommonUser_Public_CommonUserTypes_h
 
 
 #define FOREACH_ENUM_ECOMMONUSERONLINECONTEXT(op) \

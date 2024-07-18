@@ -3,24 +3,18 @@
 #include "AstralPlayerController.h"
 #include "CommonInputTypeEnum.h"
 #include "Components/PrimitiveComponent.h"
-#include "AstralPlague/AstralLogChannels.h"
-/*#include "AstralPlague/AstralCheatManager.h"*/
 #include "AstralPlayerState.h"
 #include "AstralPlague/Camera/AstralPlayerCameraManager.h"
 #include "AstralPlague/AbilitySystem/AstralAbilitySystemComponent.h"
-#include "EngineUtils.h"
 #include "AstralPlague/AstralGameplayTags.h"
 #include "GameFramework/Pawn.h"
 #include "Net/UnrealNetwork.h"
 #include "Engine/GameInstance.h"
 #include "AbilitySystemGlobals.h"
 #include "CommonInputSubsystem.h"
-#include "AstralLocalPlayer.h"
-#include "AstralPlague/GameModes/AstralGameState.h"
-#include "AstralPlague/Settings/AstralSettingsLocal.h"
-#include "ReplaySubsystem.h"
-#include "GameMapsSettings.h"
-#include "AstralPlague/Camera/AstralPlayerCameraManager.h"
+#include "AbilitySystemComponent.h"
+#include "AstralPlague/UI/AstralDamageTextWidgetComponent.h"
+#include "AstralPlague/UI/AstralHUDWidget.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(AstralPlayerController)
 
@@ -149,18 +143,15 @@ void AAstralPlayerController::CleanupPlayerState()
 void AAstralPlayerController::OnRep_PlayerState()
 {
 	Super::OnRep_PlayerState();
-	
+
+	// For edge cases where the PlayerState is repped before the Hero is possessed.
+	CreateHUD();
 }
 
 void AAstralPlayerController::SetPlayer(UPlayer* InPlayer)
 {
-	Super::SetPlayer(InPlayer);
-
-	
+	Super::SetPlayer(InPlayer);	
 }
-
-
-
 
 void AAstralPlayerController::PreProcessInput(const float DeltaTime, const bool bGamePaused)
 {
@@ -181,9 +172,14 @@ void AAstralPlayerController::OnPossess(APawn* InPawn)
 {
 	Super::OnPossess(InPawn);
 
-
-
 	SetIsAutoRunning(false);
+	
+	AAstralPlayerState* PS = GetPlayerState<AAstralPlayerState>();
+	if (PS)
+	{
+		// Init ASC with PS (Owner) and our new Pawn (AvatarActor)
+		PS->GetAbilitySystemComponent()->InitAbilityActorInfo(PS, InPawn);
+	}
 }
 
 void AAstralPlayerController::SetIsAutoRunning(const bool bEnabled)
@@ -216,8 +212,7 @@ void AAstralPlayerController::OnStartAutoRun()
 {
 	if (UAstralAbilitySystemComponent* AstralASC = GetAstralAbilitySystemComponent())
 	{
-		AstralASC->SetLooseGameplayTagCount(AstralGameplayTags::Status_AutoRunning, 1);
-		
+		AstralASC->SetLooseGameplayTagCount(AstralGameplayTags::Status_AutoRunning, 1);		
 	}	
 }
 
@@ -318,3 +313,86 @@ void AAstralPlayerController::OnUnPossess()
 
 	Super::OnUnPossess();
 }
+
+void AAstralPlayerController::CreateHUD()
+{
+	// Only create once
+	if (UIHUDWidget)
+	{
+		return;
+	}
+
+	if (!UIHUDWidgetClass)
+	{
+		UE_LOG(LogTemp, Error, TEXT("%s() Missing UIHUDWidgetClass. Please fill in on the Blueprint of the PlayerController."), *FString(__FUNCTION__));
+		return;
+	}
+
+	// Only create a HUD for local player
+	if (!IsLocalPlayerController())
+	{
+		return;
+	}
+
+	// Need a valid PlayerState to get attributes from
+	AAstralPlayerState* PS = GetPlayerState<AAstralPlayerState>();
+	if (!PS)
+	{
+		return;
+	}
+
+	UIHUDWidget = CreateWidget<UAstralHUDWidget>(this, UIHUDWidgetClass);
+	UIHUDWidget->AddToViewport();
+
+	// Set attributes
+	UIHUDWidget->SetCurrentHealth(PS->GetHealth());
+	UIHUDWidget->SetMaxHealth(PS->GetMaxHealth());
+	UIHUDWidget->SetHealthPercentage(PS->GetHealth() / FMath::Max<float>(PS->GetMaxHealth(), 1.f));
+	UIHUDWidget->SetSoulEnergy(PS->GetSoulEnergy());
+	UIHUDWidget->SetMaxSoulEnergy(PS->GetMaxSoulEnergy());
+	UIHUDWidget->SetSoulEnergyPercentage(PS->GetSoulEnergy() / FMath::Max<float>(PS->GetMaxMana(), 1.f));
+	UIHUDWidget->SetHealthRegenRate(PS->GetHealthRegenRate());
+	UIHUDWidget->SetCurrentStamina(PS->GetStamina());
+	UIHUDWidget->SetMaxStamina(PS->GetMaxStamina());
+	UIHUDWidget->SetStaminaPercentage(PS->GetStamina() / FMath::Max<float>(PS->GetMaxStamina(), 1.f));
+	UIHUDWidget->SetStaminaRegenRate(PS->GetStaminaRegenRate());
+	UIHUDWidget->SetExperience(PS->GetCharacterXP());
+	UIHUDWidget->SetGems(PS->GetGems());
+	UIHUDWidget->SetCharacterLevel(PS->GetCharacterLevel());
+}
+
+UAstralHUDWidget* AAstralPlayerController::GetHUD()
+{
+	return UIHUDWidget;
+}
+
+void AAstralPlayerController::ShowDamageNumber_Implementation(float DamageAmount, AAstralPlagueCharacter* TargetCharacter)
+{
+	if (TargetCharacter && DamageNumberClass)
+	{
+		UAstralDamageTextWidgetComponent* DamageText = NewObject<UAstralDamageTextWidgetComponent>(TargetCharacter, DamageNumberClass);
+		DamageText->RegisterComponent();
+		DamageText->AttachToComponent(TargetCharacter->GetRootComponent(), FAttachmentTransformRules::KeepRelativeTransform);
+		DamageText->SetDamageText(DamageAmount);
+	}
+}
+
+bool AAstralPlayerController::ShowDamageNumber_Validate(float DamageAmount, AAstralPlagueCharacter* TargetCharacter)
+{
+	return true;
+}
+
+void AAstralPlayerController::SetRespawnCountdown_Implementation(float RespawnTimeRemaining)
+{
+	if (UIHUDWidget)
+	{
+		UIHUDWidget->SetRespawnCountdown(RespawnTimeRemaining);
+	}
+}
+
+bool AAstralPlayerController::SetRespawnCountdown_Validate(float RespawnTimeRemaining)
+{
+	return true;
+}
+
+

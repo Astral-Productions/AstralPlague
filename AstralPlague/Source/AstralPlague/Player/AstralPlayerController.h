@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "CommonPlayerController.h"
 #include "ModularPlayerController.h"
+#include "AstralPlague/Character/AstralPlagueCharacter.h"
 #include "AstralPlayerController.generated.h"
 
 /**
@@ -57,6 +58,33 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Astral|Character")
 	bool GetIsAutoRunning() const;
 
+	//Gas implementation 
+	void CreateHUD();
+
+	UPROPERTY(EditAnywhere, Category = "GASDocumentation|UI")
+	TSubclassOf<class UAstralDamageTextWidgetComponent> DamageNumberClass;
+
+	class UAstralHUDWidget* GetHUD();
+
+	UFUNCTION(Client, Reliable, WithValidation)
+	void ShowDamageNumber(float DamageAmount, AAstralPlagueCharacter* TargetCharacter);
+	void ShowDamageNumber_Implementation(float DamageAmount, AAstralPlagueCharacter* TargetCharacter);
+	bool ShowDamageNumber_Validate(float DamageAmount, AAstralPlagueCharacter* TargetCharacter);
+
+	// Simple way to RPC to the client the countdown until they respawn from the GameMode. Will be latency amount of out sync with the Server.
+	UFUNCTION(Client, Reliable, WithValidation)
+	void SetRespawnCountdown(float RespawnTimeRemaining);
+	void SetRespawnCountdown_Implementation(float RespawnTimeRemaining);
+	bool SetRespawnCountdown_Validate(float RespawnTimeRemaining);
+	
+
+protected:
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "GASDocumentation|UI")
+	TSubclassOf<class UAstralHUDWidget> UIHUDWidgetClass;
+
+	UPROPERTY(BlueprintReadWrite, Category = "GASDocumentation|UI")
+	class UAstralHUDWidget* UIHUDWidget;
+		
 private:
 
 	UPROPERTY()
@@ -65,19 +93,11 @@ private:
 protected:
 	// Called when the player state is set or cleared
 	virtual void OnPlayerStateChanged();
-
-
-protected:
-
-	//~APlayerController interface
-
-	//~End of APlayerController interface
-
 	
 	void OnStartAutoRun();
 	void OnEndAutoRun();
 
-
 	bool bHideViewTargetPawnNextFrame = false;
-	
+
+
 };

@@ -1,11 +1,11 @@
-"D:\UnrealDev\AstralPlague\AstralPlague\Intermediate\Build\Win64\UnrealEditor\Inc\AstralPlague\UHT\AstralVerbMessage.gen.cpp"
-/FI"D:\UnrealDev\AstralPlague\AstralPlague\Intermediate\Build\Win64\x64\AstralPlagueEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h"
-/FI"D:\UnrealDev\AstralPlague\AstralPlague\Intermediate\Build\Win64\x64\UnrealEditor\Development\AstralPlague\Definitions.AstralPlague.h"
-/Yu"D:\UnrealDev\AstralPlague\AstralPlague\Intermediate\Build\Win64\x64\AstralPlagueEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h"
-/Fp"D:\UnrealDev\AstralPlague\AstralPlague\Intermediate\Build\Win64\x64\AstralPlagueEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h.pch"
-/Fo"D:\UnrealDev\AstralPlague\AstralPlague\Intermediate\Build\Win64\x64\UnrealEditor\Development\AstralPlague\AstralVerbMessage.gen.cpp.obj"
-/sourceDependencies "D:\UnrealDev\AstralPlague\AstralPlague\Intermediate\Build\Win64\x64\UnrealEditor\Development\AstralPlague\AstralVerbMessage.gen.cpp.dep.json"
-@"D:\UnrealDev\AstralPlague\AstralPlague\Intermediate\Build\Win64\x64\UnrealEditor\Development\AstralPlague\AstralPlague.Shared.rsp"
+"C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Intermediate\Build\Win64\UnrealEditor\Inc\AstralPlague\UHT\AstralVerbMessage.gen.cpp"
+/FI"C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Intermediate\Build\Win64\x64\AstralPlagueEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h"
+/FI"C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Intermediate\Build\Win64\x64\UnrealEditor\Development\AstralPlague\Definitions.AstralPlague.h"
+/Yu"C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Intermediate\Build\Win64\x64\AstralPlagueEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h"
+/Fp"C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Intermediate\Build\Win64\x64\AstralPlagueEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h.pch"
+/Fo"C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Intermediate\Build\Win64\x64\UnrealEditor\Development\AstralPlague\AstralVerbMessage.gen.cpp.obj"
+/sourceDependencies "C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Intermediate\Build\Win64\x64\UnrealEditor\Development\AstralPlague\AstralVerbMessage.gen.cpp.dep.json"
+@"C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Intermediate\Build\Win64\x64\UnrealEditor\Development\AstralPlague\AstralPlague.Shared.rsp"
 /Zc:inline
 /nologo
 /Oi

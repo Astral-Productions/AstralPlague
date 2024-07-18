@@ -7,7 +7,6 @@
 #include "Abilities/GameplayAbility.h"
 #include "AstralPlague/AstralPlague.h"
 #include "AstralPlague/Camera/AstralCameraMode.h"
-#include "AstralPlague/Components/AstralCharacterGameplayComponent.h"
 #include "AstralGameplayAbility.generated.h"
 
 class AActor;

@@ -1,61 +1,43 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+﻿// Copyright Astral Productions 2024
 
 #pragma once
 
 #include "CoreMinimal.h"
-#include "AbilitySystemComponent.h"
-#include "AttributeSet.h"
-#include "DefaultAttributeSet.generated.h"
+#include "AstralAttributeSet.h"
+#include "CharacterAttributeSet.generated.h"
 
-class UAstralAbilitySystemComponent;
-
-/**
- * This macro defines a set of helper functions for accessing and initializing attributes.
- *
- * The following example of the macro:
- *		ATTRIBUTE_ACCESSORS(ULyraHealthSet, Health)
- * will create the following functions:
- *		static FGameplayAttribute GetHealthAttribute();
- *		float GetHealth() const;
- *		void SetHealth(float NewVal);
- *		void InitHealth(float NewVal);
- */
-#define ATTRIBUTE_ACCESSORS(ClassName, PropertyName) \
-	GAMEPLAYATTRIBUTE_PROPERTY_GETTER(ClassName, PropertyName) \
-	GAMEPLAYATTRIBUTE_VALUE_GETTER(PropertyName) \
-	GAMEPLAYATTRIBUTE_VALUE_SETTER(PropertyName) \
-	GAMEPLAYATTRIBUTE_VALUE_INITTER(PropertyName)
 /**
  * 
  */
 UCLASS()
-class ASTRALPLAGUE_API UDefaultAttributeSet : public UAttributeSet
+class ASTRALPLAGUE_API UCharacterAttributeSet : public UAstralAttributeSet
 {
 	GENERATED_BODY()
 
 public:
-	UDefaultAttributeSet();
-
-	UAstralAbilitySystemComponent* GetAstralAbilitySystemComponent() const;
-
-	ATTRIBUTE_ACCESSORS(UDefaultAttributeSet, Health);
-	ATTRIBUTE_ACCESSORS(UDefaultAttributeSet, MaxHealth);
-	ATTRIBUTE_ACCESSORS(UDefaultAttributeSet, Healing);
-	ATTRIBUTE_ACCESSORS(UDefaultAttributeSet, HealthRegenRate);
-	ATTRIBUTE_ACCESSORS(UDefaultAttributeSet, SoulEnergy);
-	ATTRIBUTE_ACCESSORS(UDefaultAttributeSet, MaxSoulEnergy);
-	ATTRIBUTE_ACCESSORS(UDefaultAttributeSet, Stamina);
-	ATTRIBUTE_ACCESSORS(UDefaultAttributeSet, MaxStamina);
-	ATTRIBUTE_ACCESSORS(UDefaultAttributeSet, StaminaRegenRate);
-	ATTRIBUTE_ACCESSORS(UDefaultAttributeSet, CharacterLevel);
-	ATTRIBUTE_ACCESSORS(UDefaultAttributeSet, CharacterXP);
-	ATTRIBUTE_ACCESSORS(UDefaultAttributeSet, CharacterGems);
-	ATTRIBUTE_ACCESSORS(UDefaultAttributeSet, Damage);
-	ATTRIBUTE_ACCESSORS(UDefaultAttributeSet, MoveSpeed);
 	
+	ATTRIBUTE_ACCESSORS(UCharacterAttributeSet, Health);
+	ATTRIBUTE_ACCESSORS(UCharacterAttributeSet, MaxHealth);
+	ATTRIBUTE_ACCESSORS(UCharacterAttributeSet, Healing);
+	ATTRIBUTE_ACCESSORS(UCharacterAttributeSet, HealthRegenRate);
+	ATTRIBUTE_ACCESSORS(UCharacterAttributeSet, SoulEnergy);
+	ATTRIBUTE_ACCESSORS(UCharacterAttributeSet, MaxSoulEnergy);
+	ATTRIBUTE_ACCESSORS(UCharacterAttributeSet, Stamina);
+	ATTRIBUTE_ACCESSORS(UCharacterAttributeSet, MaxStamina);
+	ATTRIBUTE_ACCESSORS(UCharacterAttributeSet, StaminaRegenRate);
+	ATTRIBUTE_ACCESSORS(UCharacterAttributeSet, Damage);
+	ATTRIBUTE_ACCESSORS(UCharacterAttributeSet, MoveSpeed);
 
+	// Delegate when health changes due to damage/healing, some information may be missing on the client
+	mutable FAstralAttributeEvent OnHealthChanged;
 
-private:
+	// Delegate when max health changes
+	mutable FAstralAttributeEvent OnMaxHealthChanged;
+
+	// Delegate to broadcast when the health attribute reaches zero
+	mutable FAstralAttributeEvent OnOutOfHealth;
+
+	
 	// The current health attribute.  The health will be capped by the max health attribute.  Health is hidden from modifiers so only executions can modify it.
 	UPROPERTY(BlueprintReadOnly, Category = "Astral|Health", Meta = (HideFromModifiers, AllowPrivateAccess = true))
 	FGameplayAttributeData Health;
@@ -87,24 +69,11 @@ private:
 	//How quickly Stamina regenerates. 
 	UPROPERTY(BlueprintReadOnly, Category = "Astral|Health", Meta = (AllowPrivateAccess = true))
 	FGameplayAttributeData StaminaRegenRate;
-
-	//The player's front facing level used for ability upgrades.
-	UPROPERTY(BlueprintReadOnly, Category = "Astral|Health", Meta = (AllowPrivateAccess = true))
-	FGameplayAttributeData CharacterLevel;
-
-	//The player's progress towards the next level (i.e. 100/250 xp)
-	UPROPERTY(BlueprintReadOnly, Category = "Astral|Health", Meta = (AllowPrivateAccess = true))
-	FGameplayAttributeData CharacterXP;
-
-	//Gems are the game's currency acting as a way to purchase items or other things from shopkeepers.
-	UPROPERTY(BlueprintReadOnly, Category = "Astral|Health", Meta = (AllowPrivateAccess = true))
-	FGameplayAttributeData CharacterGems;
-
+	
 	//Gems are the game's currency acting as a way to purchase items or other things from shopkeepers.
 	UPROPERTY(BlueprintReadOnly, Category = "Astral|Health", Meta = (AllowPrivateAccess = true))
 	FGameplayAttributeData MoveSpeed;
 
-	
 
 	// Used to track when the health reaches 0.
 	bool bOutOfHealth;

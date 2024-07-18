@@ -3,7 +3,8 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "AstralPlague/AbilitySystem/Attributes/DefaultAttributeSet.h"
+#include "AstralPlague/AbilitySystem/Attributes/CharacterAttributeSet.h"
+#include "AstralPlague/AbilitySystem/Attributes/AstralAttributeSet.h"
 #include "Components/ActorComponent.h"
 #include "AstralStatsComponent.generated.h"
 
@@ -77,13 +78,13 @@ public:
 	virtual void DamageSelfDestruct(bool bFellOutOfWorld = false);
 	
 public:
-	// Delegate fired when the health value has changed. This is called on the client but the instigator may not be valid
+	/*// Delegate fired when the health value has changed. This is called on the client but the instigator may not be valid
 	UPROPERTY(BlueprintAssignable)
 	FAstralHealth_AttributeChanged OnHealthChanged;
 
 	// Delegate fired when the max health value has changed. This is called on the client but the instigator may not be valid
 	UPROPERTY(BlueprintAssignable)
-	FAstralHealth_AttributeChanged OnMaxHealthChanged;
+	FAstralHealth_AttributeChanged OnMaxHealthChanged;*/
 
 	// Delegate fired when the death sequence has started.
 	UPROPERTY(BlueprintAssignable)
@@ -116,7 +117,7 @@ protected:
 
 	// Health set used by this component.
 	UPROPERTY()
-	TObjectPtr<const UDefaultAttributeSet> StatSet;
+	TObjectPtr<const UCharacterAttributeSet> StatSet;
 
 	// Replicated state used to handle dying.
 	UPROPERTY(ReplicatedUsing = OnRep_DeathState)

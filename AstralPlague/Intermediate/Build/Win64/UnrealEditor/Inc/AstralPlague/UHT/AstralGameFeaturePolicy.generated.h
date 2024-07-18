@@ -14,7 +14,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define ASTRALPLAGUE_AstralGameFeaturePolicy_generated_h
 
-#define FID_AstralPlague_Source_AstralPlague_GameFeatures_AstralGameFeaturePolicy_h_21_INCLASS_NO_PURE_DECLS \
+#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_GameFeatures_AstralGameFeaturePolicy_h_21_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUAstralGameFeaturePolicy(); \
 	friend struct Z_Construct_UClass_UAstralGameFeaturePolicy_Statics; \
@@ -25,7 +25,7 @@ public: \
 
 
 
-#define FID_AstralPlague_Source_AstralPlague_GameFeatures_AstralGameFeaturePolicy_h_21_ENHANCED_CONSTRUCTORS \
+#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_GameFeatures_AstralGameFeaturePolicy_h_21_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	UAstralGameFeaturePolicy(UAstralGameFeaturePolicy&&); \
@@ -37,19 +37,19 @@ public: \
 	ASTRALPLAGUE_API virtual ~UAstralGameFeaturePolicy();
 
 
-#define FID_AstralPlague_Source_AstralPlague_GameFeatures_AstralGameFeaturePolicy_h_18_PROLOG
-#define FID_AstralPlague_Source_AstralPlague_GameFeatures_AstralGameFeaturePolicy_h_21_GENERATED_BODY \
+#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_GameFeatures_AstralGameFeaturePolicy_h_18_PROLOG
+#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_GameFeatures_AstralGameFeaturePolicy_h_21_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_AstralPlague_Source_AstralPlague_GameFeatures_AstralGameFeaturePolicy_h_21_INCLASS_NO_PURE_DECLS \
-	FID_AstralPlague_Source_AstralPlague_GameFeatures_AstralGameFeaturePolicy_h_21_ENHANCED_CONSTRUCTORS \
+	FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_GameFeatures_AstralGameFeaturePolicy_h_21_INCLASS_NO_PURE_DECLS \
+	FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_GameFeatures_AstralGameFeaturePolicy_h_21_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
 template<> ASTRALPLAGUE_API UClass* StaticClass<class UAstralGameFeaturePolicy>();
 
-#define FID_AstralPlague_Source_AstralPlague_GameFeatures_AstralGameFeaturePolicy_h_47_INCLASS_NO_PURE_DECLS \
+#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_GameFeatures_AstralGameFeaturePolicy_h_47_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUAstralGameFeature_AddGameplayCuePaths(); \
 	friend struct Z_Construct_UClass_UAstralGameFeature_AddGameplayCuePaths_Statics; \
@@ -59,7 +59,7 @@ public: \
 	virtual UObject* _getUObject() const override { return const_cast<UAstralGameFeature_AddGameplayCuePaths*>(this); }
 
 
-#define FID_AstralPlague_Source_AstralPlague_GameFeatures_AstralGameFeaturePolicy_h_47_ENHANCED_CONSTRUCTORS \
+#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_GameFeatures_AstralGameFeaturePolicy_h_47_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UAstralGameFeature_AddGameplayCuePaths(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 private: \
@@ -73,12 +73,12 @@ public: \
 	NO_API virtual ~UAstralGameFeature_AddGameplayCuePaths();
 
 
-#define FID_AstralPlague_Source_AstralPlague_GameFeatures_AstralGameFeaturePolicy_h_44_PROLOG
-#define FID_AstralPlague_Source_AstralPlague_GameFeatures_AstralGameFeaturePolicy_h_47_GENERATED_BODY \
+#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_GameFeatures_AstralGameFeaturePolicy_h_44_PROLOG
+#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_GameFeatures_AstralGameFeaturePolicy_h_47_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_AstralPlague_Source_AstralPlague_GameFeatures_AstralGameFeaturePolicy_h_47_INCLASS_NO_PURE_DECLS \
-	FID_AstralPlague_Source_AstralPlague_GameFeatures_AstralGameFeaturePolicy_h_47_ENHANCED_CONSTRUCTORS \
+	FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_GameFeatures_AstralGameFeaturePolicy_h_47_INCLASS_NO_PURE_DECLS \
+	FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_GameFeatures_AstralGameFeaturePolicy_h_47_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -86,7 +86,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> ASTRALPLAGUE_API UClass* StaticClass<class UAstralGameFeature_AddGameplayCuePaths>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_AstralPlague_Source_AstralPlague_GameFeatures_AstralGameFeaturePolicy_h
+#define CURRENT_FILE_ID FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_GameFeatures_AstralGameFeaturePolicy_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
