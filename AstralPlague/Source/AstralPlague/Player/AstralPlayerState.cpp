@@ -7,10 +7,14 @@
 #include "AstralPlague/AbilitySystem/AstralAbilitySystemComponent.h"
 #include "..\AbilitySystem\Attributes\AstralAttributeSet.h"
 #include "AstralPlague/AbilitySystem/Attributes/UProgressionAttributeSet.h"
+#include "AstralPlague/Character/AstralPawnData.h"
 #include "AstralPlague/Character/Playable/AstralMainCharacter.h"
 #include "AstralPlague/UI/AstralFloatingStatusBarWidget.h"
 #include "AstralPlague/UI/AstralHUDWidget.h"
+#include "Components/GameFrameworkComponentManager.h"
 
+
+const FName AAstralPlayerState::NAME_AstralAbilityReady("AstralAbilitiesReady");
 
 AAstralPlayerState::AAstralPlayerState(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
@@ -129,6 +133,34 @@ int32 AAstralPlayerState::GetCharacterXP() const
 int32 AAstralPlayerState::GetGems() const
 {
 	return ProgressionAttributeSet->GetCharacterGems();
+}
+
+void AAstralPlayerState::SetPawnData(const UAstralPawnData* InPawnData)
+{
+	check(PawnData)
+
+	if (GetLocalRole() != ROLE_Authority)
+	{
+		return;
+	}
+
+	if(PawnData)
+	{
+		//@todo add additional debug information
+		return;
+	}
+
+	for(const UAstralAbilitySet* AbilitySet : PawnData->AbilitySets)
+	{
+		if(AbilitySet)
+		{
+			AbilitySet->GiveToAbilitySystem(AbilitySystemComponent, nullptr);
+		}
+	}
+
+	UGameFrameworkComponentManager::SendGameFrameworkComponentExtensionEvent(this, NAME_AstralAbilityReady);
+
+	ForceNetUpdate(); // Not strictly necessary but employed by all multiplayer versions of this code.
 }
 
 void AAstralPlayerState::BeginPlay()

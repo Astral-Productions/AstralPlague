@@ -350,7 +350,6 @@ void AAstralPlayerController::CreateHUD()
 	UIHUDWidget->SetHealthPercentage(PS->GetHealth() / FMath::Max<float>(PS->GetMaxHealth(), 1.f));
 	UIHUDWidget->SetSoulEnergy(PS->GetSoulEnergy());
 	UIHUDWidget->SetMaxSoulEnergy(PS->GetMaxSoulEnergy());
-	UIHUDWidget->SetSoulEnergyPercentage(PS->GetSoulEnergy() / FMath::Max<float>(PS->GetMaxMana(), 1.f));
 	UIHUDWidget->SetHealthRegenRate(PS->GetHealthRegenRate());
 	UIHUDWidget->SetCurrentStamina(PS->GetStamina());
 	UIHUDWidget->SetMaxStamina(PS->GetMaxStamina());

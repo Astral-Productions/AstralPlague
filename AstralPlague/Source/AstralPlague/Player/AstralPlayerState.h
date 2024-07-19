@@ -38,12 +38,13 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Astral|PlayerState")
 	UAstralAbilitySystemComponent* GetAstralAbilitySystemComponent() const { return AbilitySystemComponent; }
 
-UFUNCTION(BlueprintCallable, Category = "GASDocumentation|GDPlayerState")
+	UFUNCTION(BlueprintCallable, Category = "GASDocumentation|GDPlayerState")
 	bool IsAlive() const;
 
 	UFUNCTION(BlueprintCallable, Category = "GASDocumenation|GDPlayerState|UI")
 	void ShowAbilityConfirmCancelText(bool ShowText);
 
+	static const FName NAME_AstralAbilityReady;
 
 	/**
 	* Getters for attributes from GDAttributeSetBase. Returns Current Value unless otherwise specified.
@@ -86,6 +87,15 @@ UFUNCTION(BlueprintCallable, Category = "GASDocumentation|GDPlayerState")
 	UFUNCTION(BlueprintCallable, Category = "GASDocumentation|GDPlayerState|Attributes")
 	int32 GetGems() const;
 
+	template <class T>
+	const T* GetPawnData() const {return Cast<T>(PawnData);}
+
+	void SetPawnData(const UAstralPawnData* InPawnData);
+	
+protected:
+	UPROPERTY(VisibleAnywhere, Category="Astral|PlayerState")
+	TObjectPtr<const UAstralPawnData> PawnData;
+	
 private:
 	// The ability system component subobject for game-wide things (primarily gameplay cues)
 	UPROPERTY(VisibleAnywhere, Category = "Astral|PlayerState")

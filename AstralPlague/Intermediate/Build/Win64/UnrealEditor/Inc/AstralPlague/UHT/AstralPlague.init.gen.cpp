@@ -27,7 +27,7 @@ void EmptyLinkFunctionForGeneratedCodeAstralPlague_init() {}
 				SingletonFuncArray,
 				UE_ARRAY_COUNT(SingletonFuncArray),
 				PKG_CompiledIn | 0x00000000,
-				0x2B4C2630,
+				0xC35DB901,
 				0xDCEF89DA,
 				METADATA_PARAMS(0, nullptr)
 			};
@@ -35,5 +35,5 @@ void EmptyLinkFunctionForGeneratedCodeAstralPlague_init() {}
 		}
 		return Z_Registration_Info_UPackage__Script_AstralPlague.OuterSingleton;
 	}
-	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_AstralPlague(Z_Construct_UPackage__Script_AstralPlague, TEXT("/Script/AstralPlague"), Z_Registration_Info_UPackage__Script_AstralPlague, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x2B4C2630, 0xDCEF89DA));
+	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_AstralPlague(Z_Construct_UPackage__Script_AstralPlague, TEXT("/Script/AstralPlague"), Z_Registration_Info_UPackage__Script_AstralPlague, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0xC35DB901, 0xDCEF89DA));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
