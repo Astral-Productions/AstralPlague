@@ -246,7 +246,7 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AAstra
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AAstralPlayerController_SetRespawnCountdown_Statics::NewProp_RespawnTimeRemaining,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AAstralPlayerController_SetRespawnCountdown_Statics::PropPointers) < 2048);
-const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AAstralPlayerController_SetRespawnCountdown_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AAstralPlayerController, nullptr, "SetRespawnCountdown", nullptr, nullptr, Z_Construct_UFunction_AAstralPlayerController_SetRespawnCountdown_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AAstralPlayerController_SetRespawnCountdown_Statics::PropPointers), sizeof(AstralPlayerController_eventSetRespawnCountdown_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x81080CC0, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AAstralPlayerController_SetRespawnCountdown_Statics::Function_MetaDataParams), Z_Construct_UFunction_AAstralPlayerController_SetRespawnCountdown_Statics::Function_MetaDataParams) };
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AAstralPlayerController_SetRespawnCountdown_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AAstralPlayerController, nullptr, "SetRespawnCountdown", nullptr, nullptr, Z_Construct_UFunction_AAstralPlayerController_SetRespawnCountdown_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AAstralPlayerController_SetRespawnCountdown_Statics::PropPointers), sizeof(AstralPlayerController_eventSetRespawnCountdown_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x81020CC0, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AAstralPlayerController_SetRespawnCountdown_Statics::Function_MetaDataParams), Z_Construct_UFunction_AAstralPlayerController_SetRespawnCountdown_Statics::Function_MetaDataParams) };
 static_assert(sizeof(AstralPlayerController_eventSetRespawnCountdown_Parms) < MAX_uint16);
 UFunction* Z_Construct_UFunction_AAstralPlayerController_SetRespawnCountdown()
 {
@@ -305,7 +305,7 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AAstra
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AAstralPlayerController_ShowDamageNumber_Statics::NewProp_TargetCharacter,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AAstralPlayerController_ShowDamageNumber_Statics::PropPointers) < 2048);
-const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AAstralPlayerController_ShowDamageNumber_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AAstralPlayerController, nullptr, "ShowDamageNumber", nullptr, nullptr, Z_Construct_UFunction_AAstralPlayerController_ShowDamageNumber_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AAstralPlayerController_ShowDamageNumber_Statics::PropPointers), sizeof(AstralPlayerController_eventShowDamageNumber_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x81080CC0, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AAstralPlayerController_ShowDamageNumber_Statics::Function_MetaDataParams), Z_Construct_UFunction_AAstralPlayerController_ShowDamageNumber_Statics::Function_MetaDataParams) };
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AAstralPlayerController_ShowDamageNumber_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AAstralPlayerController, nullptr, "ShowDamageNumber", nullptr, nullptr, Z_Construct_UFunction_AAstralPlayerController_ShowDamageNumber_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AAstralPlayerController_ShowDamageNumber_Statics::PropPointers), sizeof(AstralPlayerController_eventShowDamageNumber_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x81020CC0, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AAstralPlayerController_ShowDamageNumber_Statics::Function_MetaDataParams), Z_Construct_UFunction_AAstralPlayerController_ShowDamageNumber_Statics::Function_MetaDataParams) };
 static_assert(sizeof(AstralPlayerController_eventShowDamageNumber_Parms) < MAX_uint16);
 UFunction* Z_Construct_UFunction_AAstralPlayerController_ShowDamageNumber()
 {
@@ -363,9 +363,6 @@ struct Z_Construct_UClass_AAstralPlayerController_Statics
 		{ "ModuleRelativePath", "Player/AstralPlayerController.h" },
 		{ "ObjectInitializerConstructorDeclared", "" },
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_LastSeenPlayerState_MetaData[] = {
-		{ "ModuleRelativePath", "Player/AstralPlayerController.h" },
-	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_DamageNumberClass_MetaData[] = {
 		{ "Category", "GASDocumentation|UI" },
 		{ "ModuleRelativePath", "Player/AstralPlayerController.h" },
@@ -379,11 +376,14 @@ struct Z_Construct_UClass_AAstralPlayerController_Statics
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Player/AstralPlayerController.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_LastSeenPlayerState_MetaData[] = {
+		{ "ModuleRelativePath", "Player/AstralPlayerController.h" },
+	};
 #endif // WITH_METADATA
-	static const UECodeGen_Private::FObjectPropertyParams NewProp_LastSeenPlayerState;
 	static const UECodeGen_Private::FClassPropertyParams NewProp_DamageNumberClass;
 	static const UECodeGen_Private::FClassPropertyParams NewProp_UIHUDWidgetClass;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_UIHUDWidget;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_LastSeenPlayerState;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
@@ -391,8 +391,8 @@ struct Z_Construct_UClass_AAstralPlayerController_Statics
 		{ &Z_Construct_UFunction_AAstralPlayerController_GetAstralPlayerState, "GetAstralPlayerState" }, // 1101114439
 		{ &Z_Construct_UFunction_AAstralPlayerController_GetIsAutoRunning, "GetIsAutoRunning" }, // 188516689
 		{ &Z_Construct_UFunction_AAstralPlayerController_SetIsAutoRunning, "SetIsAutoRunning" }, // 2638441058
-		{ &Z_Construct_UFunction_AAstralPlayerController_SetRespawnCountdown, "SetRespawnCountdown" }, // 3137816786
-		{ &Z_Construct_UFunction_AAstralPlayerController_ShowDamageNumber, "ShowDamageNumber" }, // 429762038
+		{ &Z_Construct_UFunction_AAstralPlayerController_SetRespawnCountdown, "SetRespawnCountdown" }, // 375433145
+		{ &Z_Construct_UFunction_AAstralPlayerController_ShowDamageNumber, "ShowDamageNumber" }, // 4235904982
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -400,15 +400,15 @@ struct Z_Construct_UClass_AAstralPlayerController_Statics
 	};
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AAstralPlayerController_Statics::NewProp_LastSeenPlayerState = { "LastSeenPlayerState", nullptr, (EPropertyFlags)0x0144000000000000, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AAstralPlayerController, LastSeenPlayerState), Z_Construct_UClass_APlayerState_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_LastSeenPlayerState_MetaData), NewProp_LastSeenPlayerState_MetaData) };
-const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_AAstralPlayerController_Statics::NewProp_DamageNumberClass = { "DamageNumberClass", nullptr, (EPropertyFlags)0x0024080000000001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AAstralPlayerController, DamageNumberClass), Z_Construct_UClass_UClass, Z_Construct_UClass_UAstralDamageTextWidgetComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_DamageNumberClass_MetaData), NewProp_DamageNumberClass_MetaData) };
+const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_AAstralPlayerController_Statics::NewProp_DamageNumberClass = { "DamageNumberClass", nullptr, (EPropertyFlags)0x0014000000000001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AAstralPlayerController, DamageNumberClass), Z_Construct_UClass_UClass, Z_Construct_UClass_UAstralDamageTextWidgetComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_DamageNumberClass_MetaData), NewProp_DamageNumberClass_MetaData) };
 const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_AAstralPlayerController_Statics::NewProp_UIHUDWidgetClass = { "UIHUDWidgetClass", nullptr, (EPropertyFlags)0x0024080000000005, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AAstralPlayerController, UIHUDWidgetClass), Z_Construct_UClass_UClass, Z_Construct_UClass_UAstralHUDWidget_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_UIHUDWidgetClass_MetaData), NewProp_UIHUDWidgetClass_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AAstralPlayerController_Statics::NewProp_UIHUDWidget = { "UIHUDWidget", nullptr, (EPropertyFlags)0x002008000008000c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AAstralPlayerController, UIHUDWidget), Z_Construct_UClass_UAstralHUDWidget_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_UIHUDWidget_MetaData), NewProp_UIHUDWidget_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AAstralPlayerController_Statics::NewProp_LastSeenPlayerState = { "LastSeenPlayerState", nullptr, (EPropertyFlags)0x0144000000000000, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AAstralPlayerController, LastSeenPlayerState), Z_Construct_UClass_APlayerState_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_LastSeenPlayerState_MetaData), NewProp_LastSeenPlayerState_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AAstralPlayerController_Statics::PropPointers[] = {
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAstralPlayerController_Statics::NewProp_LastSeenPlayerState,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAstralPlayerController_Statics::NewProp_DamageNumberClass,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAstralPlayerController_Statics::NewProp_UIHUDWidgetClass,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAstralPlayerController_Statics::NewProp_UIHUDWidget,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAstralPlayerController_Statics::NewProp_LastSeenPlayerState,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AAstralPlayerController_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_AAstralPlayerController_Statics::DependentSingletons[])() = {
@@ -451,10 +451,10 @@ AAstralPlayerController::~AAstralPlayerController() {}
 struct Z_CompiledInDeferFile_FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_Player_AstralPlayerController_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AAstralPlayerController, AAstralPlayerController::StaticClass, TEXT("AAstralPlayerController"), &Z_Registration_Info_UClass_AAstralPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AAstralPlayerController), 1802167654U) },
+		{ Z_Construct_UClass_AAstralPlayerController, AAstralPlayerController::StaticClass, TEXT("AAstralPlayerController"), &Z_Registration_Info_UClass_AAstralPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AAstralPlayerController), 4031264227U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_Player_AstralPlayerController_h_1393258314(TEXT("/Script/AstralPlague"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_Player_AstralPlayerController_h_2037541761(TEXT("/Script/AstralPlague"),
 	Z_CompiledInDeferFile_FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_Player_AstralPlayerController_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_Player_AstralPlayerController_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

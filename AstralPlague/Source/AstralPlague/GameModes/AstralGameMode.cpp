@@ -13,7 +13,6 @@
 #include "AstralPlague/Player/AstralPlayerState.h"
 #include "AstralPlague/Character/AstralPlagueCharacter.h"
 //#include "UI/AstralHUD.h"
-#include "AstralPlague/Character/AstralPawnExtensionComponent.h"
 #include "AstralPlague/Character/AstralPawnData.h"
 #include "AstralPlague/GameModes/AstralWorldSettings.h"
 #include "AstralPlague/GameModes/AstralExperienceDefinition.h"
@@ -25,6 +24,7 @@
 #include "CommonSessionSubsystem.h"*/
 #include "TimerManager.h"
 #include "GameMapsSettings.h"
+#include "AstralPlague/Components/AstralCharacterComponent.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(AstralGameMode)
 
@@ -230,7 +230,7 @@ APawn* AAstralGameMode::SpawnDefaultPawnAtTransform_Implementation(AController* 
 	{
 		if (APawn* SpawnedPawn = GetWorld()->SpawnActor<APawn>(PawnClass, SpawnTransform, SpawnInfo))
 		{
-			if (UAstralPawnExtensionComponent* PawnExtComp = UAstralPawnExtensionComponent::FindPawnExtensionComponent(SpawnedPawn))
+			if (UAstralCharacterComponent* PawnExtComp = UAstralCharacterComponent::FindCharacterComponent(SpawnedPawn))
 			{
 				if (const UAstralPawnData* PawnData = GetPawnDataForController(NewPlayer))
 				{

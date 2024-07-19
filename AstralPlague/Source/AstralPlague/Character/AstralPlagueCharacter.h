@@ -195,7 +195,8 @@ protected:
 	// the ASC/AttributeSet from the PlayerState or child classes every time I referenced them in this base class.
 
 	TWeakObjectPtr<class UAstralAbilitySystemComponent> AbilitySystemComponent;
-	TWeakObjectPtr<class UDefaultAttributeSet> AttributeSetBase;
+	TWeakObjectPtr<class UCharacterAttributeSet> CharacterAttributeSet;
+	TWeakObjectPtr<class UProgressionAttributeSet> ProgressionAttributeSet;
 
 	FGameplayTag HitDirectionFrontTag;
 	FGameplayTag HitDirectionBackTag;

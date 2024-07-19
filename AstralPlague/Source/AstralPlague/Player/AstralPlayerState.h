@@ -22,8 +22,6 @@ class ASTRALPLAGUE_API AAstralPlayerState : public AModularPlayerState, public I
 	GENERATED_BODY()
 
 public:
-
-	AAstralPlayerState();
 	
 	AAstralPlayerState(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
 	

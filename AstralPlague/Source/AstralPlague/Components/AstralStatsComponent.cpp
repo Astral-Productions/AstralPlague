@@ -5,6 +5,8 @@
 
 #include "AstralPlague/AstralGameplayTags.h"
 #include "AstralPlague/AstralLogChannels.h"
+#include "AstralPlague/AbilitySystem/AstralAbilitySystemComponent.h"
+#include "AstralPlague/System/AstralAssetManager.h"
 
 // Sets default values for this component's properties
 UAstralStatsComponent::UAstralStatsComponent(const FObjectInitializer& ObjectInitializer)
@@ -38,7 +40,7 @@ void UAstralStatsComponent::InitializeWithAbilitySystem(UAstralAbilitySystemComp
 		return;
 	}
 
-	StatSet = AbilitySystemComponent->GetSet<UDefaultAttributeSet>();
+	StatSet = AbilitySystemComponent->GetSet<UCharacterAttributeSet>();
 	if (!StatSet)
 	{
 		UE_LOG(LogAstral, Error, TEXT("AstralStatsComponent: Cannot initialize health component for owner [%s] with NULL health set on the ability system."), *GetNameSafe(Owner));
@@ -51,7 +53,7 @@ void UAstralStatsComponent::InitializeWithAbilitySystem(UAstralAbilitySystemComp
 	StatSet->OnOutOfHealth.AddUObject(this, &ThisClass::HandleOutOfHealth);
 
 	// TEMP: Reset attributes to default values.  Eventually this will be driven by a spread sheet.
-	AbilitySystemComponent->SetNumericAttributeBase(UAstralStatSet::GetHealthAttribute(), StatSet->GetMaxHealth());
+	AbilitySystemComponent->SetNumericAttributeBase(UCharacterAttributeSet::GetHealthAttribute(), StatSet->GetMaxHealth());
 
 	ClearGameplayTags();
 
@@ -138,7 +140,7 @@ void UAstralStatsComponent::HandleOutOfHealth(AActor* DamageInstigator, AActor* 
 			AbilitySystemComponent->HandleGameplayEvent(Payload.EventTag, &Payload);
 		}
 
-		// Send a standardized verb message that other systems can observe
+		/*// Send a standardized verb message that other systems can observe
 		{
 			FAstralVerbMessage Message;
 			Message.Verb = TAG_Astral_Elimination_Message;
@@ -153,7 +155,7 @@ void UAstralStatsComponent::HandleOutOfHealth(AActor* DamageInstigator, AActor* 
 			MessageSystem.BroadcastMessage(Message.Verb, Message);
 		}
 
-		//@TODO: assist messages (could compute from damage dealt elsewhere)?
+		//@TODO: assist messages (could compute from damage dealt elsewhere)?*/
 	}
 
 #endif // #if WITH_SERVER_CODE
@@ -268,12 +270,14 @@ void UAstralStatsComponent::DamageSelfDestruct(bool bFellOutOfWorld)
 			return;
 		}
 
-		Spec->AddDynamicAssetTag(TAG_Gameplay_DamageSelfDestruct);
+		/*@todo: investigate fell our of world functionality. 
+		 *Spec->AddDynamicAssetTag(TAG_Gameplay_DamageSelfDestruct);
 
 		if (bFellOutOfWorld)
 		{
 			Spec->AddDynamicAssetTag(TAG_Gameplay_FellOutOfWorld);
 		}
+		*/
 
 		const float DamageAmount = GetMaxHealth();
 

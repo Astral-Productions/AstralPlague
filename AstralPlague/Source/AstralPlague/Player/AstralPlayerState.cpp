@@ -7,6 +7,8 @@
 #include "AstralPlague/AbilitySystem/AstralAbilitySystemComponent.h"
 #include "..\AbilitySystem\Attributes\AstralAttributeSet.h"
 #include "AstralPlague/AbilitySystem/Attributes/UProgressionAttributeSet.h"
+#include "AstralPlague/Character/Playable/AstralMainCharacter.h"
+#include "AstralPlague/UI/AstralFloatingStatusBarWidget.h"
 #include "AstralPlague/UI/AstralHUDWidget.h"
 
 
@@ -158,10 +160,10 @@ void AAstralPlayerState::HealthChanged(const FOnAttributeChangeData & Data)
 	float Health = Data.NewValue;
 
 	// Update floating status bar
-	AAstralPlagueCharacter* Hero = Cast<AAstralPlagueCharacter>(GetPawn());
+	AAstralMainCharacter* Hero = Cast<AAstralMainCharacter>(GetPawn());
 	if (Hero)
 	{
-		UGDFloatingStatusBarWidget* HeroFloatingStatusBar = Hero->GetFloatingStatusBar();
+		UAstralFloatingStatusBarWidget* HeroFloatingStatusBar = Hero->GetFloatingStatusBar();
 		if (HeroFloatingStatusBar)
 		{
 			HeroFloatingStatusBar->SetHealthPercentage(Health / GetMaxHealth());
@@ -186,10 +188,10 @@ void AAstralPlayerState::MaxHealthChanged(const FOnAttributeChangeData & Data)
 	float MaxHealth = Data.NewValue;
 
 	// Update floating status bar
-	AAstralPlagueCharacter* Hero = Cast<AAstralPlagueCharacter>(GetPawn());
+	AAstralMainCharacter* Hero = Cast<AAstralMainCharacter>(GetPawn());
 	if (Hero)
 	{
-		UGDFloatingStatusBarWidget* HeroFloatingStatusBar = Hero->GetFloatingStatusBar();
+		UAstralFloatingStatusBarWidget* HeroFloatingStatusBar = Hero->GetFloatingStatusBar();
 		if (HeroFloatingStatusBar)
 		{
 			HeroFloatingStatusBar->SetHealthPercentage(GetHealth() / MaxHealth);
@@ -229,13 +231,13 @@ void AAstralPlayerState::SoulEnergyChanged(const FOnAttributeChangeData & Data)
 	float Mana = Data.NewValue;
 
 	// Update floating status bar
-	AAstralPlagueCharacter* Hero = Cast<AAstralPlagueCharacter>(GetPawn());
+	AAstralMainCharacter* Hero = Cast<AAstralMainCharacter>(GetPawn());
 	if (Hero)
 	{
-		UGDFloatingStatusBarWidget* HeroFloatingStatusBar = Hero->GetFloatingStatusBar();
+		UAstralFloatingStatusBarWidget* HeroFloatingStatusBar = Hero->GetFloatingStatusBar();
 		if (HeroFloatingStatusBar)
 		{
-			HeroFloatingStatusBar->SetManaPercentage(Mana / GetMaxMana());
+			HeroFloatingStatusBar->SetSoulEnergyPercentage(Mana / GetMaxSoulEnergy());
 		}
 	}
 
@@ -248,13 +250,13 @@ void AAstralPlayerState::MaxSoulEnergyChanged(const FOnAttributeChangeData & Dat
 	float MaxMana = Data.NewValue;
 
 	// Update floating status bar
-	AAstralPlagueCharacter* Hero = Cast<AAstralPlagueCharacter>(GetPawn());
+	AAstralMainCharacter* Hero = Cast<AAstralMainCharacter>(GetPawn());
 	if (Hero)
 	{
-		UGDFloatingStatusBarWidget* HeroFloatingStatusBar = Hero->GetFloatingStatusBar();
+		UAstralFloatingStatusBarWidget* HeroFloatingStatusBar = Hero->GetFloatingStatusBar();
 		if (HeroFloatingStatusBar)
 		{
-			HeroFloatingStatusBar->SetManaPercentage(GetSoulEnergy() / MaxMana);
+			HeroFloatingStatusBar->SetSoulEnergyPercentage(GetSoulEnergy() / MaxMana);
 		}
 	}
 

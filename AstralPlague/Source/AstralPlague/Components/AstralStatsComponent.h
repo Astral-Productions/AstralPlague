@@ -10,6 +10,7 @@
 
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FAstralHealth_DeathEvent, AActor*, OwningActor);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_FourParams(FAstralHealth_AttributeChanged, UAstralStatsComponent*, HealthComponent, float, OldValue, float, NewValue, AActor*, Instigator);
 
 /**
  * EAstralDeathState
@@ -29,7 +30,7 @@ enum class EAstralDeathState : uint8
  *
  *	An actor component used to handle anything related to stats/health.
  */
-UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
+UCLASS(ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class ASTRALPLAGUE_API UAstralStatsComponent : public UActorComponent
 {
 	GENERATED_BODY()
@@ -78,13 +79,13 @@ public:
 	virtual void DamageSelfDestruct(bool bFellOutOfWorld = false);
 	
 public:
-	/*// Delegate fired when the health value has changed. This is called on the client but the instigator may not be valid
+	// Delegate fired when the health value has changed. This is called on the client but the instigator may not be valid
 	UPROPERTY(BlueprintAssignable)
 	FAstralHealth_AttributeChanged OnHealthChanged;
 
 	// Delegate fired when the max health value has changed. This is called on the client but the instigator may not be valid
 	UPROPERTY(BlueprintAssignable)
-	FAstralHealth_AttributeChanged OnMaxHealthChanged;*/
+	FAstralHealth_AttributeChanged OnMaxHealthChanged;
 
 	// Delegate fired when the death sequence has started.
 	UPROPERTY(BlueprintAssignable)

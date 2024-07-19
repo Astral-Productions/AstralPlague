@@ -8,13 +8,16 @@
 #include "GameFramework/Pawn.h"
 #include "EnhancedInputSubsystems.h"
 #include "Engine/LocalPlayer.h"
-#include "AstralPlague/Components/AstralCharacterGameplayComponent.h"
 #include "AstralPlague/GameFeatures/GameFeatureAction_WorldActionBase.h"
 #include "AstralPlague/Input/AstralInputConfig.h"
 
 #if WITH_EDITOR
 #include "Misc/DataValidation.h"
 #endif
+
+#include "AstralPlague/Character/AstralPlagueCharacter.h"
+#include "AstralPlague/Components/AstralCharacterComponent.h"
+#include "AstralPlague/Input/AstralInputComponent.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(GameFeatureAction_AddInputBinding)
 
@@ -114,7 +117,7 @@ void UGameFeatureAction_AddInputBinding::HandlePawnExtension(AActor* Actor, FNam
 	{
 		RemoveInputMapping(AsPawn, ActiveData);
 	}
-	else if ((EventName == UGameFrameworkComponentManager::NAME_ExtensionAdded) || (EventName == UAstralCharacterGameplayComponent::NAME_BindInputsNow))
+	else if ((EventName == UGameFrameworkComponentManager::NAME_ExtensionAdded) /*(EventName == UAstralCharacterGameplayComponent::NAME_BindInputsNow)*/)
 	{
 		AddInputMappingForPlayer(AsPawn, ActiveData);
 	}
@@ -128,14 +131,14 @@ void UGameFeatureAction_AddInputBinding::AddInputMappingForPlayer(APawn* Pawn, F
 	{
 		if (UEnhancedInputLocalPlayerSubsystem* InputSystem = LocalPlayer->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>())
 		{
-			UAstralCharacterGameplayComponent* CharacterGameplayComponent = Pawn->FindComponentByClass<UAstralCharacterGameplayComponent>();
-			if (CharacterGameplayComponent && CharacterGameplayComponent->IsReadyToBindInputs())
+			UAstralCharacterComponent* HeroComponent = Pawn->FindComponentByClass<UAstralCharacterComponent>();
+			if (HeroComponent && HeroComponent->IsReadyToBindInputs())
 			{
 				for (const TSoftObjectPtr<const UAstralInputConfig>& Entry : InputConfigs)
 				{
 					if (const UAstralInputConfig* BindSet = Entry.Get())
 					{
-						CharacterGameplayComponent->AddAdditionalInputConfig(BindSet);
+						HeroComponent->AddAdditionalInputConfig(BindSet);
 					}
 				}
 			}
@@ -156,7 +159,7 @@ void UGameFeatureAction_AddInputBinding::RemoveInputMapping(APawn* Pawn, FPerCon
 	{
 		if (UEnhancedInputLocalPlayerSubsystem* InputSystem = LocalPlayer->GetSubsystem<UEnhancedInputLocalPlayerSubsystem>())
 		{
-			if (UAstralCharacterGameplayComponent* CharacterGameplayComponent = Pawn->FindComponentByClass<UAstralCharacterGameplayComponent>())
+			if (UAstralCharacterComponent* CharacterGameplayComponent = Pawn->FindComponentByClass<UAstralCharacterComponent>())
 			{
 				for (const TSoftObjectPtr<const UAstralInputConfig>& Entry : InputConfigs)
 				{

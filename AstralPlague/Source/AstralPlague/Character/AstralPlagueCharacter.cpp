@@ -5,17 +5,14 @@
 #include "AstralPlague/AbilitySystem/AstralAbilitySystemComponent.h"
 #include "AstralPlague/Camera/AstralCameraComponent.h"
 #include "AstralPlague/Components/AstralStatsComponent.h"
-#include "AstralPlague/Character/AstralPawnExtensionComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/SkeletalMeshComponent.h"
 #include "AstralPlague/Character/AstralCharacterMovementComponent.h"
-#include "AstralPlague/AstralGameplayTags.h"
-#include "AstralPlague/AstralLogChannels.h"
-#include "Net/UnrealNetwork.h"
 #include "AstralPlague/Player/AstralPlayerController.h"
 #include "AstralPlague/Player/AstralPlayerState.h"
 
 #include "TimerManager.h"
+#include "AstralPlague/AbilitySystem/Attributes/UProgressionAttributeSet.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(AstralPlagueCharacter)
 
@@ -395,9 +392,9 @@ bool AAstralPlagueCharacter::PlayHitReact_Validate(FGameplayTag HitDirection, AA
 
 int32 AAstralPlagueCharacter::GetCharacterLevel() const
 {
-	if (AttributeSetBase.IsValid())
+	if (ProgressionAttributeSet.IsValid())
 	{
-		return static_cast<int32>(AttributeSetBase->GetCharacterLevel());
+		return static_cast<int32>(ProgressionAttributeSet->GetCharacterLevel());
 	}
 
 	return 0;
@@ -405,9 +402,9 @@ int32 AAstralPlagueCharacter::GetCharacterLevel() const
 
 float AAstralPlagueCharacter::GetHealth() const
 {
-	if (AttributeSetBase.IsValid())
+	if (CharacterAttributeSet.IsValid())
 	{
-		return AttributeSetBase->GetHealth();
+		return CharacterAttributeSet->GetHealth();
 	}
 
 	return 0.0f;
@@ -415,9 +412,9 @@ float AAstralPlagueCharacter::GetHealth() const
 
 float AAstralPlagueCharacter::GetMaxHealth() const
 {
-	if (AttributeSetBase.IsValid())
+	if (CharacterAttributeSet.IsValid())
 	{
-		return AttributeSetBase->GetMaxHealth();
+		return CharacterAttributeSet->GetMaxHealth();
 	}
 
 	return 0.0f;
@@ -425,9 +422,9 @@ float AAstralPlagueCharacter::GetMaxHealth() const
 
 float AAstralPlagueCharacter::GetSoulEnergy() const
 {
-	if (AttributeSetBase.IsValid())
+	if (CharacterAttributeSet.IsValid())
 	{
-		return AttributeSetBase->GetSoulEnergy();
+		return CharacterAttributeSet->GetSoulEnergy();
 	}
 
 	return 0.0f;
@@ -435,9 +432,9 @@ float AAstralPlagueCharacter::GetSoulEnergy() const
 
 float AAstralPlagueCharacter::GetStamina() const
 {
-	if (AttributeSetBase.IsValid())
+	if (CharacterAttributeSet.IsValid())
 	{
-		return AttributeSetBase->GetStamina();
+		return CharacterAttributeSet->GetStamina();
 	}
 
 	return 0.0f;
@@ -445,9 +442,9 @@ float AAstralPlagueCharacter::GetStamina() const
 
 float AAstralPlagueCharacter::GetMaxStamina() const
 {
-	if (AttributeSetBase.IsValid())
+	if (CharacterAttributeSet.IsValid())
 	{
-		return AttributeSetBase->GetMaxStamina();
+		return CharacterAttributeSet->GetMaxStamina();
 	}
 
 	return 0.0f;
@@ -455,9 +452,9 @@ float AAstralPlagueCharacter::GetMaxStamina() const
 
 float AAstralPlagueCharacter::GetMoveSpeed() const
 {
-	if (AttributeSetBase.IsValid())
+	if (CharacterAttributeSet.IsValid())
 	{
-		return AttributeSetBase->GetMoveSpeed();
+		return CharacterAttributeSet->GetMoveSpeed();
 	}
 
 	return 0.0f;
@@ -465,9 +462,9 @@ float AAstralPlagueCharacter::GetMoveSpeed() const
 
 float AAstralPlagueCharacter::GetMoveSpeedBaseValue() const
 {
-	if (AttributeSetBase.IsValid())
+	if (CharacterAttributeSet.IsValid())
 	{
-		return AttributeSetBase->GetMoveSpeedAttribute().GetGameplayAttributeData(AttributeSetBase.Get())->GetBaseValue();
+		return CharacterAttributeSet->GetMoveSpeedAttribute().GetGameplayAttributeData(CharacterAttributeSet.Get())->GetBaseValue();
 	}
 
 	return 0.0f;
@@ -538,7 +535,7 @@ void AAstralPlagueCharacter::InitializeAttributes()
 
 	if (!DefaultAttributes)
 	{
-		UE_LOG(LogTemp, Error, TEXT("%s() Missing AttributeSetBase for %s. Please fill in the character's Blueprint."), *FString(__FUNCTION__), *GetName());
+		UE_LOG(LogTemp, Error, TEXT("%s() Missing CharacterAttributeSet for %s. Please fill in the character's Blueprint."), *FString(__FUNCTION__), *GetName());
 		return;
 	}
 
@@ -577,24 +574,24 @@ void AAstralPlagueCharacter::AddStartupEffects()
 
 void AAstralPlagueCharacter::SetHealth(float Health)
 {
-	if (AttributeSetBase.IsValid())
+	if (CharacterAttributeSet.IsValid())
 	{
-		AttributeSetBase->SetHealth(Health);
+		CharacterAttributeSet->SetHealth(Health);
 	}
 }
 
 void AAstralPlagueCharacter::SetSoulEnergy(float Mana)
 {
-	if (AttributeSetBase.IsValid())
+	if (CharacterAttributeSet.IsValid())
 	{
-		AttributeSetBase->SetSoulEnergy(Mana);
+		CharacterAttributeSet->SetSoulEnergy(Mana);
 	}
 }
 
 void AAstralPlagueCharacter::SetStamina(float Stamina)
 {
-	if (AttributeSetBase.IsValid())
+	if (CharacterAttributeSet.IsValid())
 	{
-		AttributeSetBase->SetStamina(Stamina);
+		CharacterAttributeSet->SetStamina(Stamina);
 	}
 }

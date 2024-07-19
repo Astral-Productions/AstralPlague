@@ -48,7 +48,7 @@ void UAstralInputComponent::BindNativeAction(const UAstralInputConfig* InputConf
 		BindAction(IA, TriggerEvent, Object, Func);
 	}
 }
-
+	
 template<class UserClass, typename PressedFuncType, typename ReleasedFuncType>
 void UAstralInputComponent::BindAbilityActions(const UAstralInputConfig* InputConfig, UserClass* Object, PressedFuncType PressedFunc, ReleasedFuncType ReleasedFunc, TArray<uint32>& BindHandles)
 {

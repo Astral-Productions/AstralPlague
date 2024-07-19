@@ -9,7 +9,7 @@
 #include "EnhancedInputSubsystems.h"
 #include "AstralPlague/GameFeatures/GameFeatureAction_WorldActionBase.h"
 #include "InputMappingContext.h"
-#include "AstralPlague/Components/AstralCharacterGameplayComponent.h"
+#include "AstralPlague/Components/AstralCharacterComponent.h"
 #include "UserSettings/EnhancedInputUserSettings.h"
 //#include "System/AstralAssetManager.h"
 
@@ -238,7 +238,7 @@ void UGameFeatureAction_AddInputContextMapping::HandleControllerExtension(AActor
 	{
 		RemoveInputMapping(AsController, ActiveData);
 	}
-	else if ((EventName == UGameFrameworkComponentManager::NAME_ExtensionAdded) || (EventName == UAstralCharacterGameplayComponent::NAME_BindInputsNow))
+	else if ((EventName == UGameFrameworkComponentManager::NAME_ExtensionAdded) || (EventName == UAstralCharacterComponent::NAME_BindInputsNow))
 	{
 		AddInputMappingForPlayer(AsController->GetLocalPlayer(), ActiveData);
 	}

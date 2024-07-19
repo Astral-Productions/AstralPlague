@@ -8,5 +8,6 @@
 /NODEFAULTLIB
 "C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Intermediate\Build\Win64\x64\AstralPlagueEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h.obj"
 "C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Plugins\ModularGameplayActors\Intermediate\Build\Win64\x64\UnrealEditor\Development\ModularGameplayActors\Module.ModularGameplayActors.cpp.obj"
+"C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Plugins\ModularGameplayActors\Intermediate\Build\Win64\x64\UnrealEditor\Development\ModularGameplayActors\ModularGameplayActors.init.gen.cpp.obj"
 "C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Plugins\ModularGameplayActors\Intermediate\Build\Win64\x64\UnrealEditor\Development\ModularGameplayActors\Default.rc2.res"
 /OUT:"C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Plugins\ModularGameplayActors\Intermediate\Build\Win64\x64\UnrealEditor\Development\ModularGameplayActors\UnrealEditor-ModularGameplayActors.lib"

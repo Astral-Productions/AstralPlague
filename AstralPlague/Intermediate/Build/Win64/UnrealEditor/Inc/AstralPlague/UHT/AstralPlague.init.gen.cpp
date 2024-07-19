@@ -7,6 +7,7 @@
 #include "UObject/GeneratedCppIncludes.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeAstralPlague_init() {}
+	ASTRALPLAGUE_API UFunction* Z_Construct_UDelegateFunction_AstralPlague_AstralHealth_AttributeChanged__DelegateSignature();
 	ASTRALPLAGUE_API UFunction* Z_Construct_UDelegateFunction_AstralPlague_AstralHealth_DeathEvent__DelegateSignature();
 	ASTRALPLAGUE_API UFunction* Z_Construct_UDelegateFunction_AstralPlague_CharacterBaseHitReactDelegate__DelegateSignature();
 	ASTRALPLAGUE_API UFunction* Z_Construct_UDelegateFunction_AstralPlague_CharacterDiedDelegate__DelegateSignature();
@@ -16,6 +17,7 @@ void EmptyLinkFunctionForGeneratedCodeAstralPlague_init() {}
 		if (!Z_Registration_Info_UPackage__Script_AstralPlague.OuterSingleton)
 		{
 			static UObject* (*const SingletonFuncArray[])() = {
+				(UObject* (*)())Z_Construct_UDelegateFunction_AstralPlague_AstralHealth_AttributeChanged__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_AstralPlague_AstralHealth_DeathEvent__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_AstralPlague_CharacterBaseHitReactDelegate__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_AstralPlague_CharacterDiedDelegate__DelegateSignature,
@@ -25,13 +27,13 @@ void EmptyLinkFunctionForGeneratedCodeAstralPlague_init() {}
 				SingletonFuncArray,
 				UE_ARRAY_COUNT(SingletonFuncArray),
 				PKG_CompiledIn | 0x00000000,
-				0x65CD6A6C,
-				0x8B983789,
+				0x2B4C2630,
+				0xDCEF89DA,
 				METADATA_PARAMS(0, nullptr)
 			};
 			UECodeGen_Private::ConstructUPackage(Z_Registration_Info_UPackage__Script_AstralPlague.OuterSingleton, PackageParams);
 		}
 		return Z_Registration_Info_UPackage__Script_AstralPlague.OuterSingleton;
 	}
-	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_AstralPlague(Z_Construct_UPackage__Script_AstralPlague, TEXT("/Script/AstralPlague"), Z_Registration_Info_UPackage__Script_AstralPlague, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x65CD6A6C, 0x8B983789));
+	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_AstralPlague(Z_Construct_UPackage__Script_AstralPlague, TEXT("/Script/AstralPlague"), Z_Registration_Info_UPackage__Script_AstralPlague, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x2B4C2630, 0xDCEF89DA));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
