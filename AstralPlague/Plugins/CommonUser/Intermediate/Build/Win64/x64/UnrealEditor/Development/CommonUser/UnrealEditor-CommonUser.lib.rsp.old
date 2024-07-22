@@ -6,10 +6,7 @@
 /NAME:"UnrealEditor-CommonUser.dll"
 /IGNORE:4221
 /NODEFAULTLIB
-"C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Intermediate\Build\Win64\x64\AstralPlagueEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h.obj"
-"C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Plugins\CommonUser\Intermediate\Build\Win64\x64\UnrealEditor\Development\CommonUser\Module.CommonUser.cpp.obj"
-"C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Plugins\CommonUser\Intermediate\Build\Win64\x64\UnrealEditor\Development\CommonUser\CommonUser.init.gen.cpp.obj"
-"C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Plugins\CommonUser\Intermediate\Build\Win64\x64\UnrealEditor\Development\CommonUser\CommonUserBasicPresence.gen.cpp.obj"
-"C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Plugins\CommonUser\Intermediate\Build\Win64\x64\UnrealEditor\Development\CommonUser\CommonUserTypes.gen.cpp.obj"
-"C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Plugins\CommonUser\Intermediate\Build\Win64\x64\UnrealEditor\Development\CommonUser\Default.rc2.res"
-/OUT:"C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Plugins\CommonUser\Intermediate\Build\Win64\x64\UnrealEditor\Development\CommonUser\UnrealEditor-CommonUser.lib"
+"D:\UnrealDev\AstralPlague - Dev\AstralPlague\Intermediate\Build\Win64\x64\AstralPlagueEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h.obj"
+"D:\UnrealDev\AstralPlague - Dev\AstralPlague\Plugins\CommonUser\Intermediate\Build\Win64\x64\UnrealEditor\Development\CommonUser\Module.CommonUser.cpp.obj"
+"D:\UnrealDev\AstralPlague - Dev\AstralPlague\Plugins\CommonUser\Intermediate\Build\Win64\x64\UnrealEditor\Development\CommonUser\Default.rc2.res"
+/OUT:"D:\UnrealDev\AstralPlague - Dev\AstralPlague\Plugins\CommonUser\Intermediate\Build\Win64\x64\UnrealEditor\Development\CommonUser\UnrealEditor-CommonUser.lib"

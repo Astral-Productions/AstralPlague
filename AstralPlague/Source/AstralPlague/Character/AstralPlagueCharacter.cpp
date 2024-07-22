@@ -12,7 +12,7 @@
 #include "AstralPlague/Player/AstralPlayerState.h"
 
 #include "TimerManager.h"
-#include "AstralPlague/AbilitySystem/Attributes/UProgressionAttributeSet.h"
+#include "AstralPlague/AbilitySystem/Attributes/ProgressionAttributeSet.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(AstralPlagueCharacter)
 
@@ -43,6 +43,8 @@ AAstralPlagueCharacter::AAstralPlagueCharacter(const FObjectInitializer& ObjectI
 	MeshComp->SetRelativeRotation(FRotator(0.0f, -90.0f, 0.0f));  // Rotate mesh to be X forward since it is exported as Y forward.
 	MeshComp->SetCollisionProfileName(NAME_AstralPlagueCharacterCollisionProfile_Mesh);
 
+	
+	
 	UAstralCharacterMovementComponent* AstralMoveComp = CastChecked<UAstralCharacterMovementComponent>(GetCharacterMovement());
 	AstralMoveComp->GravityScale = 1.0f;
 	AstralMoveComp->MaxAcceleration = 2400.0f;
@@ -292,6 +294,12 @@ bool FSharedRepMovement::NetSerialize(FArchive& Ar, class UPackageMap* Map, bool
 	return true;
 }
 
+bool AAstralPlagueCharacter::IsAlive() const
+{
+	//@TODO: Implement Me
+	return true;
+}
+
 int32 AAstralPlagueCharacter::GetAbilityLevel(EAstralAbilityInputID InputID) const
 {
 	return 1;
@@ -425,6 +433,16 @@ float AAstralPlagueCharacter::GetSoulEnergy() const
 	if (CharacterAttributeSet.IsValid())
 	{
 		return CharacterAttributeSet->GetSoulEnergy();
+	}
+
+	return 0.0f;
+}
+
+float AAstralPlagueCharacter::GetMaxSoulEnergy() const
+{
+	if(CharacterAttributeSet.IsValid())
+	{
+		return CharacterAttributeSet->GetMaxSoulEnergy();
 	}
 
 	return 0.0f;

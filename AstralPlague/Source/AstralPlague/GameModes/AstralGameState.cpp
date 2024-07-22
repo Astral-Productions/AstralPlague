@@ -29,9 +29,7 @@ AAstralGameState::AAstralGameState(const FObjectInitializer& ObjectInitializer)
 	AbilitySystemComponent->SetIsReplicated(true);
 	AbilitySystemComponent->SetReplicationMode(EGameplayEffectReplicationMode::Mixed);
 
-	ExperienceManagerComponent = CreateDefaultSubobject<UAstralExperienceManagerComponent>(TEXT("ExperienceManagerComponent"));
-
-	
+	ExperienceManagerComponent = CreateDefaultSubobject<UAstralExperienceManagerComponent>(TEXT("ExperienceManagerComponent"));	
 }
 
 void AAstralGameState::PreInitializeComponents()

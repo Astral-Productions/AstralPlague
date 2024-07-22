@@ -61,14 +61,6 @@ public:
 	/** The name of this component-implemented feature */
 	static const FName NAME_ActorFeatureName;
 
-	//~ Begin IGameFrameworkInitStateInterface interface
-	virtual FName GetFeatureName() const override { return NAME_ActorFeatureName; }
-	virtual bool CanChangeInitState(UGameFrameworkComponentManager* Manager, FGameplayTag CurrentState, FGameplayTag DesiredState) const override;
-	virtual void HandleChangeInitState(UGameFrameworkComponentManager* Manager, FGameplayTag CurrentState, FGameplayTag DesiredState) override;
-	virtual void OnActorInitStateChanged(const FActorInitStateChangedParams& Params) override;
-	virtual void CheckDefaultInitialization() override;
-	//~ End IGameFrameworkInitStateInterface interface
-
 	/** Sets the current pawn data */
 	void SetPawnData(const UAstralPawnData* InPawnData);
 

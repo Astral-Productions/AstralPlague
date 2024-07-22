@@ -14,14 +14,14 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define ASTRALPLAGUE_AstralMappableConfigPair_generated_h
 
-#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_Input_AstralMappableConfigPair_h_21_GENERATED_BODY \
+#define FID_AstralPlague_Source_AstralPlague_Input_AstralMappableConfigPair_h_21_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FLoadedMappableConfigPair_Statics; \
 	ASTRALPLAGUE_API static class UScriptStruct* StaticStruct();
 
 
 template<> ASTRALPLAGUE_API UScriptStruct* StaticStruct<struct FLoadedMappableConfigPair>();
 
-#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_Input_AstralMappableConfigPair_h_47_GENERATED_BODY \
+#define FID_AstralPlague_Source_AstralPlague_Input_AstralMappableConfigPair_h_47_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FMappableConfigPair_Statics; \
 	ASTRALPLAGUE_API static class UScriptStruct* StaticStruct();
 
@@ -29,7 +29,7 @@ template<> ASTRALPLAGUE_API UScriptStruct* StaticStruct<struct FLoadedMappableCo
 template<> ASTRALPLAGUE_API UScriptStruct* StaticStruct<struct FMappableConfigPair>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_Input_AstralMappableConfigPair_h
+#define CURRENT_FILE_ID FID_AstralPlague_Source_AstralPlague_Input_AstralMappableConfigPair_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

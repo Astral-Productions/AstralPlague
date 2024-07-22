@@ -25,7 +25,8 @@ public:
 	
 	AAstralPlayerState(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
 	
-	class UCharacterAttributeSet* GetAttributeSetBase() const;
+	class UCharacterAttributeSet* GetCharacterAttributeSet() const;
+	class UProgressionAttributeSet* GetProgressionAttributeSet() const;
 	
 	UFUNCTION(BlueprintCallable, Category = "Astral|PlayerState")
 	AAstralPlayerController* GetAstralPlayerController() const;
@@ -104,7 +105,7 @@ private:
 	UPROPERTY()
 	UCharacterAttributeSet* CharacterAttributeSet;
 	UPROPERTY()
-	TObjectPtr<const class UProgressionAttributeSet> ProgressionAttributeSet;
+	UProgressionAttributeSet* ProgressionAttributeSet;
 
 	FGameplayTag DeadTag;
 

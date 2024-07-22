@@ -25,7 +25,7 @@ void EmptyLinkFunctionForGeneratedCodeCommonGame_init() {}
 				SingletonFuncArray,
 				UE_ARRAY_COUNT(SingletonFuncArray),
 				PKG_CompiledIn | 0x00000000,
-				0x9DDC32F7,
+				0x78954E20,
 				0xF0DD58E9,
 				METADATA_PARAMS(0, nullptr)
 			};
@@ -33,5 +33,5 @@ void EmptyLinkFunctionForGeneratedCodeCommonGame_init() {}
 		}
 		return Z_Registration_Info_UPackage__Script_CommonGame.OuterSingleton;
 	}
-	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_CommonGame(Z_Construct_UPackage__Script_CommonGame, TEXT("/Script/CommonGame"), Z_Registration_Info_UPackage__Script_CommonGame, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x9DDC32F7, 0xF0DD58E9));
+	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_CommonGame(Z_Construct_UPackage__Script_CommonGame, TEXT("/Script/CommonGame"), Z_Registration_Info_UPackage__Script_CommonGame, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x78954E20, 0xF0DD58E9));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

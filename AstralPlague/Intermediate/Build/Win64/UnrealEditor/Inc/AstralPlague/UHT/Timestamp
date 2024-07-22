@@ -1,58 +1,58 @@
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\AstralPlague.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\AstralPlagueGameMode.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\AbilitySystem\AstralAbilityCost.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\AbilitySystem\AstralAbilityCost_InventoryItem.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\AbilitySystem\AstralAbilitySet.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\AbilitySystem\AstralAbilitySystemComponent.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\AbilitySystem\AstralAbilitySystemGlobals.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\AbilitySystem\AstralAbilitySourceInterface.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\AbilitySystem\AstralGameplayAbility.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\AbilitySystem\AstralAbilityTagRelationshipMapping.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\AbilitySystem\AstralGameplayCueManager.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\AbilitySystem\Attributes\AstralAttributeSet.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\AbilitySystem\Attributes\CharacterAttributeSet.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\Animation\AstralAnimInstance.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\AbilitySystem\Attributes\UProgressionAttributeSet.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\Camera\AstralPlayerCameraManager.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\Camera\AstralUICameraManagerComponent.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\Camera\AstralCameraComponent.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\Character\AstralPlagueCharacter.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\Camera\AstralCameraMode.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\Components\AstralCharacterComponent.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\Character\Playable\AstralMainCharacter.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\Character\AstralCharacterMovementComponent.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\GameFeatures\GameFeatureAction_AddAbilities.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\GameFeatures\GameFeatureAction_AddGameplayCuePath.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\GameFeatures\AstralGameFeaturePolicy.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\Components\AstralStatsComponent.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\GameFeatures\GameFeatureAction_AddInputContextMapping.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\GameFeatures\GameFeatureAction_WorldActionBase.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\GameFeatures\GameFeatureAction_AddInputConfig.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\GameFeatures\GameFeatureAction_AddInputBinding.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\GameModes\AstralExperienceManager.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\Character\AstralPawnData.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\GameModes\AstralExperienceActionSet.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\GameModes\AstralGameState.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\GameModes\AstralWorldSettings.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\Input\AstralInputComponent.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\Input\AstralMappableConfigPair.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\Messages\AstralVerbMessage.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\Player\AstralLocalPlayer.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\Player\AstralNPCController.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\Player\AstralPlayerController.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\Player\AstralPlayerSpawningManagerComponent.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\Player\AstralPlayerStart.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\Player\AstralPlayerState.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\GameModes\AstralGameMode.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\UI\AstralDamageTextWidgetComponent.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\System\AstralGameData.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\UI\AstralFloatingStatusBarWidget.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\UI\AstralHUDWidget.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\UI\SubSystem\AstralUIManagerSubsystem.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\AbilitySystem\AstralGameplayEffectContext.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\GameModes\AstralExperienceDefinition.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\GameModes\AstralExperienceManagerComponent.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\Input\AstralInputConfig.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\Settings\AstralSettingsLocal.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\System\AstralAssetManager.h
-C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Source\AstralPlague\System\AstralGameInstance.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\AstralPlagueGameMode.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\AbilitySystem\AstralAbilitySourceInterface.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\AbilitySystem\AstralAbilityCost.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\AbilitySystem\AstralAbilitySystemComponent.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\AbilitySystem\AstralAbilitySet.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\AbilitySystem\AstralGameplayCueManager.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\AstralPlague.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\AbilitySystem\Attributes\CharacterAttributeSet.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\AbilitySystem\AstralAbilityTagRelationshipMapping.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\AbilitySystem\AstralGameplayAbility.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\AbilitySystem\AstralGameplayEffectContext.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\AbilitySystem\AstralAbilityCost_InventoryItem.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\AbilitySystem\AstralAbilitySystemGlobals.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\Camera\AstralCameraMode.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\Camera\AstralUICameraManagerComponent.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\Camera\AstralPlayerCameraManager.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\Character\AstralPlagueCharacter.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\Animation\AstralAnimInstance.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\Character\Playable\AstralMainCharacter.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\GameModes\AstralExperienceActionSet.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\GameModes\AstralExperienceDefinition.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\GameModes\AstralExperienceManagerComponent.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\GameModes\AstralGameMode.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\AbilitySystem\Attributes\AstralAttributeSet.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\GameModes\AstralExperienceManager.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\GameModes\AstralWorldSettings.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\Input\AstralInputComponent.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\GameModes\AstralGameState.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\Player\AstralLocalPlayer.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\Player\AstralNPCController.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\Input\AstralInputConfig.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\Input\AstralMappableConfigPair.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\Player\AstralPlayerState.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\Player\AstralPlayerController.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\Player\AstralPlayerStart.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\Player\AstralPlayerSpawningManagerComponent.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\System\AstralGameData.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\UI\AstralFloatingStatusBarWidget.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\System\AstralAssetManager.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\Settings\AstralSettingsLocal.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\UI\AstralDamageTextWidgetComponent.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\UI\AstralHUDWidget.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\AbilitySystem\Attributes\ProgressionAttributeSet.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\Messages\AstralVerbMessage.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\Character\AstralCharacterMovementComponent.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\Camera\AstralCameraComponent.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\Character\AstralPawnData.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\Components\AstralCharacterComponent.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\GameFeatures\AstralGameFeaturePolicy.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\Components\AstralStatsComponent.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\GameFeatures\GameFeatureAction_AddAbilities.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\GameFeatures\GameFeatureAction_AddGameplayCuePath.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\GameFeatures\GameFeatureAction_AddInputBinding.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\GameFeatures\GameFeatureAction_AddInputConfig.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\GameFeatures\GameFeatureAction_AddInputContextMapping.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\GameFeatures\GameFeatureAction_WorldActionBase.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\System\AstralGameInstance.h
+D:\UnrealDev\AstralPlague - Dev\AstralPlague\Source\AstralPlague\UI\SubSystem\AstralUIManagerSubsystem.h

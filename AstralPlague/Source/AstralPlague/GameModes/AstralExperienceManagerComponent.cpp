@@ -55,9 +55,9 @@ UAstralExperienceManagerComponent::UAstralExperienceManagerComponent(const FObje
 
 void UAstralExperienceManagerComponent::SetCurrentExperience(FPrimaryAssetId ExperienceId)
 {
-	UAstralAssetManager& AssetManager = UAstralAssetManager::Get();
-	FSoftObjectPath AssetPath = AssetManager.GetPrimaryAssetPath(ExperienceId);
-	TSubclassOf<UAstralExperienceDefinition> AssetClass = Cast<UClass>(AssetPath.TryLoad());
+	const UAstralAssetManager& AssetManager = UAstralAssetManager::Get();
+	const FSoftObjectPath AssetPath = AssetManager.GetPrimaryAssetPath(ExperienceId);
+	const TSubclassOf<UAstralExperienceDefinition> AssetClass = Cast<UClass>(AssetPath.TryLoad());
 	check(AssetClass);
 	const UAstralExperienceDefinition* Experience = GetDefault<UAstralExperienceDefinition>(AssetClass);
 
@@ -355,7 +355,7 @@ void UAstralExperienceManagerComponent::OnExperienceFullLoadCompleted()
 
 	// Apply any necessary scalability settings
 #if !UE_SERVER
-	UAstralSettingsLocal::Get()->OnExperienceLoaded();
+	//UAstralSettingsLocal::Get()->OnExperienceLoaded();
 #endif
 }
 

@@ -1,11 +1,11 @@
-"C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Plugins\ModularGameplayActors\Intermediate\Build\Win64\x64\UnrealEditor\Development\ModularGameplayActors\Module.ModularGameplayActors.cpp"
-/FI"C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Intermediate\Build\Win64\x64\AstralPlagueEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h"
-/FI"C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Plugins\ModularGameplayActors\Intermediate\Build\Win64\x64\UnrealEditor\Development\ModularGameplayActors\Definitions.ModularGameplayActors.h"
-/Yu"C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Intermediate\Build\Win64\x64\AstralPlagueEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h"
-/Fp"C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Intermediate\Build\Win64\x64\AstralPlagueEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h.pch"
-/Fo"C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Plugins\ModularGameplayActors\Intermediate\Build\Win64\x64\UnrealEditor\Development\ModularGameplayActors\Module.ModularGameplayActors.cpp.obj"
-/sourceDependencies "C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Plugins\ModularGameplayActors\Intermediate\Build\Win64\x64\UnrealEditor\Development\ModularGameplayActors\Module.ModularGameplayActors.cpp.dep.json"
-@"C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Plugins\ModularGameplayActors\Intermediate\Build\Win64\x64\UnrealEditor\Development\ModularGameplayActors\ModularGameplayActors.Shared.rsp"
+"D:\UnrealDev\AstralPlague - Dev\AstralPlague\Plugins\ModularGameplayActors\Intermediate\Build\Win64\x64\UnrealEditor\Development\ModularGameplayActors\Module.ModularGameplayActors.cpp"
+/FI"D:\UnrealDev\AstralPlague - Dev\AstralPlague\Intermediate\Build\Win64\x64\AstralPlagueEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h"
+/FI"D:\UnrealDev\AstralPlague - Dev\AstralPlague\Plugins\ModularGameplayActors\Intermediate\Build\Win64\x64\UnrealEditor\Development\ModularGameplayActors\Definitions.ModularGameplayActors.h"
+/Yu"D:\UnrealDev\AstralPlague - Dev\AstralPlague\Intermediate\Build\Win64\x64\AstralPlagueEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h"
+/Fp"D:\UnrealDev\AstralPlague - Dev\AstralPlague\Intermediate\Build\Win64\x64\AstralPlagueEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h.pch"
+/Fo"D:\UnrealDev\AstralPlague - Dev\AstralPlague\Plugins\ModularGameplayActors\Intermediate\Build\Win64\x64\UnrealEditor\Development\ModularGameplayActors\Module.ModularGameplayActors.cpp.obj"
+/sourceDependencies "D:\UnrealDev\AstralPlague - Dev\AstralPlague\Plugins\ModularGameplayActors\Intermediate\Build\Win64\x64\UnrealEditor\Development\ModularGameplayActors\Module.ModularGameplayActors.cpp.dep.json"
+@"D:\UnrealDev\AstralPlague - Dev\AstralPlague\Plugins\ModularGameplayActors\Intermediate\Build\Win64\x64\UnrealEditor\Development\ModularGameplayActors\ModularGameplayActors.Shared.rsp"
 /Zc:inline
 /nologo
 /Oi

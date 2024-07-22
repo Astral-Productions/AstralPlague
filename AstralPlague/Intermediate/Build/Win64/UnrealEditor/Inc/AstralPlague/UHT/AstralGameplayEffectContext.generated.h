@@ -14,7 +14,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define ASTRALPLAGUE_AstralGameplayEffectContext_generated_h
 
-#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_AbilitySystem_AstralGameplayEffectContext_h_18_GENERATED_BODY \
+#define FID_AstralPlague_Source_AstralPlague_AbilitySystem_AstralGameplayEffectContext_h_18_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FAstralGameplayEffectContext_Statics; \
 	ASTRALPLAGUE_API static class UScriptStruct* StaticStruct(); \
 	typedef FGameplayEffectContext Super;
@@ -23,7 +23,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 template<> ASTRALPLAGUE_API UScriptStruct* StaticStruct<struct FAstralGameplayEffectContext>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_AbilitySystem_AstralGameplayEffectContext_h
+#define CURRENT_FILE_ID FID_AstralPlague_Source_AstralPlague_AbilitySystem_AstralGameplayEffectContext_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

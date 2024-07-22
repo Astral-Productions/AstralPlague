@@ -14,7 +14,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define ASTRALPLAGUE_AstralExperienceManager_generated_h
 
-#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_GameModes_AstralExperienceManager_h_14_INCLASS_NO_PURE_DECLS \
+#define FID_AstralPlague_Source_AstralPlague_GameModes_AstralExperienceManager_h_14_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUAstralExperienceManager(); \
 	friend struct Z_Construct_UClass_UAstralExperienceManager_Statics; \
@@ -23,7 +23,7 @@ public: \
 	DECLARE_SERIALIZER(UAstralExperienceManager)
 
 
-#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_GameModes_AstralExperienceManager_h_14_ENHANCED_CONSTRUCTORS \
+#define FID_AstralPlague_Source_AstralPlague_GameModes_AstralExperienceManager_h_14_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	ASTRALPLAGUE_API UAstralExperienceManager(); \
 private: \
@@ -37,12 +37,12 @@ public: \
 	ASTRALPLAGUE_API virtual ~UAstralExperienceManager();
 
 
-#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_GameModes_AstralExperienceManager_h_11_PROLOG
-#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_GameModes_AstralExperienceManager_h_14_GENERATED_BODY \
+#define FID_AstralPlague_Source_AstralPlague_GameModes_AstralExperienceManager_h_11_PROLOG
+#define FID_AstralPlague_Source_AstralPlague_GameModes_AstralExperienceManager_h_14_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_GameModes_AstralExperienceManager_h_14_INCLASS_NO_PURE_DECLS \
-	FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_GameModes_AstralExperienceManager_h_14_ENHANCED_CONSTRUCTORS \
+	FID_AstralPlague_Source_AstralPlague_GameModes_AstralExperienceManager_h_14_INCLASS_NO_PURE_DECLS \
+	FID_AstralPlague_Source_AstralPlague_GameModes_AstralExperienceManager_h_14_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -50,7 +50,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> ASTRALPLAGUE_API UClass* StaticClass<class UAstralExperienceManager>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_GameModes_AstralExperienceManager_h
+#define CURRENT_FILE_ID FID_AstralPlague_Source_AstralPlague_GameModes_AstralExperienceManager_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

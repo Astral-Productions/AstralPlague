@@ -14,7 +14,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define ASTRALPLAGUE_AstralAbilitySystemGlobals_generated_h
 
-#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_AbilitySystem_AstralAbilitySystemGlobals_h_15_INCLASS \
+#define FID_AstralPlague_Source_AstralPlague_AbilitySystem_AstralAbilitySystemGlobals_h_15_INCLASS \
 private: \
 	static void StaticRegisterNativesUAstralAbilitySystemGlobals(); \
 	friend struct Z_Construct_UClass_UAstralAbilitySystemGlobals_Statics; \
@@ -23,7 +23,7 @@ public: \
 	DECLARE_SERIALIZER(UAstralAbilitySystemGlobals)
 
 
-#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_AbilitySystem_AstralAbilitySystemGlobals_h_15_STANDARD_CONSTRUCTORS \
+#define FID_AstralPlague_Source_AstralPlague_AbilitySystem_AstralAbilitySystemGlobals_h_15_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UAstralAbilitySystemGlobals(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UAstralAbilitySystemGlobals) \
@@ -37,12 +37,12 @@ public: \
 	NO_API virtual ~UAstralAbilitySystemGlobals();
 
 
-#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_AbilitySystem_AstralAbilitySystemGlobals_h_12_PROLOG
-#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_AbilitySystem_AstralAbilitySystemGlobals_h_15_GENERATED_BODY_LEGACY \
+#define FID_AstralPlague_Source_AstralPlague_AbilitySystem_AstralAbilitySystemGlobals_h_12_PROLOG
+#define FID_AstralPlague_Source_AstralPlague_AbilitySystem_AstralAbilitySystemGlobals_h_15_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_AbilitySystem_AstralAbilitySystemGlobals_h_15_INCLASS \
-	FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_AbilitySystem_AstralAbilitySystemGlobals_h_15_STANDARD_CONSTRUCTORS \
+	FID_AstralPlague_Source_AstralPlague_AbilitySystem_AstralAbilitySystemGlobals_h_15_INCLASS \
+	FID_AstralPlague_Source_AstralPlague_AbilitySystem_AstralAbilitySystemGlobals_h_15_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -50,7 +50,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> ASTRALPLAGUE_API UClass* StaticClass<class UAstralAbilitySystemGlobals>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_AbilitySystem_AstralAbilitySystemGlobals_h
+#define CURRENT_FILE_ID FID_AstralPlague_Source_AstralPlague_AbilitySystem_AstralAbilitySystemGlobals_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

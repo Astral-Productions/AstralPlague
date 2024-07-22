@@ -1,11 +1,11 @@
-"C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Intermediate\Build\Win64\UnrealEditor\Inc\AstralPlague\UHT\AstralStatsComponent.gen.cpp"
-/FI"C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Intermediate\Build\Win64\x64\AstralPlagueEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h"
-/FI"C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Intermediate\Build\Win64\x64\UnrealEditor\Development\AstralPlague\Definitions.AstralPlague.h"
-/Yu"C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Intermediate\Build\Win64\x64\AstralPlagueEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h"
-/Fp"C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Intermediate\Build\Win64\x64\AstralPlagueEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h.pch"
-/Fo"C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Intermediate\Build\Win64\x64\UnrealEditor\Development\AstralPlague\AstralStatsComponent.gen.cpp.obj"
-/sourceDependencies "C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Intermediate\Build\Win64\x64\UnrealEditor\Development\AstralPlague\AstralStatsComponent.gen.cpp.dep.json"
-@"C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Intermediate\Build\Win64\x64\UnrealEditor\Development\AstralPlague\AstralPlague.Shared.rsp"
+"D:\UnrealDev\AstralPlague - Dev\AstralPlague\Intermediate\Build\Win64\UnrealEditor\Inc\AstralPlague\UHT\AstralStatsComponent.gen.cpp"
+/FI"D:\UnrealDev\AstralPlague - Dev\AstralPlague\Intermediate\Build\Win64\x64\AstralPlagueEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h"
+/FI"D:\UnrealDev\AstralPlague - Dev\AstralPlague\Intermediate\Build\Win64\x64\UnrealEditor\Development\AstralPlague\Definitions.AstralPlague.h"
+/Yu"D:\UnrealDev\AstralPlague - Dev\AstralPlague\Intermediate\Build\Win64\x64\AstralPlagueEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h"
+/Fp"D:\UnrealDev\AstralPlague - Dev\AstralPlague\Intermediate\Build\Win64\x64\AstralPlagueEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h.pch"
+/Fo"D:\UnrealDev\AstralPlague - Dev\AstralPlague\Intermediate\Build\Win64\x64\UnrealEditor\Development\AstralPlague\AstralStatsComponent.gen.cpp.obj"
+/sourceDependencies "D:\UnrealDev\AstralPlague - Dev\AstralPlague\Intermediate\Build\Win64\x64\UnrealEditor\Development\AstralPlague\AstralStatsComponent.gen.cpp.dep.json"
+@"D:\UnrealDev\AstralPlague - Dev\AstralPlague\Intermediate\Build\Win64\x64\UnrealEditor\Development\AstralPlague\AstralPlague.Shared.rsp"
 /Zc:inline
 /nologo
 /Oi

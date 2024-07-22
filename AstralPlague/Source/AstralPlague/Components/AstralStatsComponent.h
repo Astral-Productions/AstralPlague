@@ -4,7 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "AstralPlague/AbilitySystem/Attributes/CharacterAttributeSet.h"
-#include "AstralPlague/AbilitySystem/Attributes/AstralAttributeSet.h"
 #include "Components/ActorComponent.h"
 #include "AstralStatsComponent.generated.h"
 
@@ -39,6 +38,10 @@ public:
 	// Sets default values for this component's properties	
 	UAstralStatsComponent(const FObjectInitializer& ObjectInitializer);
 
+	void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
+
+	void OnUnregister() override;
+	
 	// Returns the health component if one exists on the specified actor.
 	UFUNCTION(BlueprintPure, Category = "Astral|Health")
 	static UAstralStatsComponent* FindHealthComponent(const AActor* Actor) { return (Actor ? Actor->FindComponentByClass<UAstralStatsComponent>() : nullptr); }
@@ -94,14 +97,10 @@ public:
 	// Delegate fired when the death sequence has finished.
 	UPROPERTY(BlueprintAssignable)
 	FAstralHealth_DeathEvent OnDeathFinished;
-	
-
 	  
 protected:
 
-	virtual void OnUnregister() override;
-
-	void ClearGameplayTags();
+	void ClearGameplayTags() const;
 
 	virtual void HandleHealthChanged(AActor* DamageInstigator, AActor* DamageCauser, const FGameplayEffectSpec* DamageEffectSpec, float DamageMagnitude, float OldValue, float NewValue);
 	virtual void HandleMaxHealthChanged(AActor* DamageInstigator, AActor* DamageCauser, const FGameplayEffectSpec* DamageEffectSpec, float DamageMagnitude, float OldValue, float NewValue);

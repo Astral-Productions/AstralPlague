@@ -77,14 +77,6 @@ void UAstralCharacterComponent::OnRegister()
 	}
 }
 
-void UAstralCharacterComponent::CheckDefaultInitialization()
-{
-	static const TArray<FGameplayTag> StateChain = { AstralGameplayTags::InitState_Spawned, AstralGameplayTags::InitState_DataAvailable, AstralGameplayTags::InitState_DataInitialized, AstralGameplayTags::InitState_GameplayReady };
-
-	// This will try to progress from spawned (which is only set in BeginPlay) through the data initialization stages until it gets to gameplay ready
-	ContinueInitStateChain(StateChain);
-}
-
 void UAstralCharacterComponent::SetPawnData(const UAstralPawnData* InPawnData)
 {
 	check(InPawnData);
@@ -114,7 +106,7 @@ void UAstralCharacterComponent::BeginPlay()
 	Super::BeginPlay();
 
 	// Notifies that we are done spawning, then try the rest of initialization
-	ensure(TryToChangeInitState(AstralGameplayTags::InitState_Spawned));
+ensure(TryToChangeInitState(AstralGameplayTags::InitState_Spawned));
 	CheckDefaultInitialization();
 }
 

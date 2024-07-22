@@ -131,14 +131,14 @@ UAstralGameData::~UAstralGameData() {}
 // End Class UAstralGameData
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_System_AstralGameData_h_Statics
+struct Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_System_AstralGameData_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
 		{ Z_Construct_UClass_UAstralGameData, UAstralGameData::StaticClass, TEXT("UAstralGameData"), &Z_Registration_Info_UClass_UAstralGameData, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAstralGameData), 237982488U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_System_AstralGameData_h_3058893157(TEXT("/Script/AstralPlague"),
-	Z_CompiledInDeferFile_FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_System_AstralGameData_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_System_AstralGameData_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_System_AstralGameData_h_3058893157(TEXT("/Script/AstralPlague"),
+	Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_System_AstralGameData_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_System_AstralGameData_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration

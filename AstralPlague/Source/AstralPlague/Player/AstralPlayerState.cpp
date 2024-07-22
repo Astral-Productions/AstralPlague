@@ -6,7 +6,7 @@
 #include "AstralPlague/AbilitySystem/AstralAbilitySet.h"
 #include "AstralPlague/AbilitySystem/AstralAbilitySystemComponent.h"
 #include "..\AbilitySystem\Attributes\AstralAttributeSet.h"
-#include "AstralPlague/AbilitySystem/Attributes/UProgressionAttributeSet.h"
+#include "AstralPlague/AbilitySystem/Attributes/ProgressionAttributeSet.h"
 #include "AstralPlague/Character/AstralPawnData.h"
 #include "AstralPlague/Character/Playable/AstralMainCharacter.h"
 #include "AstralPlague/UI/AstralFloatingStatusBarWidget.h"
@@ -26,8 +26,8 @@ AAstralPlayerState::AAstralPlayerState(const FObjectInitializer& ObjectInitializ
 	AbilitySystemComponent->SetIsReplicated(true);
 	AbilitySystemComponent->SetReplicationMode(EGameplayEffectReplicationMode::Full); //Unless we enable multiplayer full replication is the best bet
 
-	CharacterAttributeSet = CreateDefaultSubobject<UCharacterAttributeSet>(TEXT("CharacterAttributeSet"));
-	ProgressionAttributeSet = CreateDefaultSubobject<UProgressionAttributeSet>(TEXT("CharacterAttributeSet"));
+	/*CharacterAttributeSet = CreateDefaultSubobject<UCharacterAttributeSet>(TEXT("CharacterAttributeSet"));
+	ProgressionAttributeSet = CreateDefaultSubobject<UProgressionAttributeSet>(TEXT("CharacterAttributeSet"));*/
 	
 	// Set PlayerState's NetUpdateFrequency to the same as the Character.
 	// Default is very low for PlayerStates and introduces perceived lag in the ability system.
@@ -35,10 +35,18 @@ AAstralPlayerState::AAstralPlayerState(const FObjectInitializer& ObjectInitializ
 	NetUpdateFrequency = 100.0f;
 
 	// Cache tags
-	DeadTag = FGameplayTag::RequestGameplayTag(FName("State.Dead"));
-	
+	DeadTag = FGameplayTag::RequestGameplayTag(FName("State.Dead"));	
 }
 
+UCharacterAttributeSet* AAstralPlayerState::GetCharacterAttributeSet() const
+{
+	return CharacterAttributeSet;
+}
+
+UProgressionAttributeSet* AAstralPlayerState::GetProgressionAttributeSet() const
+{
+	return ProgressionAttributeSet;
+}
 
 UAbilitySystemComponent* AAstralPlayerState::GetAbilitySystemComponent() const
 {
@@ -50,11 +58,6 @@ AAstralPlayerController* AAstralPlayerState::GetAstralPlayerController() const
 	return Cast<AAstralPlayerController>(GetOwner());
 }
 
-
-UCharacterAttributeSet * AAstralPlayerState::GetAttributeSetBase() const
-{
-	return CharacterAttributeSet;
-}
 
 bool AAstralPlayerState::IsAlive() const
 {
@@ -76,63 +79,63 @@ void AAstralPlayerState::ShowAbilityConfirmCancelText(bool ShowText)
 
 float AAstralPlayerState::GetHealth() const
 {
-	return CharacterAttributeSet->GetHealth();
+	return GetCharacterAttributeSet()->GetHealth();
 }
 
 float AAstralPlayerState::GetMaxHealth() const
 {
-	return CharacterAttributeSet->GetMaxHealth();
+	return GetCharacterAttributeSet()->GetMaxHealth();
 }
 
 float AAstralPlayerState::GetHealthRegenRate() const
 {
-	return CharacterAttributeSet->GetHealthRegenRate();
+	return GetCharacterAttributeSet()->GetHealthRegenRate();
 }
 
 float AAstralPlayerState::GetSoulEnergy() const
 {
-	return CharacterAttributeSet->GetSoulEnergy();
+	return GetCharacterAttributeSet()->GetSoulEnergy();
 }
 
 float AAstralPlayerState::GetMaxSoulEnergy() const
 {
-	return CharacterAttributeSet->GetMaxSoulEnergy();
+	return GetCharacterAttributeSet()->GetMaxSoulEnergy();
 }
 
 float AAstralPlayerState::GetStamina() const
 {
-	return CharacterAttributeSet->GetStamina();
+	return GetCharacterAttributeSet()->GetStamina();
 }
 
 float AAstralPlayerState::GetMaxStamina() const
 {
-	return CharacterAttributeSet->GetMaxStamina();
+	return GetCharacterAttributeSet()->GetMaxStamina();
 }
 
 float AAstralPlayerState::GetStaminaRegenRate() const
 {
-	return CharacterAttributeSet->GetStaminaRegenRate();
+	return GetCharacterAttributeSet()->GetStaminaRegenRate();
 }
 
 float AAstralPlayerState::GetMoveSpeed() const
 {
-	return CharacterAttributeSet->GetMoveSpeed();
+	return GetCharacterAttributeSet()->GetMoveSpeed();
 }
 
 int32 AAstralPlayerState::GetCharacterLevel() const
 {
-	return ProgressionAttributeSet->GetCharacterLevel();
+	return GetProgressionAttributeSet()->GetCharacterLevel();
 }
 
 int32 AAstralPlayerState::GetCharacterXP() const
 {
-	return ProgressionAttributeSet->GetCharacterXP();
+	return GetProgressionAttributeSet()->GetCharacterXP();
 }
 
 
 int32 AAstralPlayerState::GetGems() const
 {
-	return ProgressionAttributeSet->GetCharacterGems();
+	return GetProgressionAttributeSet()->GetCharacterGems();
 }
 
 void AAstralPlayerState::SetPawnData(const UAstralPawnData* InPawnData)

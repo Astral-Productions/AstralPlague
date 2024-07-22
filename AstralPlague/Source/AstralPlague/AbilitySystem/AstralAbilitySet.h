@@ -6,7 +6,6 @@
 #include "Engine/DataAsset.h"
 #include "AttributeSet.h"
 #include "GameplayTagContainer.h"
-
 #include "GameplayAbilitySpecHandle.h"
 #include "AstralAbilitySet.generated.h"
 
@@ -41,7 +40,6 @@ public:
 	UPROPERTY(EditDefaultsOnly, Meta = (Categories = "InputTag"))
 	FGameplayTag InputTag;
 };
-
 
 /**
  * FAstralAbilitySet_GameplayEffect

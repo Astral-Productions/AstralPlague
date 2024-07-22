@@ -21,6 +21,16 @@ UAstralStatsComponent::UAstralStatsComponent(const FObjectInitializer& ObjectIni
 	DeathState = EAstralDeathState::NotDead;
 }
 
+void UAstralStatsComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+}
+
+void UAstralStatsComponent::OnUnregister()
+{
+	Super::OnUnregister();
+}
+
 
 void UAstralStatsComponent::InitializeWithAbilitySystem(UAstralAbilitySystemComponent* InASC)
 {
@@ -77,7 +87,7 @@ void UAstralStatsComponent::UninitializeFromAbilitySystem()
 }
 
 
-void UAstralStatsComponent::ClearGameplayTags()
+void UAstralStatsComponent::ClearGameplayTags() const
 {
 	if (AbilitySystemComponent)
 	{

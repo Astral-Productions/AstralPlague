@@ -6,6 +6,11 @@
 #include "AstralPlague/AbilitySystem/AstralAbilitySystemComponent.h"
 
 
+UAstralAttributeSet::UAstralAttributeSet()
+{
+	
+}
+
 UAstralAbilitySystemComponent* UAstralAttributeSet::GetAstralAbilitySystemComponent() const
 {
 	return Cast<UAstralAbilitySystemComponent>(GetOwningAbilitySystemComponent());

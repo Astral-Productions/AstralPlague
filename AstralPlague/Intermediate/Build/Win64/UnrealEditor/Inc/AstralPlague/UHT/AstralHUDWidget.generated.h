@@ -14,8 +14,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define ASTRALPLAGUE_AstralHUDWidget_generated_h
 
-#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_UI_AstralHUDWidget_h_13_CALLBACK_WRAPPERS
-#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_UI_AstralHUDWidget_h_13_INCLASS_NO_PURE_DECLS \
+#define FID_AstralPlague_Source_AstralPlague_UI_AstralHUDWidget_h_13_CALLBACK_WRAPPERS
+#define FID_AstralPlague_Source_AstralPlague_UI_AstralHUDWidget_h_13_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUAstralHUDWidget(); \
 	friend struct Z_Construct_UClass_UAstralHUDWidget_Statics; \
@@ -24,7 +24,7 @@ public: \
 	DECLARE_SERIALIZER(UAstralHUDWidget)
 
 
-#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_UI_AstralHUDWidget_h_13_ENHANCED_CONSTRUCTORS \
+#define FID_AstralPlague_Source_AstralPlague_UI_AstralHUDWidget_h_13_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UAstralHUDWidget(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 private: \
@@ -38,13 +38,13 @@ public: \
 	NO_API virtual ~UAstralHUDWidget();
 
 
-#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_UI_AstralHUDWidget_h_10_PROLOG
-#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_UI_AstralHUDWidget_h_13_GENERATED_BODY \
+#define FID_AstralPlague_Source_AstralPlague_UI_AstralHUDWidget_h_10_PROLOG
+#define FID_AstralPlague_Source_AstralPlague_UI_AstralHUDWidget_h_13_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_UI_AstralHUDWidget_h_13_CALLBACK_WRAPPERS \
-	FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_UI_AstralHUDWidget_h_13_INCLASS_NO_PURE_DECLS \
-	FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_UI_AstralHUDWidget_h_13_ENHANCED_CONSTRUCTORS \
+	FID_AstralPlague_Source_AstralPlague_UI_AstralHUDWidget_h_13_CALLBACK_WRAPPERS \
+	FID_AstralPlague_Source_AstralPlague_UI_AstralHUDWidget_h_13_INCLASS_NO_PURE_DECLS \
+	FID_AstralPlague_Source_AstralPlague_UI_AstralHUDWidget_h_13_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -52,7 +52,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> ASTRALPLAGUE_API UClass* StaticClass<class UAstralHUDWidget>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_UI_AstralHUDWidget_h
+#define CURRENT_FILE_ID FID_AstralPlague_Source_AstralPlague_UI_AstralHUDWidget_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

@@ -20,7 +20,7 @@ struct FGameplayTag;
 #endif
 #define COMMONGAME_CommonUIExtensions_generated_h
 
-#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Plugins_CommonGame_Source_Public_CommonUIExtensions_h_24_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_AstralPlague_Plugins_CommonGame_Source_Public_CommonUIExtensions_h_24_RPC_WRAPPERS_NO_PURE_DECLS \
 	DECLARE_FUNCTION(execResumeInputForPlayer); \
 	DECLARE_FUNCTION(execSuspendInputForPlayer); \
 	DECLARE_FUNCTION(execGetLocalPlayerFromController); \
@@ -32,7 +32,7 @@ struct FGameplayTag;
 	DECLARE_FUNCTION(execGetOwningPlayerInputType);
 
 
-#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Plugins_CommonGame_Source_Public_CommonUIExtensions_h_24_INCLASS_NO_PURE_DECLS \
+#define FID_AstralPlague_Plugins_CommonGame_Source_Public_CommonUIExtensions_h_24_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUCommonUIExtensions(); \
 	friend struct Z_Construct_UClass_UCommonUIExtensions_Statics; \
@@ -41,7 +41,7 @@ public: \
 	DECLARE_SERIALIZER(UCommonUIExtensions)
 
 
-#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Plugins_CommonGame_Source_Public_CommonUIExtensions_h_24_ENHANCED_CONSTRUCTORS \
+#define FID_AstralPlague_Plugins_CommonGame_Source_Public_CommonUIExtensions_h_24_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	UCommonUIExtensions(UCommonUIExtensions&&); \
@@ -53,13 +53,13 @@ public: \
 	NO_API virtual ~UCommonUIExtensions();
 
 
-#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Plugins_CommonGame_Source_Public_CommonUIExtensions_h_21_PROLOG
-#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Plugins_CommonGame_Source_Public_CommonUIExtensions_h_24_GENERATED_BODY \
+#define FID_AstralPlague_Plugins_CommonGame_Source_Public_CommonUIExtensions_h_21_PROLOG
+#define FID_AstralPlague_Plugins_CommonGame_Source_Public_CommonUIExtensions_h_24_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Plugins_CommonGame_Source_Public_CommonUIExtensions_h_24_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Plugins_CommonGame_Source_Public_CommonUIExtensions_h_24_INCLASS_NO_PURE_DECLS \
-	FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Plugins_CommonGame_Source_Public_CommonUIExtensions_h_24_ENHANCED_CONSTRUCTORS \
+	FID_AstralPlague_Plugins_CommonGame_Source_Public_CommonUIExtensions_h_24_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_AstralPlague_Plugins_CommonGame_Source_Public_CommonUIExtensions_h_24_INCLASS_NO_PURE_DECLS \
+	FID_AstralPlague_Plugins_CommonGame_Source_Public_CommonUIExtensions_h_24_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -67,7 +67,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> COMMONGAME_API UClass* StaticClass<class UCommonUIExtensions>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Plugins_CommonGame_Source_Public_CommonUIExtensions_h
+#define CURRENT_FILE_ID FID_AstralPlague_Plugins_CommonGame_Source_Public_CommonUIExtensions_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

@@ -1,5 +1,5 @@
 /I "."
-/I "C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Plugins\GameFeatures\AstralPlagueCore\Source\AstralPlagueCoreRuntime\Private"
+/I "D:\UnrealDev\AstralPlague - Dev\AstralPlague\Plugins\GameFeatures\AstralPlagueCore\Source\AstralPlagueCoreRuntime\Private"
 /I "..\Intermediate\Build\Win64\UnrealEditor\Inc\CoreUObject\UHT"
 /I "..\Intermediate\Build\Win64\UnrealEditor\Inc\CoreUObject\VerseVMBytecode"
 /I "Runtime\CoreUObject\Public"
@@ -282,8 +282,8 @@
 /I "Editor\SceneDepthPickerMode\Public"
 /I "..\Intermediate\Build\Win64\UnrealEditor\Inc\AnimationEditMode\UHT"
 /I "Editor\AnimationEditMode\Public"
-/I "C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Plugins\GameFeatures\AstralPlagueCore\Source"
-/I "C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Plugins\GameFeatures\AstralPlagueCore\Source\AstralPlagueCoreRuntime\Public"
+/I "D:\UnrealDev\AstralPlague - Dev\AstralPlague\Plugins\GameFeatures\AstralPlagueCore\Source"
+/I "D:\UnrealDev\AstralPlague - Dev\AstralPlague\Plugins\GameFeatures\AstralPlagueCore\Source\AstralPlagueCoreRuntime\Public"
 /external:W0
 /external:I "ThirdParty\LibTiff\Source\Win64"
 /external:I "ThirdParty\LibTiff\Source"

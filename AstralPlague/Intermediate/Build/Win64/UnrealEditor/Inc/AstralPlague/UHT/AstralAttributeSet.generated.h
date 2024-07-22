@@ -14,7 +14,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define ASTRALPLAGUE_AstralAttributeSet_generated_h
 
-#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_AbilitySystem_Attributes_AstralAttributeSet_h_46_INCLASS_NO_PURE_DECLS \
+#define FID_AstralPlague_Source_AstralPlague_AbilitySystem_Attributes_AstralAttributeSet_h_46_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUAstralAttributeSet(); \
 	friend struct Z_Construct_UClass_UAstralAttributeSet_Statics; \
@@ -23,7 +23,7 @@ public: \
 	DECLARE_SERIALIZER(UAstralAttributeSet)
 
 
-#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_AbilitySystem_Attributes_AstralAttributeSet_h_46_ENHANCED_CONSTRUCTORS \
+#define FID_AstralPlague_Source_AstralPlague_AbilitySystem_Attributes_AstralAttributeSet_h_46_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	UAstralAttributeSet(UAstralAttributeSet&&); \
@@ -35,12 +35,12 @@ public: \
 	NO_API virtual ~UAstralAttributeSet();
 
 
-#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_AbilitySystem_Attributes_AstralAttributeSet_h_43_PROLOG
-#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_AbilitySystem_Attributes_AstralAttributeSet_h_46_GENERATED_BODY \
+#define FID_AstralPlague_Source_AstralPlague_AbilitySystem_Attributes_AstralAttributeSet_h_43_PROLOG
+#define FID_AstralPlague_Source_AstralPlague_AbilitySystem_Attributes_AstralAttributeSet_h_46_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_AbilitySystem_Attributes_AstralAttributeSet_h_46_INCLASS_NO_PURE_DECLS \
-	FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_AbilitySystem_Attributes_AstralAttributeSet_h_46_ENHANCED_CONSTRUCTORS \
+	FID_AstralPlague_Source_AstralPlague_AbilitySystem_Attributes_AstralAttributeSet_h_46_INCLASS_NO_PURE_DECLS \
+	FID_AstralPlague_Source_AstralPlague_AbilitySystem_Attributes_AstralAttributeSet_h_46_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -48,7 +48,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> ASTRALPLAGUE_API UClass* StaticClass<class UAstralAttributeSet>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_AbilitySystem_Attributes_AstralAttributeSet_h
+#define CURRENT_FILE_ID FID_AstralPlague_Source_AstralPlague_AbilitySystem_Attributes_AstralAttributeSet_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

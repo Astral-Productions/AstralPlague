@@ -16,7 +16,7 @@ class UAstralAbilitySystemComponent;
 #endif
 #define ASTRALPLAGUE_AstralPlayerState_generated_h
 
-#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_Player_AstralPlayerState_h_22_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_AstralPlague_Source_AstralPlague_Player_AstralPlayerState_h_22_RPC_WRAPPERS_NO_PURE_DECLS \
 	DECLARE_FUNCTION(execGetGems); \
 	DECLARE_FUNCTION(execGetCharacterXP); \
 	DECLARE_FUNCTION(execGetCharacterLevel); \
@@ -35,7 +35,7 @@ class UAstralAbilitySystemComponent;
 	DECLARE_FUNCTION(execGetAstralPlayerController);
 
 
-#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_Player_AstralPlayerState_h_22_INCLASS_NO_PURE_DECLS \
+#define FID_AstralPlague_Source_AstralPlague_Player_AstralPlayerState_h_22_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAAstralPlayerState(); \
 	friend struct Z_Construct_UClass_AAstralPlayerState_Statics; \
@@ -47,7 +47,7 @@ public: \
 	virtual UObject* _getUObject() const override { return const_cast<AAstralPlayerState*>(this); }
 
 
-#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_Player_AstralPlayerState_h_22_ENHANCED_CONSTRUCTORS \
+#define FID_AstralPlague_Source_AstralPlague_Player_AstralPlayerState_h_22_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	AAstralPlayerState(AAstralPlayerState&&); \
@@ -59,13 +59,13 @@ public: \
 	NO_API virtual ~AAstralPlayerState();
 
 
-#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_Player_AstralPlayerState_h_19_PROLOG
-#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_Player_AstralPlayerState_h_22_GENERATED_BODY \
+#define FID_AstralPlague_Source_AstralPlague_Player_AstralPlayerState_h_19_PROLOG
+#define FID_AstralPlague_Source_AstralPlague_Player_AstralPlayerState_h_22_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_Player_AstralPlayerState_h_22_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_Player_AstralPlayerState_h_22_INCLASS_NO_PURE_DECLS \
-	FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_Player_AstralPlayerState_h_22_ENHANCED_CONSTRUCTORS \
+	FID_AstralPlague_Source_AstralPlague_Player_AstralPlayerState_h_22_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_AstralPlague_Source_AstralPlague_Player_AstralPlayerState_h_22_INCLASS_NO_PURE_DECLS \
+	FID_AstralPlague_Source_AstralPlague_Player_AstralPlayerState_h_22_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -73,7 +73,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> ASTRALPLAGUE_API UClass* StaticClass<class AAstralPlayerState>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_Player_AstralPlayerState_h
+#define CURRENT_FILE_ID FID_AstralPlague_Source_AstralPlague_Player_AstralPlayerState_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

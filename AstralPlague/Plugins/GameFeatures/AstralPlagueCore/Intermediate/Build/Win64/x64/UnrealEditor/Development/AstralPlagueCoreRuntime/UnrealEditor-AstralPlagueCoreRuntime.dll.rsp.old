@@ -35,9 +35,9 @@
 /NODEFAULTLIB:"LIBCD"
 /NODEFAULTLIB:"LIBCPD"
 /FUNCTIONPADMIN:6
-"D:\UnrealDev\AstralPlague - Dev\AstralPlague\Intermediate\Build\Win64\x64\AstralPlagueEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h.obj"
-"D:\UnrealDev\AstralPlague - Dev\AstralPlague\Plugins\GameFeatures\AstralPlagueCore\Intermediate\Build\Win64\x64\UnrealEditor\Development\AstralPlagueCoreRuntime\Module.AstralPlagueCoreRuntime.cpp.obj"
-"D:\UnrealDev\AstralPlague - Dev\AstralPlague\Plugins\GameFeatures\AstralPlagueCore\Intermediate\Build\Win64\x64\UnrealEditor\Development\AstralPlagueCoreRuntime\Default.rc2.res"
+"C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Intermediate\Build\Win64\x64\AstralPlagueEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h.obj"
+"C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Plugins\GameFeatures\AstralPlagueCore\Intermediate\Build\Win64\x64\UnrealEditor\Development\AstralPlagueCoreRuntime\Module.AstralPlagueCoreRuntime.cpp.obj"
+"C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Plugins\GameFeatures\AstralPlagueCore\Intermediate\Build\Win64\x64\UnrealEditor\Development\AstralPlagueCoreRuntime\Default.rc2.res"
 "..\Intermediate\Build\Win64\x64\UnrealEditor\Development\CoreUObject\UnrealEditor-CoreUObject.lib"
 "..\Intermediate\Build\Win64\x64\UnrealEditor\Development\Engine\UnrealEditor-Engine.lib"
 "..\Intermediate\Build\Win64\x64\UnrealEditor\Development\Slate\UnrealEditor-Slate.lib"
@@ -68,7 +68,7 @@
 "synchronization.lib"
 "dwmapi.lib"
 "imm32.lib"
-/OUT:"D:\UnrealDev\AstralPlague - Dev\AstralPlague\Plugins\GameFeatures\AstralPlagueCore\Binaries\Win64\UnrealEditor-AstralPlagueCoreRuntime.dll"
-/IMPLIB:"D:\UnrealDev\AstralPlague - Dev\AstralPlague\Plugins\GameFeatures\AstralPlagueCore\Intermediate\Build\Win64\x64\UnrealEditor\Development\AstralPlagueCoreRuntime\UnrealEditor-AstralPlagueCoreRuntime.sup.lib"
-/PDB:"D:\UnrealDev\AstralPlague - Dev\AstralPlague\Plugins\GameFeatures\AstralPlagueCore\Binaries\Win64\UnrealEditor-AstralPlagueCoreRuntime.pdb"
+/OUT:"C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Plugins\GameFeatures\AstralPlagueCore\Binaries\Win64\UnrealEditor-AstralPlagueCoreRuntime.dll"
+/IMPLIB:"C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Plugins\GameFeatures\AstralPlagueCore\Intermediate\Build\Win64\x64\UnrealEditor\Development\AstralPlagueCoreRuntime\UnrealEditor-AstralPlagueCoreRuntime.sup.lib"
+/PDB:"C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Plugins\GameFeatures\AstralPlagueCore\Binaries\Win64\UnrealEditor-AstralPlagueCoreRuntime.pdb"
 /ignore:4078

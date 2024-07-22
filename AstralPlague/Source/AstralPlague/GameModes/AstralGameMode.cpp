@@ -154,7 +154,7 @@ void AAstralGameMode::HandleMatchAssignmentIfNotExpectingOne()
 		}*/
 
 		//@TODO: Pull this from a config setting or something
-		ExperienceId = FPrimaryAssetId(FPrimaryAssetType("LyraExperienceDefinition"), FName("B_LyraDefaultExperience"));
+		ExperienceId = FPrimaryAssetId(FPrimaryAssetType("AstralExperienceDefinition"), FName("EXP_Player"));
 		ExperienceIdSource = TEXT("Default");
 	}
 

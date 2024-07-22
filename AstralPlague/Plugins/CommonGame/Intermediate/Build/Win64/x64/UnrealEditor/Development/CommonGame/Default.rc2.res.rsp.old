@@ -81,5 +81,5 @@
 /DPROJECT_COPYRIGHT_STRING="Copyright Astral Productions 2024"
 /DPROJECT_PRODUCT_NAME=AstralPlague
 /DPROJECT_PRODUCT_IDENTIFIER=AstralPlague
-/fo "D:\UnrealDev\AstralPlague - Dev\AstralPlague\Plugins\CommonGame\Intermediate\Build\Win64\x64\UnrealEditor\Development\CommonGame\Default.rc2.res"
+/fo "C:\Users\NovaB\Desktop\AstralPlague\AstralPlague\Plugins\CommonGame\Intermediate\Build\Win64\x64\UnrealEditor\Development\CommonGame\Default.rc2.res"
 "..\Build\Windows\Resources\Default.rc2"

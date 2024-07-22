@@ -14,35 +14,35 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define ASTRALPLAGUE_AstralAbilitySet_generated_h
 
-#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_AbilitySystem_AstralAbilitySet_h_28_GENERATED_BODY \
+#define FID_AstralPlague_Source_AstralPlague_AbilitySystem_AstralAbilitySet_h_27_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FAstralAbilitySet_GameplayAbility_Statics; \
 	ASTRALPLAGUE_API static class UScriptStruct* StaticStruct();
 
 
 template<> ASTRALPLAGUE_API UScriptStruct* StaticStruct<struct FAstralAbilitySet_GameplayAbility>();
 
-#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_AbilitySystem_AstralAbilitySet_h_54_GENERATED_BODY \
+#define FID_AstralPlague_Source_AstralPlague_AbilitySystem_AstralAbilitySet_h_52_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FAstralAbilitySet_GameplayEffect_Statics; \
 	ASTRALPLAGUE_API static class UScriptStruct* StaticStruct();
 
 
 template<> ASTRALPLAGUE_API UScriptStruct* StaticStruct<struct FAstralAbilitySet_GameplayEffect>();
 
-#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_AbilitySystem_AstralAbilitySet_h_75_GENERATED_BODY \
+#define FID_AstralPlague_Source_AstralPlague_AbilitySystem_AstralAbilitySet_h_73_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FAstralAbilitySet_AttributeSet_Statics; \
 	ASTRALPLAGUE_API static class UScriptStruct* StaticStruct();
 
 
 template<> ASTRALPLAGUE_API UScriptStruct* StaticStruct<struct FAstralAbilitySet_AttributeSet>();
 
-#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_AbilitySystem_AstralAbilitySet_h_92_GENERATED_BODY \
+#define FID_AstralPlague_Source_AstralPlague_AbilitySystem_AstralAbilitySet_h_90_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FAstralAbilitySet_GrantedHandles_Statics; \
 	ASTRALPLAGUE_API static class UScriptStruct* StaticStruct();
 
 
 template<> ASTRALPLAGUE_API UScriptStruct* StaticStruct<struct FAstralAbilitySet_GrantedHandles>();
 
-#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_AbilitySystem_AstralAbilitySet_h_126_INCLASS_NO_PURE_DECLS \
+#define FID_AstralPlague_Source_AstralPlague_AbilitySystem_AstralAbilitySet_h_124_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUAstralAbilitySet(); \
 	friend struct Z_Construct_UClass_UAstralAbilitySet_Statics; \
@@ -51,7 +51,7 @@ public: \
 	DECLARE_SERIALIZER(UAstralAbilitySet)
 
 
-#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_AbilitySystem_AstralAbilitySet_h_126_ENHANCED_CONSTRUCTORS \
+#define FID_AstralPlague_Source_AstralPlague_AbilitySystem_AstralAbilitySet_h_124_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	UAstralAbilitySet(UAstralAbilitySet&&); \
@@ -63,12 +63,12 @@ public: \
 	NO_API virtual ~UAstralAbilitySet();
 
 
-#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_AbilitySystem_AstralAbilitySet_h_123_PROLOG
-#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_AbilitySystem_AstralAbilitySet_h_126_GENERATED_BODY \
+#define FID_AstralPlague_Source_AstralPlague_AbilitySystem_AstralAbilitySet_h_121_PROLOG
+#define FID_AstralPlague_Source_AstralPlague_AbilitySystem_AstralAbilitySet_h_124_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_AbilitySystem_AstralAbilitySet_h_126_INCLASS_NO_PURE_DECLS \
-	FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_AbilitySystem_AstralAbilitySet_h_126_ENHANCED_CONSTRUCTORS \
+	FID_AstralPlague_Source_AstralPlague_AbilitySystem_AstralAbilitySet_h_124_INCLASS_NO_PURE_DECLS \
+	FID_AstralPlague_Source_AstralPlague_AbilitySystem_AstralAbilitySet_h_124_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -76,7 +76,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> ASTRALPLAGUE_API UClass* StaticClass<class UAstralAbilitySet>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_AbilitySystem_AstralAbilitySet_h
+#define CURRENT_FILE_ID FID_AstralPlague_Source_AstralPlague_AbilitySystem_AstralAbilitySet_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

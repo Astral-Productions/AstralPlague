@@ -188,12 +188,12 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	
 	// Instead of TWeakObjectPtrs, you could just have UPROPERTY() hard references or no references at all and just call
 	// GetAbilitySystem() and make a GetAttributeSetBase() that can read from the PlayerState or from child classes.
 	// Just make sure you test if the pointer is valid before using.
 	// I opted for TWeakObjectPtrs because I didn't want a shared hard reference here and I didn't want an extra function call of getting
 	// the ASC/AttributeSet from the PlayerState or child classes every time I referenced them in this base class.
-
 	TWeakObjectPtr<class UAstralAbilitySystemComponent> AbilitySystemComponent;
 	TWeakObjectPtr<class UCharacterAttributeSet> CharacterAttributeSet;
 	TWeakObjectPtr<class UProgressionAttributeSet> ProgressionAttributeSet;
@@ -246,9 +246,6 @@ protected:
 	void DisableMovementAndCollision();
 	void DestroyDueToDeath();
 	void UninitAndDestroy();
-	
-
-
 
 	/**
 	* Setters for Attributes. Only use these in special cases like Respawning, otherwise use a GE to change Attributes.
@@ -265,4 +262,9 @@ protected:
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Astral|Stats")
 	TObjectPtr<UAstralCameraComponent> CameraComponent;
+
+private:
+	/** The main skeletal mesh associated with this Character (optional sub-object). */
+	UPROPERTY(Category=Character, VisibleAnywhere, BlueprintReadOnly, meta=(AllowPrivateAccess = "true"))
+	TObjectPtr<USkeletalMeshComponent> Weapon;
 };

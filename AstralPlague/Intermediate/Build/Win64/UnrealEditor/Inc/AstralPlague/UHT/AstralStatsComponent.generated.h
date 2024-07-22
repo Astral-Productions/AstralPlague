@@ -18,15 +18,15 @@ enum class EAstralDeathState : uint8;
 #endif
 #define ASTRALPLAGUE_AstralStatsComponent_generated_h
 
-#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_Components_AstralStatsComponent_h_12_DELEGATE \
+#define FID_AstralPlague_Source_AstralPlague_Components_AstralStatsComponent_h_11_DELEGATE \
 ASTRALPLAGUE_API void FAstralHealth_DeathEvent_DelegateWrapper(const FMulticastScriptDelegate& AstralHealth_DeathEvent, AActor* OwningActor);
 
 
-#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_Components_AstralStatsComponent_h_13_DELEGATE \
+#define FID_AstralPlague_Source_AstralPlague_Components_AstralStatsComponent_h_12_DELEGATE \
 ASTRALPLAGUE_API void FAstralHealth_AttributeChanged_DelegateWrapper(const FMulticastScriptDelegate& AstralHealth_AttributeChanged, UAstralStatsComponent* HealthComponent, float OldValue, float NewValue, AActor* Instigator);
 
 
-#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_Components_AstralStatsComponent_h_36_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_AstralPlague_Source_AstralPlague_Components_AstralStatsComponent_h_35_RPC_WRAPPERS_NO_PURE_DECLS \
 	DECLARE_FUNCTION(execOnRep_DeathState); \
 	DECLARE_FUNCTION(execIsDeadOrDying); \
 	DECLARE_FUNCTION(execGetDeathState); \
@@ -38,14 +38,13 @@ ASTRALPLAGUE_API void FAstralHealth_AttributeChanged_DelegateWrapper(const FMult
 	DECLARE_FUNCTION(execFindHealthComponent);
 
 
-#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_Components_AstralStatsComponent_h_36_INCLASS_NO_PURE_DECLS \
+#define FID_AstralPlague_Source_AstralPlague_Components_AstralStatsComponent_h_35_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUAstralStatsComponent(); \
 	friend struct Z_Construct_UClass_UAstralStatsComponent_Statics; \
 public: \
 	DECLARE_CLASS(UAstralStatsComponent, UActorComponent, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/AstralPlague"), NO_API) \
 	DECLARE_SERIALIZER(UAstralStatsComponent) \
-	NO_API void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override; \
 	enum class ENetFields_Private : uint16 \
 	{ \
 		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
@@ -54,7 +53,7 @@ public: \
 	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
 
 
-#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_Components_AstralStatsComponent_h_36_ENHANCED_CONSTRUCTORS \
+#define FID_AstralPlague_Source_AstralPlague_Components_AstralStatsComponent_h_35_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	UAstralStatsComponent(UAstralStatsComponent&&); \
@@ -66,13 +65,13 @@ public: \
 	NO_API virtual ~UAstralStatsComponent();
 
 
-#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_Components_AstralStatsComponent_h_33_PROLOG
-#define FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_Components_AstralStatsComponent_h_36_GENERATED_BODY \
+#define FID_AstralPlague_Source_AstralPlague_Components_AstralStatsComponent_h_32_PROLOG
+#define FID_AstralPlague_Source_AstralPlague_Components_AstralStatsComponent_h_35_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_Components_AstralStatsComponent_h_36_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_Components_AstralStatsComponent_h_36_INCLASS_NO_PURE_DECLS \
-	FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_Components_AstralStatsComponent_h_36_ENHANCED_CONSTRUCTORS \
+	FID_AstralPlague_Source_AstralPlague_Components_AstralStatsComponent_h_35_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_AstralPlague_Source_AstralPlague_Components_AstralStatsComponent_h_35_INCLASS_NO_PURE_DECLS \
+	FID_AstralPlague_Source_AstralPlague_Components_AstralStatsComponent_h_35_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -80,7 +79,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> ASTRALPLAGUE_API UClass* StaticClass<class UAstralStatsComponent>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_Users_NovaB_Desktop_AstralPlague_AstralPlague_Source_AstralPlague_Components_AstralStatsComponent_h
+#define CURRENT_FILE_ID FID_AstralPlague_Source_AstralPlague_Components_AstralStatsComponent_h
 
 
 #define FOREACH_ENUM_EASTRALDEATHSTATE(op) \

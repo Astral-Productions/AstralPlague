@@ -116,9 +116,9 @@ void UAstralGameFeature_AddGameplayCuePaths::OnGameFeatureUnregistering(const UG
 	const FString PluginRootPath = TEXT("/") + PluginName;
 	for (const UGameFeatureAction* Action : GameFeatureData->GetActions())
 	{
-		if (const UGameFeatureAction_AddGameplayCuePath* AddGameplayCueGFA = Cast<UGameFeatureAction_AddGameplayCuePath>(GameFeatureData))
+		if (const UGameFeatureAction_AddGameplayCuePath* AddGameplayCueGfa = Cast<UGameFeatureAction_AddGameplayCuePath>(GameFeatureData))
 		{
-			const TArray<FDirectoryPath>& DirsToAdd = AddGameplayCueGFA->GetDirectoryPathsToAdd();
+			const TArray<FDirectoryPath>& DirsToAdd = AddGameplayCueGfa->GetDirectoryPathsToAdd();
 			
 			if (UGameplayCueManager* GCM = UAbilitySystemGlobals::Get().GetGameplayCueManager())
 			{
