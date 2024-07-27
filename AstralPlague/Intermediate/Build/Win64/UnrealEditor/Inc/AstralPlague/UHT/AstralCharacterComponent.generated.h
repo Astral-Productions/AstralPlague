@@ -16,11 +16,11 @@ class UAstralCharacterComponent;
 #endif
 #define ASTRALPLAGUE_AstralCharacterComponent_generated_h
 
-#define FID_AstralPlague_Source_AstralPlague_Components_AstralCharacterComponent_h_33_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_AstralPlague_Source_AstralPlague_Components_AstralCharacterComponent_h_32_RPC_WRAPPERS_NO_PURE_DECLS \
 	DECLARE_FUNCTION(execFindCharacterComponent);
 
 
-#define FID_AstralPlague_Source_AstralPlague_Components_AstralCharacterComponent_h_33_INCLASS_NO_PURE_DECLS \
+#define FID_AstralPlague_Source_AstralPlague_Components_AstralCharacterComponent_h_32_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUAstralCharacterComponent(); \
 	friend struct Z_Construct_UClass_UAstralCharacterComponent_Statics; \
@@ -30,7 +30,7 @@ public: \
 	virtual UObject* _getUObject() const override { return const_cast<UAstralCharacterComponent*>(this); }
 
 
-#define FID_AstralPlague_Source_AstralPlague_Components_AstralCharacterComponent_h_33_ENHANCED_CONSTRUCTORS \
+#define FID_AstralPlague_Source_AstralPlague_Components_AstralCharacterComponent_h_32_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	UAstralCharacterComponent(UAstralCharacterComponent&&); \
@@ -42,13 +42,13 @@ public: \
 	NO_API virtual ~UAstralCharacterComponent();
 
 
-#define FID_AstralPlague_Source_AstralPlague_Components_AstralCharacterComponent_h_30_PROLOG
-#define FID_AstralPlague_Source_AstralPlague_Components_AstralCharacterComponent_h_33_GENERATED_BODY \
+#define FID_AstralPlague_Source_AstralPlague_Components_AstralCharacterComponent_h_29_PROLOG
+#define FID_AstralPlague_Source_AstralPlague_Components_AstralCharacterComponent_h_32_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_AstralPlague_Source_AstralPlague_Components_AstralCharacterComponent_h_33_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_AstralPlague_Source_AstralPlague_Components_AstralCharacterComponent_h_33_INCLASS_NO_PURE_DECLS \
-	FID_AstralPlague_Source_AstralPlague_Components_AstralCharacterComponent_h_33_ENHANCED_CONSTRUCTORS \
+	FID_AstralPlague_Source_AstralPlague_Components_AstralCharacterComponent_h_32_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_AstralPlague_Source_AstralPlague_Components_AstralCharacterComponent_h_32_INCLASS_NO_PURE_DECLS \
+	FID_AstralPlague_Source_AstralPlague_Components_AstralCharacterComponent_h_32_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

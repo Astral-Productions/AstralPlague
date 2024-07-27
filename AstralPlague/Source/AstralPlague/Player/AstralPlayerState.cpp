@@ -1,14 +1,15 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-
 #include "AstralPlayerState.h"
 
 #include "AstralPlague/AbilitySystem/AstralAbilitySet.h"
 #include "AstralPlague/AbilitySystem/AstralAbilitySystemComponent.h"
-#include "..\AbilitySystem\Attributes\AstralAttributeSet.h"
+#include "AstralPlague/AstralLogChannels.h"
 #include "AstralPlague/AbilitySystem/Attributes/ProgressionAttributeSet.h"
 #include "AstralPlague/Character/AstralPawnData.h"
 #include "AstralPlague/Character/Playable/AstralMainCharacter.h"
+#include "AstralPlague/GameModes/AstralExperienceManagerComponent.h"
+#include "AstralPlague/GameModes/AstralGameMode.h"
 #include "AstralPlague/UI/AstralFloatingStatusBarWidget.h"
 #include "AstralPlague/UI/AstralHUDWidget.h"
 #include "Components/GameFrameworkComponentManager.h"
@@ -17,7 +18,7 @@
 const FName AAstralPlayerState::NAME_AstralAbilityReady("AstralAbilitiesReady");
 
 AAstralPlayerState::AAstralPlayerState(const FObjectInitializer& ObjectInitializer)
-	: Super(ObjectInitializer)
+: Super(ObjectInitializer)
 {
 	PrimaryActorTick.bCanEverTick = true;
 	PrimaryActorTick.bStartWithTickEnabled = true;
@@ -38,12 +39,12 @@ AAstralPlayerState::AAstralPlayerState(const FObjectInitializer& ObjectInitializ
 	DeadTag = FGameplayTag::RequestGameplayTag(FName("State.Dead"));	
 }
 
-UCharacterAttributeSet* AAstralPlayerState::GetCharacterAttributeSet() const
+TObjectPtr<const UCharacterAttributeSet> AAstralPlayerState::GetCharacterAttributeSet() const
 {
 	return CharacterAttributeSet;
 }
 
-UProgressionAttributeSet* AAstralPlayerState::GetProgressionAttributeSet() const
+TObjectPtr<const UProgressionAttributeSet> AAstralPlayerState::GetProgressionAttributeSet() const
 {
 	return ProgressionAttributeSet;
 }
@@ -140,7 +141,7 @@ int32 AAstralPlayerState::GetGems() const
 
 void AAstralPlayerState::SetPawnData(const UAstralPawnData* InPawnData)
 {
-	check(PawnData)
+	check(InPawnData)
 
 	if (GetLocalRole() != ROLE_Authority)
 	{
@@ -153,17 +154,57 @@ void AAstralPlayerState::SetPawnData(const UAstralPawnData* InPawnData)
 		return;
 	}
 
+	PawnData = InPawnData;
+	
 	for(const UAstralAbilitySet* AbilitySet : PawnData->AbilitySets)
 	{
 		if(AbilitySet)
 		{
-			AbilitySet->GiveToAbilitySystem(AbilitySystemComponent, nullptr);
+ 			AbilitySet->GiveToAbilitySystem(AbilitySystemComponent, nullptr);
 		}
 	}
 
 	UGameFrameworkComponentManager::SendGameFrameworkComponentExtensionEvent(this, NAME_AstralAbilityReady);
 
 	ForceNetUpdate(); // Not strictly necessary but employed by all multiplayer versions of this code.
+}
+
+void AAstralPlayerState::PreInitializeComponents()
+{
+	Super::PreInitializeComponents();
+}
+
+void AAstralPlayerState::PostInitializeComponents()
+{
+	Super::PostInitializeComponents();
+
+	check(AbilitySystemComponent);
+	AbilitySystemComponent->InitAbilityActorInfo(this, GetPawn());
+
+	UWorld* World = GetWorld();
+	if (World && World->IsGameWorld() && World->GetNetMode() != NM_Client)
+	{
+		AGameStateBase* GameState = GetWorld()->GetGameState();
+		check(GameState);
+		UAstralExperienceManagerComponent* ExperienceComponent = GameState->FindComponentByClass<UAstralExperienceManagerComponent>();
+		check(ExperienceComponent);
+		ExperienceComponent->CallOrRegister_OnExperienceLoaded(FOnAstralExperienceLoaded::FDelegate::CreateUObject(this, &ThisClass::OnExperienceLoaded));
+	}
+}
+
+void AAstralPlayerState::OnExperienceLoaded(const UAstralExperienceDefinition* CurrentExperience)
+{
+	if (AAstralGameMode* AstralGameMode = GetWorld()->GetAuthGameMode<AAstralGameMode>())
+	{
+		if (const UAstralPawnData* NewPawnData = AstralGameMode->GetPawnDataForController(GetOwningController()))
+		{
+			SetPawnData(NewPawnData);
+		}
+		else
+		{
+			UE_LOG(LogAstral, Error, TEXT("AAstralPlayerState::OnExperienceLoaded(): Unable to find PawnData to initialize player state [%s]!"), *GetNameSafe(this));
+		}
+	}
 }
 
 void AAstralPlayerState::BeginPlay()

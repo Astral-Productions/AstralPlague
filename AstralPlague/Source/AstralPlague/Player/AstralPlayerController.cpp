@@ -30,10 +30,9 @@ namespace Astral
 }
 
 AAstralPlayerController::AAstralPlayerController(const FObjectInitializer& ObjectInitializer)
-	: Super(ObjectInitializer)
+	: Super(ObjectInitializer), UIHUDWidget(nullptr)
 {
 	PlayerCameraManagerClass = AAstralPlayerCameraManager::StaticClass();
-
 }
 
 void AAstralPlayerController::PreInitializeComponents()
@@ -95,7 +94,7 @@ void AAstralPlayerController::PlayerTick(float DeltaTime)
 			// Update view rotation on the server so it replicates
 			if (HasAuthority() || TargetPawn->IsLocallyControlled())
 			{
-				//AstralPlayerState->SetReplicatedViewRotation(TargetPawn->GetViewRotation());
+//				AstralPlayerState->SetReplicatedViewRotation(TargetPawn->GetViewRotation());
 			}
 
 			// Update the target view rotation if the pawn isn't locally controlled
@@ -360,7 +359,7 @@ void AAstralPlayerController::CreateHUD()
 	UIHUDWidget->SetCharacterLevel(PS->GetCharacterLevel());
 }
 
-UAstralHUDWidget* AAstralPlayerController::GetHUD()
+UAstralHUDWidget* AAstralPlayerController::GetHUD() const
 {
 	return UIHUDWidget;
 }

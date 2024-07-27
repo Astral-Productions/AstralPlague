@@ -24,9 +24,9 @@ class ASTRALPLAGUE_API AAstralPlayerState : public AModularPlayerState, public I
 public:
 	
 	AAstralPlayerState(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
-	
-	class UCharacterAttributeSet* GetCharacterAttributeSet() const;
-	class UProgressionAttributeSet* GetProgressionAttributeSet() const;
+
+	TObjectPtr<const UCharacterAttributeSet> GetCharacterAttributeSet() const;
+	TObjectPtr<const UProgressionAttributeSet> GetProgressionAttributeSet() const;
 	
 	UFUNCTION(BlueprintCallable, Category = "Astral|PlayerState")
 	AAstralPlayerController* GetAstralPlayerController() const;
@@ -88,10 +88,19 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "GASDocumentation|GDPlayerState|Attributes")
 	int32 GetGems() const;
 
+	
 	template <class T>
 	const T* GetPawnData() const {return Cast<T>(PawnData);}
 
 	void SetPawnData(const UAstralPawnData* InPawnData);
+
+	//~AActor interface
+	virtual void PreInitializeComponents() override;
+	virtual void PostInitializeComponents() override;
+	//~End of AActor interface
+
+private:
+	void OnExperienceLoaded(const UAstralExperienceDefinition* CurrentExperience);
 	
 protected:
 	UPROPERTY(VisibleAnywhere, Category="Astral|PlayerState")
@@ -102,10 +111,12 @@ private:
 	UPROPERTY(VisibleAnywhere, Category = "Astral|PlayerState")
 	TObjectPtr<UAstralAbilitySystemComponent> AbilitySystemComponent;
 
+	// Health attribute set used by this actor.
 	UPROPERTY()
-	UCharacterAttributeSet* CharacterAttributeSet;
+	TObjectPtr<const class UCharacterAttributeSet> CharacterAttributeSet;
+	// Combat attribute set used by this actor.
 	UPROPERTY()
-	UProgressionAttributeSet* ProgressionAttributeSet;
+	TObjectPtr<const class UProgressionAttributeSet> ProgressionAttributeSet;
 
 	FGameplayTag DeadTag;
 

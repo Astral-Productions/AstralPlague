@@ -362,7 +362,7 @@ struct Z_Construct_UFunction_AAstralPlagueCharacter_GetAbilityLevel_Statics
 	};
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "Category", "GASDocumentation|GDCharacter" },
+		{ "Category", "Astral|Character" },
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// Switch on AbilityID to return individual ability levels. Hardcoded to 1 for every ability in this project.\n" },
 #endif
@@ -1232,7 +1232,7 @@ struct Z_Construct_UClass_AAstralPlagueCharacter_Statics
 #endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_DefaultAttributes_MetaData[] = {
-		{ "Category", "GASDocumentation|Abilities" },
+		{ "Category", "Astral|Abilities" },
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// Default attributes for a character for initializing on spawn/respawn.\n// This is an instant GE that overrides the values for attributes that get reset on spawn/respawn.\n" },
 #endif
@@ -1242,7 +1242,7 @@ struct Z_Construct_UClass_AAstralPlagueCharacter_Statics
 #endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_StartupEffects_MetaData[] = {
-		{ "Category", "GASDocumentation|Abilities" },
+		{ "Category", "Astral|Abilities" },
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// These effects are only applied one time on startup\n" },
 #endif
@@ -1290,7 +1290,7 @@ struct Z_Construct_UClass_AAstralPlagueCharacter_Statics
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
 		{ &Z_Construct_UFunction_AAstralPlagueCharacter_FinishDying, "FinishDying" }, // 704127830
-		{ &Z_Construct_UFunction_AAstralPlagueCharacter_GetAbilityLevel, "GetAbilityLevel" }, // 908395001
+		{ &Z_Construct_UFunction_AAstralPlagueCharacter_GetAbilityLevel, "GetAbilityLevel" }, // 3148105676
 		{ &Z_Construct_UFunction_AAstralPlagueCharacter_GetAstralAbilitySystemComponent, "GetAstralAbilitySystemComponent" }, // 3445130803
 		{ &Z_Construct_UFunction_AAstralPlagueCharacter_GetAstralPlayerState, "GetAstralPlayerState" }, // 1908172287
 		{ &Z_Construct_UFunction_AAstralPlagueCharacter_GetCharacterLevel, "GetCharacterLevel" }, // 4026977777
@@ -1391,10 +1391,10 @@ struct Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_Character_Astr
 		{ FSharedRepMovement::StaticStruct, Z_Construct_UScriptStruct_FSharedRepMovement_Statics::NewStructOps, TEXT("SharedRepMovement"), &Z_Registration_Info_UScriptStruct_SharedRepMovement, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FSharedRepMovement), 3118292124U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AAstralPlagueCharacter, AAstralPlagueCharacter::StaticClass, TEXT("AAstralPlagueCharacter"), &Z_Registration_Info_UClass_AAstralPlagueCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AAstralPlagueCharacter), 3838861971U) },
+		{ Z_Construct_UClass_AAstralPlagueCharacter, AAstralPlagueCharacter::StaticClass, TEXT("AAstralPlagueCharacter"), &Z_Registration_Info_UClass_AAstralPlagueCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AAstralPlagueCharacter), 2576141958U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_Character_AstralPlagueCharacter_h_4288257563(TEXT("/Script/AstralPlague"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_Character_AstralPlagueCharacter_h_687639095(TEXT("/Script/AstralPlague"),
 	Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_Character_AstralPlagueCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_Character_AstralPlagueCharacter_h_Statics::ClassInfo),
 	Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_Character_AstralPlagueCharacter_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_Character_AstralPlagueCharacter_h_Statics::ScriptStructInfo),
 	nullptr, 0);

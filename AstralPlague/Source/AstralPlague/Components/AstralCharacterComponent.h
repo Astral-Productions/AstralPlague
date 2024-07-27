@@ -5,14 +5,13 @@
 #include "Components/GameFrameworkInitStateInterface.h"
 #include "Components/PawnComponent.h"
 #include "AstralPlague/GameFeatures/GameFeatureAction_AddInputContextMapping.h"
+#include "AstralPlague/AbilitySystem/AstralAbilitySystemComponent.h"
 #include "GameplayAbilitySpecHandle.h"
 #include "AstralPlague/Character/AstralPawnData.h"
+#include "AstralPlague/Input/AstralMappableConfigPair.h"
 #include "AstralCharacterComponent.generated.h"
 
 namespace EEndPlayReason { enum Type : int; }
-struct FLoadedMappableConfigPair;
-struct FMappableConfigPair;
-
 class UGameFrameworkComponentManager;
 class UInputComponent;
 class UAstralCameraMode;
@@ -64,6 +63,22 @@ public:
 	/** Sets the current pawn data */
 	void SetPawnData(const UAstralPawnData* InPawnData);
 
+	
+	//~ Begin IGameFrameworkInitStateInterface interface
+	virtual FName GetFeatureName() const override { return NAME_ActorFeatureName; }
+	virtual bool CanChangeInitState(UGameFrameworkComponentManager* Manager, FGameplayTag CurrentState, FGameplayTag DesiredState) const override;
+	virtual void HandleChangeInitState(UGameFrameworkComponentManager* Manager, FGameplayTag CurrentState, FGameplayTag DesiredState) override;
+	virtual void OnActorInitStateChanged(const FActorInitStateChangedParams& Params) override;
+	virtual void CheckDefaultInitialization() override;
+	//~ End IGameFrameworkInitStateInterface interface
+
+	
+	/** Should be called by the owning pawn to become the avatar of the ability system. */
+	void InitializeAbilitySystem(UAstralAbilitySystemComponent* InASC, AActor* InOwnerActor);
+
+	/** Should be called by the owning pawn to remove itself as the avatar of the ability system. */
+	void UninitializeAbilitySystem();
+	
 protected:
 
 	virtual void OnRegister() override;
@@ -81,10 +96,22 @@ protected:
 	void Input_AutoRun(const FInputActionValue& InputActionValue);
 
 	TSubclassOf<UAstralCameraMode> DetermineCameraMode() const;
-	
+
+	PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	void OnInputConfigActivated(const FLoadedMappableConfigPair& ConfigPair);
 	void OnInputConfigDeactivated(const FLoadedMappableConfigPair& ConfigPair);
+	PRAGMA_ENABLE_DEPRECATION_WARNINGS
+	
+	/** Delegate fired when our pawn becomes the ability system's avatar actor */
+	FSimpleMulticastDelegate OnAbilitySystemInitialized;
 
+	/** Delegate fired when our pawn is removed as the ability system's avatar actor */
+	FSimpleMulticastDelegate OnAbilitySystemUninitialized;
+	
+	/** Pointer to the ability system component that is cached for convenience. */
+	UPROPERTY()
+	TObjectPtr<UAstralAbilitySystemComponent> AbilitySystemComponent;
+	
 protected:
 
 	/**

@@ -11,6 +11,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeAstralCharacterComponent() {}
 
 // Begin Cross Module References
+ASTRALPLAGUE_API UClass* Z_Construct_UClass_UAstralAbilitySystemComponent_NoRegister();
 ASTRALPLAGUE_API UClass* Z_Construct_UClass_UAstralCameraMode_NoRegister();
 ASTRALPLAGUE_API UClass* Z_Construct_UClass_UAstralCharacterComponent();
 ASTRALPLAGUE_API UClass* Z_Construct_UClass_UAstralCharacterComponent_NoRegister();
@@ -114,6 +115,16 @@ struct Z_Construct_UClass_UAstralCharacterComponent_Statics
 		{ "ToolTip", "Component that sets up input and camera handling for player controlled pawns (or bots that simulate players).\nThis depends on a PawnExtensionComponent to coordinate initialization." },
 #endif
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_AbilitySystemComponent_MetaData[] = {
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "/** Pointer to the ability system component that is cached for convenience. */" },
+#endif
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Components/AstralCharacterComponent.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Pointer to the ability system component that is cached for convenience." },
+#endif
+	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_DefaultInputMappings_MetaData[] = {
 		{ "Category", "AstralCharacterComponent" },
 		{ "ModuleRelativePath", "Components/AstralCharacterComponent.h" },
@@ -139,6 +150,7 @@ struct Z_Construct_UClass_UAstralCharacterComponent_Statics
 #endif
 	};
 #endif // WITH_METADATA
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_AbilitySystemComponent;
 	static const UECodeGen_Private::FStructPropertyParams NewProp_DefaultInputMappings_Inner;
 	static const UECodeGen_Private::FArrayPropertyParams NewProp_DefaultInputMappings;
 	static const UECodeGen_Private::FClassPropertyParams NewProp_AbilityCameraMode;
@@ -155,11 +167,13 @@ struct Z_Construct_UClass_UAstralCharacterComponent_Statics
 	};
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UAstralCharacterComponent_Statics::NewProp_AbilitySystemComponent = { "AbilitySystemComponent", nullptr, (EPropertyFlags)0x0124080000080008, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAstralCharacterComponent, AbilitySystemComponent), Z_Construct_UClass_UAstralAbilitySystemComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_AbilitySystemComponent_MetaData), NewProp_AbilitySystemComponent_MetaData) };
 const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UAstralCharacterComponent_Statics::NewProp_DefaultInputMappings_Inner = { "DefaultInputMappings", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FInputMappingContextAndPriority, METADATA_PARAMS(0, nullptr) }; // 3234570853
 const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UAstralCharacterComponent_Statics::NewProp_DefaultInputMappings = { "DefaultInputMappings", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAstralCharacterComponent, DefaultInputMappings), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_DefaultInputMappings_MetaData), NewProp_DefaultInputMappings_MetaData) }; // 3234570853
 const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_UAstralCharacterComponent_Statics::NewProp_AbilityCameraMode = { "AbilityCameraMode", nullptr, (EPropertyFlags)0x0024080000000000, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAstralCharacterComponent, AbilityCameraMode), Z_Construct_UClass_UClass, Z_Construct_UClass_UAstralCameraMode_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_AbilityCameraMode_MetaData), NewProp_AbilityCameraMode_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UAstralCharacterComponent_Statics::NewProp_PawnData = { "PawnData", nullptr, (EPropertyFlags)0x0124080000000801, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAstralCharacterComponent, PawnData), Z_Construct_UClass_UAstralPawnData_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_PawnData_MetaData), NewProp_PawnData_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UAstralCharacterComponent_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAstralCharacterComponent_Statics::NewProp_AbilitySystemComponent,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAstralCharacterComponent_Statics::NewProp_DefaultInputMappings_Inner,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAstralCharacterComponent_Statics::NewProp_DefaultInputMappings,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAstralCharacterComponent_Statics::NewProp_AbilityCameraMode,
@@ -209,10 +223,10 @@ UAstralCharacterComponent::~UAstralCharacterComponent() {}
 struct Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_Components_AstralCharacterComponent_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UAstralCharacterComponent, UAstralCharacterComponent::StaticClass, TEXT("UAstralCharacterComponent"), &Z_Registration_Info_UClass_UAstralCharacterComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAstralCharacterComponent), 2367971109U) },
+		{ Z_Construct_UClass_UAstralCharacterComponent, UAstralCharacterComponent::StaticClass, TEXT("UAstralCharacterComponent"), &Z_Registration_Info_UClass_UAstralCharacterComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAstralCharacterComponent), 2574657156U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_Components_AstralCharacterComponent_h_1814486003(TEXT("/Script/AstralPlague"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_Components_AstralCharacterComponent_h_3483759929(TEXT("/Script/AstralPlague"),
 	Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_Components_AstralCharacterComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_Components_AstralCharacterComponent_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

@@ -61,10 +61,10 @@ public:
 	//Gas implementation 
 	void CreateHUD();
 
-	UPROPERTY(EditAnywhere, Category = "GASDocumentation|UI")
+	UPROPERTY(EditAnywhere, Category = "Astral|UI")
 	TSubclassOf<class UAstralDamageTextWidgetComponent> DamageNumberClass;
 
-	class UAstralHUDWidget* GetHUD();
+	class UAstralHUDWidget* GetHUD() const;
 
 	UFUNCTION(Client, Reliable, WithValidation)
 	void ShowDamageNumber(float DamageAmount, AAstralPlagueCharacter* TargetCharacter);
@@ -79,10 +79,10 @@ public:
 	
 
 protected:
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "GASDocumentation|UI")
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Astral|UI")
 	TSubclassOf<class UAstralHUDWidget> UIHUDWidgetClass;
 
-	UPROPERTY(BlueprintReadWrite, Category = "GASDocumentation|UI")
+	UPROPERTY(BlueprintReadWrite, Category = "Astral|UI")
 	class UAstralHUDWidget* UIHUDWidget;
 		
 private:

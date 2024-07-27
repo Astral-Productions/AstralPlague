@@ -129,7 +129,7 @@ public:
 	virtual bool IsAlive() const;
 
 	// Switch on AbilityID to return individual ability levels. Hardcoded to 1 for every ability in this project.
-	UFUNCTION(BlueprintCallable, Category = "GASDocumentation|GDCharacter")
+	UFUNCTION(BlueprintCallable, Category = "Astral|Character")
 	virtual int32 GetAbilityLevel(EAstralAbilityInputID InputID) const;
 
 	
@@ -218,11 +218,11 @@ protected:
 	
 	// Default attributes for a character for initializing on spawn/respawn.
 	// This is an instant GE that overrides the values for attributes that get reset on spawn/respawn.
-	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "GASDocumentation|Abilities")
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Astral|Abilities")
 	TSubclassOf<class UGameplayEffect> DefaultAttributes;
 
 	// These effects are only applied one time on startup
-	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "GASDocumentation|Abilities")
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Astral|Abilities")
 	TArray<TSubclassOf<class UGameplayEffect>> StartupEffects;
 
 	// Grant abilities on the Server. The Ability Specs will be replicated to the owning client.

@@ -903,11 +903,15 @@
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <ClInclude Include="..\..\Source\AstralPlague\Camera\AstralUICameraManagerComponent.h"/>
+    <ClCompile Include="..\..\Source\AstralPlague\Camera\AstralCameraMode_ThirdPerson.cpp" />
     <ClCompile Include="..\..\Source\AstralPlague\Character\AstralCharacterMovementComponent.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_4)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_4)</ForcedIncludeFiles>
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
+    <ClInclude Include="..\..\Source\AstralPlague\Camera\AstralCameraMode_ThirdPerson.h" />
+    <ClInclude Include="..\..\Source\AstralPlague\Camera\AstralCameraAssistInterface.h" />
+    <ClInclude Include="..\..\Source\AstralPlague\Camera\AstralPenetrationAvoidanceFeeler.h" />
     <ClInclude Include="..\..\Source\AstralPlague\Character\AstralCharacterMovementComponent.h"/>
     <ClCompile Include="..\..\Source\AstralPlague\Character\AstralPawnData.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_4)</AdditionalIncludeDirectories>

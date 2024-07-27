@@ -364,15 +364,15 @@ struct Z_Construct_UClass_AAstralPlayerController_Statics
 		{ "ObjectInitializerConstructorDeclared", "" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_DamageNumberClass_MetaData[] = {
-		{ "Category", "GASDocumentation|UI" },
+		{ "Category", "Astral|UI" },
 		{ "ModuleRelativePath", "Player/AstralPlayerController.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_UIHUDWidgetClass_MetaData[] = {
-		{ "Category", "GASDocumentation|UI" },
+		{ "Category", "Astral|UI" },
 		{ "ModuleRelativePath", "Player/AstralPlayerController.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_UIHUDWidget_MetaData[] = {
-		{ "Category", "GASDocumentation|UI" },
+		{ "Category", "Astral|UI" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Player/AstralPlayerController.h" },
 	};
@@ -451,10 +451,10 @@ AAstralPlayerController::~AAstralPlayerController() {}
 struct Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_Player_AstralPlayerController_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AAstralPlayerController, AAstralPlayerController::StaticClass, TEXT("AAstralPlayerController"), &Z_Registration_Info_UClass_AAstralPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AAstralPlayerController), 4031264227U) },
+		{ Z_Construct_UClass_AAstralPlayerController, AAstralPlayerController::StaticClass, TEXT("AAstralPlayerController"), &Z_Registration_Info_UClass_AAstralPlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AAstralPlayerController), 2574496310U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_Player_AstralPlayerController_h_2037541761(TEXT("/Script/AstralPlague"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_Player_AstralPlayerController_h_3671074159(TEXT("/Script/AstralPlague"),
 	Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_Player_AstralPlayerController_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_Player_AstralPlayerController_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

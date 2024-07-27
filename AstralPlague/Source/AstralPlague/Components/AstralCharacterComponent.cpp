@@ -3,7 +3,6 @@
 #include "AstralCharacterComponent.h"
 #include "Components/GameFrameworkComponentDelegates.h"
 #include "Logging/MessageLog.h"
-#include "AstralPlague/Input/AstralMappableConfigPair.h"
 #include "AstralPlague/AstralLogChannels.h"
 #include "EnhancedInputSubsystems.h"
 #include "AstralPlague/Player/AstralPlayerController.h"
@@ -17,14 +16,10 @@
 #include "AstralPlague/Camera/AstralCameraComponent.h"
 #include "AstralPlague/AstralGameplayTags.h"
 #include "Components/GameFrameworkComponentManager.h"
-#include "PlayerMappableInputConfig.h"
 #include "AstralPlague/Camera/AstralCameraMode.h"
 #include "UserSettings/EnhancedInputUserSettings.h"
 #include "InputMappingContext.h"
-#include "AstralPlague/AstralGameplayTags.h"
-#include "AstralPlague/AstralLogChannels.h"
-#include "AstralPlague/Camera/AstralCameraComponent.h"
-#include "AstralPlague/Player/AstralPlayerState.h"
+
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(AstralCharacterComponent)
 
@@ -101,12 +96,218 @@ void UAstralCharacterComponent::SetPawnData(const UAstralPawnData* InPawnData)
 	CheckDefaultInitialization();
 }
 
+bool UAstralCharacterComponent::CanChangeInitState(UGameFrameworkComponentManager* Manager, FGameplayTag CurrentState,
+	FGameplayTag DesiredState) const
+{
+	check(Manager);
+
+	APawn* Pawn = GetPawn<APawn>();
+
+	if (!CurrentState.IsValid() && DesiredState == AstralGameplayTags::InitState_Spawned)
+	{
+		// As long as we have a real pawn, let us transition
+		if (Pawn)
+		{
+			return true;
+		}
+	}
+	else if (CurrentState == AstralGameplayTags::InitState_Spawned && DesiredState == AstralGameplayTags::InitState_DataAvailable)
+	{
+		// The player state is required.
+		if (!GetPlayerState<AAstralPlayerState>())
+		{
+			return false;
+		}
+
+		// If we're authority or autonomous, we need to wait for a controller with registered ownership of the player state.
+		if (Pawn->GetLocalRole() != ROLE_SimulatedProxy)
+		{
+			const AController* Controller = GetController<AController>();
+
+			const bool bHasControllerPairedWithPS = (Controller != nullptr) && \
+				(Controller->PlayerState != nullptr) && \
+				(Controller->PlayerState->GetOwner() == Controller);
+
+			if (!bHasControllerPairedWithPS)
+			{
+				return false;
+			}
+		}
+
+		const bool bIsLocallyControlled = Pawn->IsLocallyControlled();
+		const bool bIsBot = Pawn->IsBotControlled();
+
+		if (bIsLocallyControlled && !bIsBot)
+		{
+			const AAstralPlayerController* AstralPC = GetController<AAstralPlayerController>();
+
+			// The input component and local player is required when locally controlled.
+			if (!Pawn->InputComponent || !AstralPC || !AstralPC->GetLocalPlayer())
+			{
+				return false;
+			}
+		}
+
+		return true;
+	}
+	else if (CurrentState == AstralGameplayTags::InitState_DataAvailable && DesiredState == AstralGameplayTags::InitState_DataInitialized)
+	{
+		// Wait for player state and extension component
+		const AAstralPlayerState* AstralPS = GetPlayerState<AAstralPlayerState>();
+
+		return AstralPS && Manager->HasFeatureReachedInitState(Pawn, NAME_ActorFeatureName, AstralGameplayTags::InitState_DataInitialized);
+	}
+	else if (CurrentState == AstralGameplayTags::InitState_DataInitialized && DesiredState == AstralGameplayTags::InitState_GameplayReady)
+	{
+		// TODO add ability initialization checks?
+		return true;
+	}
+
+	return false;
+}
+
+void UAstralCharacterComponent::HandleChangeInitState(UGameFrameworkComponentManager* Manager, FGameplayTag CurrentState, FGameplayTag DesiredState)
+{
+	if (CurrentState == AstralGameplayTags::InitState_DataAvailable && DesiredState == AstralGameplayTags::InitState_DataInitialized)
+	{
+		APawn* Pawn = GetPawn<APawn>();
+		
+		AAstralPlayerState* AstralPS = GetPlayerState<AAstralPlayerState>();
+		if (!ensure(Pawn && AstralPS))
+		{
+			//return;
+		}		
+
+		if (PawnData)
+		{
+			// The player state holds the persistent data for this player (state that persists across deaths and multiple pawns).
+			// The ability system component and attribute sets live on the player state.
+			InitializeAbilitySystem(AstralPS->GetAstralAbilitySystemComponent(), AstralPS);			
+		}
+
+		if (AAstralPlayerController* AstralPC = GetController<AAstralPlayerController>())
+		{
+			if (Pawn->InputComponent != nullptr)
+			{
+				InitializePlayerInput(Pawn->InputComponent);
+			}
+		}
+
+		// Hook up the delegate for all pawns, in case we spectate later
+		if (PawnData)
+		{
+			if (UAstralCameraComponent* CameraComponent = UAstralCameraComponent::FindCameraComponent(Pawn))
+			{
+				CameraComponent->DetermineCameraModeDelegate.BindUObject(this, &ThisClass::DetermineCameraMode);
+			}
+		}
+	}
+}
+
+void UAstralCharacterComponent::OnActorInitStateChanged(const FActorInitStateChangedParams& Params)
+{
+	IGameFrameworkInitStateInterface::OnActorInitStateChanged(Params);
+}
+
+void UAstralCharacterComponent::CheckDefaultInitialization()
+{
+	IGameFrameworkInitStateInterface::CheckDefaultInitialization();
+	// Before checking our progress, try progressing any other features we might depend on
+	CheckDefaultInitializationForImplementers();
+
+	static const TArray<FGameplayTag> StateChain = { AstralGameplayTags::InitState_Spawned, AstralGameplayTags::InitState_DataAvailable, AstralGameplayTags::InitState_DataInitialized, AstralGameplayTags::InitState_GameplayReady };
+
+	// This will try to progress from spawned (which is only set in BeginPlay) through the data initialization stages until it gets to gameplay ready
+	ContinueInitStateChain(StateChain);
+}
+
+void UAstralCharacterComponent::InitializeAbilitySystem(UAstralAbilitySystemComponent* InASC, AActor* InOwnerActor)
+{
+	check(InASC);
+	check(InOwnerActor);
+
+	if (AbilitySystemComponent == InASC)
+	{
+		// The ability system component hasn't changed.
+		return;
+	}
+
+	if (AbilitySystemComponent)
+	{
+		// Clean up the old ability system component.
+		UninitializeAbilitySystem();
+	}
+
+	APawn* Pawn = GetPawnChecked<APawn>();
+	AActor* ExistingAvatar = InASC->GetAvatarActor();
+
+	UE_LOG(LogAstral, Verbose, TEXT("Setting up ASC [%s] on pawn [%s] owner [%s], existing [%s] "), *GetNameSafe(InASC), *GetNameSafe(Pawn), *GetNameSafe(InOwnerActor), *GetNameSafe(ExistingAvatar));
+
+	if ((ExistingAvatar != nullptr) && (ExistingAvatar != Pawn))
+	{
+		UE_LOG(LogAstral, Log, TEXT("Existing avatar (authority=%d)"), ExistingAvatar->HasAuthority() ? 1 : 0);
+
+		// There is already a pawn acting as the ASC's avatar, so we need to kick it out
+		// This can happen on clients if they're lagged: their new pawn is spawned + possessed before the dead one is removed
+		ensure(!ExistingAvatar->HasAuthority());
+
+		/*@Todo this might be needed?
+		 *if (UAstralPawnExtensionComponent* OtherExtensionComponent = FindPawnExtensionComponent(ExistingAvatar))
+		{
+			UninitializeAbilitySystem();
+		}*/
+	}
+
+	AbilitySystemComponent = InASC;
+	AbilitySystemComponent->InitAbilityActorInfo(InOwnerActor, Pawn);
+
+	if (ensure(PawnData))
+	{
+		InASC->SetTagRelationshipMapping(PawnData->TagRelationshipMapping);
+	}
+
+	OnAbilitySystemInitialized.Broadcast();
+}
+
+void UAstralCharacterComponent::UninitializeAbilitySystem()
+{
+	if (!AbilitySystemComponent)
+	{
+		return;
+	}
+
+	// Uninitialize the ASC if we're still the avatar actor (otherwise another pawn already did it when they became the avatar actor)
+	if (AbilitySystemComponent->GetAvatarActor() == GetOwner())
+	{
+		FGameplayTagContainer AbilityTypesToIgnore;
+		AbilityTypesToIgnore.AddTag(AstralGameplayTags::Ability_Behavior_SurvivesDeath);
+
+		AbilitySystemComponent->CancelAbilities(nullptr, &AbilityTypesToIgnore);
+		AbilitySystemComponent->ClearAbilityInput();
+		AbilitySystemComponent->RemoveAllGameplayCues();
+
+		if (AbilitySystemComponent->GetOwnerActor() != nullptr)
+		{
+			AbilitySystemComponent->SetAvatarActor(nullptr);
+		}
+		else
+		{
+			// If the ASC doesn't have a valid owner, we need to clear *all* actor info, not just the avatar pairing
+			AbilitySystemComponent->ClearActorInfo();
+		}
+
+		OnAbilitySystemUninitialized.Broadcast();
+	}
+
+	AbilitySystemComponent = nullptr;
+}
+
 void UAstralCharacterComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
 	// Notifies that we are done spawning, then try the rest of initialization
-ensure(TryToChangeInitState(AstralGameplayTags::InitState_Spawned));
+	ensure(TryToChangeInitState(AstralGameplayTags::InitState_Spawned));
 	CheckDefaultInitialization();
 }
 
@@ -364,6 +565,16 @@ TSubclassOf<UAstralCameraMode> UAstralCharacterComponent::DetermineCameraMode() 
 	
 
 	return nullptr;
+}
+
+void UAstralCharacterComponent::OnInputConfigActivated(const FLoadedMappableConfigPair& ConfigPair)
+{
+	
+}
+
+void UAstralCharacterComponent::OnInputConfigDeactivated(const FLoadedMappableConfigPair& ConfigPair)
+{
+	
 }
 
 void UAstralCharacterComponent::SetAbilityCameraMode(TSubclassOf<UAstralCameraMode> CameraMode, const FGameplayAbilitySpecHandle& OwningSpecHandle)

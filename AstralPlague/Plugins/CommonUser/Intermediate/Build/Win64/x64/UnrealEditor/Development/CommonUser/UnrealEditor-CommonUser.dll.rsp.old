@@ -37,6 +37,9 @@
 /FUNCTIONPADMIN:6
 "D:\UnrealDev\AstralPlague - Dev\AstralPlague\Intermediate\Build\Win64\x64\AstralPlagueEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h.obj"
 "D:\UnrealDev\AstralPlague - Dev\AstralPlague\Plugins\CommonUser\Intermediate\Build\Win64\x64\UnrealEditor\Development\CommonUser\Module.CommonUser.cpp.obj"
+"D:\UnrealDev\AstralPlague - Dev\AstralPlague\Plugins\CommonUser\Intermediate\Build\Win64\x64\UnrealEditor\Development\CommonUser\CommonUser.init.gen.cpp.obj"
+"D:\UnrealDev\AstralPlague - Dev\AstralPlague\Plugins\CommonUser\Intermediate\Build\Win64\x64\UnrealEditor\Development\CommonUser\CommonUserBasicPresence.gen.cpp.obj"
+"D:\UnrealDev\AstralPlague - Dev\AstralPlague\Plugins\CommonUser\Intermediate\Build\Win64\x64\UnrealEditor\Development\CommonUser\CommonUserTypes.gen.cpp.obj"
 "D:\UnrealDev\AstralPlague - Dev\AstralPlague\Plugins\CommonUser\Intermediate\Build\Win64\x64\UnrealEditor\Development\CommonUser\Default.rc2.res"
 "..\Plugins\Online\OnlineSubsystemUtils\Intermediate\Build\Win64\x64\UnrealEditor\Development\OnlineSubsystemUtils\UnrealEditor-OnlineSubsystemUtils.lib"
 "..\Intermediate\Build\Win64\x64\UnrealEditor\Development\CoreOnline\UnrealEditor-CoreOnline.lib"

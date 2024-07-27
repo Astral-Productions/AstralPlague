@@ -58,8 +58,10 @@ bool UAstralUICameraManagerComponent::NeedsToUpdateViewTarget() const
 
 void UAstralUICameraManagerComponent::UpdateViewTarget(struct FTViewTarget& OutVT, float DeltaTime)
 {
+	
 }
 
 void UAstralUICameraManagerComponent::OnShowDebugInfo(AHUD* HUD, UCanvas* Canvas, const FDebugDisplayInfo& DisplayInfo, float& YL, float& YPos)
 {
+	
 }

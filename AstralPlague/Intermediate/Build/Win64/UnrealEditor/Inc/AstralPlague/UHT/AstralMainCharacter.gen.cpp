@@ -110,10 +110,10 @@ AAstralMainCharacter::~AAstralMainCharacter() {}
 struct Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_Character_Playable_AstralMainCharacter_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AAstralMainCharacter, AAstralMainCharacter::StaticClass, TEXT("AAstralMainCharacter"), &Z_Registration_Info_UClass_AAstralMainCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AAstralMainCharacter), 832728822U) },
+		{ Z_Construct_UClass_AAstralMainCharacter, AAstralMainCharacter::StaticClass, TEXT("AAstralMainCharacter"), &Z_Registration_Info_UClass_AAstralMainCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AAstralMainCharacter), 324645002U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_Character_Playable_AstralMainCharacter_h_3213439857(TEXT("/Script/AstralPlague"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_Character_Playable_AstralMainCharacter_h_826154098(TEXT("/Script/AstralPlague"),
 	Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_Character_Playable_AstralMainCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_Character_Playable_AstralMainCharacter_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
