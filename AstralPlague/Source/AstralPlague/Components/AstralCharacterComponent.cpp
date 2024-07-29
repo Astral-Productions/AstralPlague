@@ -196,10 +196,7 @@ void UAstralCharacterComponent::HandleChangeInitState(UGameFrameworkComponentMan
 		// Hook up the delegate for all pawns, in case we spectate later
 		if (PawnData)
 		{
-			if (UAstralCameraComponent* CameraComponent = UAstralCameraComponent::FindCameraComponent(Pawn))
-			{
-				CameraComponent->DetermineCameraModeDelegate.BindUObject(this, &ThisClass::DetermineCameraMode);
-			}
+			
 		}
 	}
 }
@@ -306,6 +303,8 @@ void UAstralCharacterComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
+	BindOnActorInitStateChanged(NAME_None, FGameplayTag(), false);
+	
 	// Notifies that we are done spawning, then try the rest of initialization
 	ensure(TryToChangeInitState(AstralGameplayTags::InitState_Spawned));
 	CheckDefaultInitialization();

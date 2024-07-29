@@ -7,7 +7,9 @@
 #include "GameplayTagAssetInterface.h"
 #include "ModularCharacter.h"
 #include "AstralPlague/AstralPlague.h"
+#include "AstralPlague/Camera/AstralCameraComponent.h"
 #include "AstralPlague/Components/AstralStatsComponent.h"
+#include "GameFramework/SpringArmComponent.h"
 
 #include "AstralPlagueCharacter.generated.h"
 
@@ -20,7 +22,6 @@ class IRepChangedPropertyTracker;
 class UAbilitySystemComponent;
 class UInputComponent;
 class UAstralAbilitySystemComponent;
-class UAstralCameraComponent;
 
 class UObject;
 struct FFrame;
@@ -188,6 +189,17 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	virtual void OnAbilitySystemInitialized();
+	virtual void OnAbilitySystemUninitialized();
+
+	virtual void PossessedBy(AController* NewController) override;
+	virtual void UnPossessed() override;
+
+	void InitializeGameplayTags();
+
+	
+	virtual void OnMovementModeChanged(EMovementMode PrevMovementMode, uint8 PreviousCustomMode) override;
+	void SetMovementModeTag(EMovementMode MovementMode, uint8 CustomMovementMode, bool bTagEnabled);
 	
 	// Instead of TWeakObjectPtrs, you could just have UPROPERTY() hard references or no references at all and just call
 	// GetAbilitySystem() and make a GetAttributeSetBase() that can read from the PlayerState or from child classes.
@@ -260,11 +272,16 @@ protected:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Astral|Stats")
 	TObjectPtr<UAstralStatsComponent> StatsComponent;
 
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Astral|Stats")
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Astral|Camera")
 	TObjectPtr<UAstralCameraComponent> CameraComponent;
 
-private:
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Astral|Camera")
+	TObjectPtr<USpringArmComponent> SpringArmComponent;
+	
 	/** The main skeletal mesh associated with this Character (optional sub-object). */
-	UPROPERTY(Category=Character, VisibleAnywhere, BlueprintReadOnly, meta=(AllowPrivateAccess = "true"))
+	UPROPERTY(Category=Character, VisibleAnywhere, BlueprintReadWrite, meta=(AllowPrivateAccess = "true"))
 	TObjectPtr<USkeletalMeshComponent> Weapon;
+	
+private:
+	
 };

@@ -4,7 +4,6 @@
 #include "CommonInputTypeEnum.h"
 #include "Components/PrimitiveComponent.h"
 #include "AstralPlayerState.h"
-#include "AstralPlague/Camera/AstralPlayerCameraManager.h"
 #include "AstralPlague/AbilitySystem/AstralAbilitySystemComponent.h"
 #include "AstralPlague/AstralGameplayTags.h"
 #include "GameFramework/Pawn.h"
@@ -32,7 +31,7 @@ namespace Astral
 AAstralPlayerController::AAstralPlayerController(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer), UIHUDWidget(nullptr)
 {
-	PlayerCameraManagerClass = AAstralPlayerCameraManager::StaticClass();
+	
 }
 
 void AAstralPlayerController::PreInitializeComponents()

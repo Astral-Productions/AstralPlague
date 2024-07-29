@@ -98,6 +98,14 @@ public:
 	virtual void PreInitializeComponents() override;
 	virtual void PostInitializeComponents() override;
 	//~End of AActor interface
+	
+	//~APlayerState interface
+    	virtual void Reset() override;
+    	virtual void ClientInitialize(AController* C) override;
+    	virtual void CopyProperties(APlayerState* PlayerState) override;
+    
+    	//~End of APlayerState interface
+    	
 
 private:
 	void OnExperienceLoaded(const UAstralExperienceDefinition* CurrentExperience);

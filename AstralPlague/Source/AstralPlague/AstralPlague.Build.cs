@@ -42,7 +42,8 @@ public class AstralPlague : ModuleRules
 				"CommonGame",
 				"CommonUser",
 				"AudioMixer",
-				"EngineSettings",
+				"EngineSettings", 
+				"GameplayCameras",
 			}
 		);
 	}

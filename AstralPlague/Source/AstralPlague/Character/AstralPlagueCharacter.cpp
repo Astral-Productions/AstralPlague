@@ -2,6 +2,7 @@
 
 #include "AstralPlagueCharacter.h"
 
+#include "AbilitySystemGlobals.h"
 #include "AstralPlague/AbilitySystem/AstralAbilitySystemComponent.h"
 #include "AstralPlague/Camera/AstralCameraComponent.h"
 #include "AstralPlague/Components/AstralStatsComponent.h"
@@ -12,6 +13,7 @@
 #include "AstralPlague/Player/AstralPlayerState.h"
 
 #include "TimerManager.h"
+#include "AstralPlague/AstralGameplayTags.h"
 #include "AstralPlague/AbilitySystem/Attributes/ProgressionAttributeSet.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(AstralPlagueCharacter)
@@ -42,8 +44,6 @@ AAstralPlagueCharacter::AAstralPlagueCharacter(const FObjectInitializer& ObjectI
 	check(MeshComp);
 	MeshComp->SetRelativeRotation(FRotator(0.0f, -90.0f, 0.0f));  // Rotate mesh to be X forward since it is exported as Y forward.
 	MeshComp->SetCollisionProfileName(NAME_AstralPlagueCharacterCollisionProfile_Mesh);
-
-	
 	
 	UAstralCharacterMovementComponent* AstralMoveComp = CastChecked<UAstralCharacterMovementComponent>(GetCharacterMovement());
 	AstralMoveComp->GravityScale = 1.0f;
@@ -64,8 +64,14 @@ AAstralPlagueCharacter::AAstralPlagueCharacter(const FObjectInitializer& ObjectI
 	StatsComponent->OnDeathStarted.AddDynamic(this, &ThisClass::OnDeathStarted);
 	StatsComponent->OnDeathFinished.AddDynamic(this, &ThisClass::OnDeathFinished);
 
+	SpringArmComponent = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArmComponent"));
+	SpringArmComponent->SetupAttachment(CapsuleComp);
+	
 	CameraComponent = CreateDefaultSubobject<UAstralCameraComponent>(TEXT("CameraComponent"));
 	CameraComponent->SetRelativeLocation(FVector(-300.0f, 0.0f, 75.0f));
+	CameraComponent->SetupAttachment(SpringArmComponent);
+	
+	//CameraComponent->AttachToComponent(MeshComp, Worldtransform);
 
 	bUseControllerRotationPitch = false;
 	bUseControllerRotationYaw = true;
@@ -87,6 +93,89 @@ void AAstralPlagueCharacter::BeginPlay()
 	Super::BeginPlay();
 
 	UWorld* World = GetWorld();
+}
+
+void AAstralPlagueCharacter::OnAbilitySystemInitialized()
+{
+	UAstralAbilitySystemComponent* AstralASC = GetAstralAbilitySystemComponent();
+	check(AstralASC);
+
+	StatsComponent->InitializeWithAbilitySystem(AstralASC);
+
+	InitializeGameplayTags();
+}
+
+void AAstralPlagueCharacter::OnAbilitySystemUninitialized()
+{
+	StatsComponent->UninitializeFromAbilitySystem();
+}
+
+void AAstralPlagueCharacter::PossessedBy(AController* NewController)
+{
+	Super::PossessedBy(NewController);
+
+}
+
+void AAstralPlagueCharacter::UnPossessed()
+{
+	
+}
+
+void AAstralPlagueCharacter::InitializeGameplayTags()
+{
+	// Clear tags that may be lingering on the ability system from the previous pawn.
+	if (UAstralAbilitySystemComponent* AstralASC = GetAstralAbilitySystemComponent())
+	{
+		for (const TPair<uint8, FGameplayTag>& TagMapping : AstralGameplayTags::MovementModeTagMap)
+		{
+			if (TagMapping.Value.IsValid())
+			{
+				AstralASC->SetLooseGameplayTagCount(TagMapping.Value, 0);
+			}
+		}
+
+		for (const TPair<uint8, FGameplayTag>& TagMapping : AstralGameplayTags::CustomMovementModeTagMap)
+		{
+			if (TagMapping.Value.IsValid())
+			{
+				AstralASC->SetLooseGameplayTagCount(TagMapping.Value, 0);
+			}
+		}
+
+		UAstralCharacterMovementComponent* AstralMoveComp = CastChecked<UAstralCharacterMovementComponent>(GetCharacterMovement());
+		SetMovementModeTag(AstralMoveComp->MovementMode, AstralMoveComp->CustomMovementMode, true);
+	}
+}
+
+void AAstralPlagueCharacter::OnMovementModeChanged(EMovementMode PrevMovementMode, uint8 PreviousCustomMode)
+{
+	Super::OnMovementModeChanged(PrevMovementMode, PreviousCustomMode);
+
+	UAstralCharacterMovementComponent* AstralMoveComp = CastChecked<UAstralCharacterMovementComponent>(GetCharacterMovement());
+
+	SetMovementModeTag(PrevMovementMode, PreviousCustomMode, false);
+	SetMovementModeTag(AstralMoveComp->MovementMode, AstralMoveComp->CustomMovementMode, true);
+}
+
+void AAstralPlagueCharacter::SetMovementModeTag(EMovementMode MovementMode, uint8 CustomMovementMode, bool bTagEnabled)
+{
+	if (UAstralAbilitySystemComponent* AstralASC = GetAstralAbilitySystemComponent())
+	{
+		const FGameplayTag* MovementModeTag = nullptr;
+		if (MovementMode == MOVE_Custom)
+		{
+			MovementModeTag = AstralGameplayTags::CustomMovementModeTagMap.Find(CustomMovementMode);
+		}
+		else
+		{
+			MovementModeTag = AstralGameplayTags::MovementModeTagMap.Find(MovementMode);
+		}
+
+		if (MovementModeTag && MovementModeTag->IsValid())
+		{
+			AstralASC->SetLooseGameplayTagCount(*MovementModeTag, (bTagEnabled ? 1 : 0));
+		}
+	}
 }
 
 AAstralPlayerController* AAstralPlagueCharacter::GetAstralPlayerController() const

@@ -8,6 +8,7 @@
 #include "AstralPlague/AbilitySystem/Attributes/ProgressionAttributeSet.h"
 #include "AstralPlague/Character/AstralPawnData.h"
 #include "AstralPlague/Character/Playable/AstralMainCharacter.h"
+#include "AstralPlague/Components/AstralCharacterComponent.h"
 #include "AstralPlague/GameModes/AstralExperienceManagerComponent.h"
 #include "AstralPlague/GameModes/AstralGameMode.h"
 #include "AstralPlague/UI/AstralFloatingStatusBarWidget.h"
@@ -27,13 +28,9 @@ AAstralPlayerState::AAstralPlayerState(const FObjectInitializer& ObjectInitializ
 	AbilitySystemComponent->SetIsReplicated(true);
 	AbilitySystemComponent->SetReplicationMode(EGameplayEffectReplicationMode::Full); //Unless we enable multiplayer full replication is the best bet
 
-	/*CharacterAttributeSet = CreateDefaultSubobject<UCharacterAttributeSet>(TEXT("CharacterAttributeSet"));
-	ProgressionAttributeSet = CreateDefaultSubobject<UProgressionAttributeSet>(TEXT("CharacterAttributeSet"));*/
-	
-	// Set PlayerState's NetUpdateFrequency to the same as the Character.
-	// Default is very low for PlayerStates and introduces perceived lag in the ability system.
-	// 100 is probably way too high for a shipping game, you can adjust to fit your needs.
-	NetUpdateFrequency = 100.0f;
+	// These attribute sets will be detected by AbilitySystemComponent::InitializeComponent. Keeping a reference so that the sets don't get garbage collected before that.
+	CharacterAttributeSet = CreateDefaultSubobject<UCharacterAttributeSet>(TEXT("CharacterAttributeSet"));
+	ProgressionAttributeSet = CreateDefaultSubobject<UProgressionAttributeSet>(TEXT("ProgressionAttributeSet"));
 
 	// Cache tags
 	DeadTag = FGameplayTag::RequestGameplayTag(FName("State.Dead"));	
@@ -192,6 +189,29 @@ void AAstralPlayerState::PostInitializeComponents()
 	}
 }
 
+void AAstralPlayerState::Reset()
+{
+	Super::Reset();
+}
+
+void AAstralPlayerState::ClientInitialize(AController* C)
+{
+	Super::ClientInitialize(C);
+
+	if (UAstralCharacterComponent* CharacterComp = UAstralCharacterComponent::FindCharacterComponent(GetPawn()))
+	{
+		CharacterComp->CheckDefaultInitialization();
+	}
+}
+
+void AAstralPlayerState::CopyProperties(APlayerState* PlayerState)
+{
+	Super::CopyProperties(PlayerState);
+
+	//@TODO: Copy stats
+}
+
+
 void AAstralPlayerState::OnExperienceLoaded(const UAstralExperienceDefinition* CurrentExperience)
 {
 	if (AAstralGameMode* AstralGameMode = GetWorld()->GetAuthGameMode<AAstralGameMode>())
@@ -211,6 +231,8 @@ void AAstralPlayerState::BeginPlay()
 {
 	Super::BeginPlay();
 
+	AAstralPlayerController* controller = GetAstralPlayerController();
+	
 	if (AbilitySystemComponent)
 	{
 		// Attribute change callbacks
