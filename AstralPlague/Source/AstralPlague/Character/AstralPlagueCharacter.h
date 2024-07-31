@@ -8,6 +8,7 @@
 #include "ModularCharacter.h"
 #include "AstralPlague/AstralPlague.h"
 #include "AstralPlague/Camera/AstralCameraComponent.h"
+#include "AstralPlague/Components/AstralCharacterComponent.h"
 #include "AstralPlague/Components/AstralStatsComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 
@@ -267,21 +268,17 @@ protected:
 	virtual void SetHealth(float Health);
 	virtual void SetSoulEnergy(float Energy);
 	virtual void SetStamina(float Stamina);
-
 	
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Astral|Stats")
-	TObjectPtr<UAstralStatsComponent> StatsComponent;
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Astral|Camera")
-	TObjectPtr<UAstralCameraComponent> CameraComponent;
-
-	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Astral|Camera")
-	TObjectPtr<USpringArmComponent> SpringArmComponent;
 	
 	/** The main skeletal mesh associated with this Character (optional sub-object). */
 	UPROPERTY(Category=Character, VisibleAnywhere, BlueprintReadWrite, meta=(AllowPrivateAccess = "true"))
 	TObjectPtr<USkeletalMeshComponent> Weapon;
 	
 private:
+ 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Astral|Character", Meta = (AllowPrivateAccess = "true"))
+	TObjectPtr<UAstralCharacterComponent> CharacterComponent;
 	
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Astral|Character", Meta = (AllowPrivateAccess = "true"))
+	TObjectPtr<UAstralStatsComponent> StatsComponent;
 };

@@ -5,6 +5,7 @@
 
 #include "AstralPlague/AbilitySystem/AstralAbilitySystemComponent.h"
 #include "AstralPlague/Character/AstralCharacterMovementComponent.h"
+#include "Components/CapsuleComponent.h"
 
 
 // Sets default values
@@ -13,6 +14,17 @@ AAstralMainCharacter::AAstralMainCharacter(const class FObjectInitializer& Objec
 {
 	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+	
+	UCapsuleComponent* CapsuleComp = GetCapsuleComponent();
+	check(CapsuleComp);
+	
+	SpringArmComponent = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArmComponent"));
+	SpringArmComponent->SetupAttachment(CapsuleComp);
+	
+	CameraComponent = CreateDefaultSubobject<UAstralCameraComponent>(TEXT("CameraComponent"));
+	CameraComponent->SetRelativeLocation(FVector(-300.0f, 0.0f, 75.0f));
+	CameraComponent->SetupAttachment(SpringArmComponent);
+	
 }
 
 UAstralFloatingStatusBarWidget* AAstralMainCharacter::GetFloatingStatusBar() 

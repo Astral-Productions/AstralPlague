@@ -45,4 +45,11 @@ protected:
 	// call ClientRestart which calls SetupPlayerInputComponent before the PlayerState is repped to the client so the PlayerState would be null in SetupPlayerInputComponent.
 	// Conversely, the PlayerState might be repped before the PlayerController calls ClientRestart so the Actor's InputComponent would be null in OnRep_PlayerState.
 	void BindASCInput();
+	
+private: 
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Astral|Camera", Meta = (AllowPrivateAccess = "true"))
+    TObjectPtr<UAstralCameraComponent> CameraComponent;
+
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Astral|Camera", Meta = (AllowPrivateAccess = "true"))
+    TObjectPtr<USpringArmComponent> SpringArmComponent;
 };

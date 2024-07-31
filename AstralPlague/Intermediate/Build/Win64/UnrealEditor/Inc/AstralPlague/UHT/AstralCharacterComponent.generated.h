@@ -10,6 +10,7 @@
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 class AActor;
+class UAstralAbilitySystemComponent;
 class UAstralCharacterComponent;
 #ifdef ASTRALPLAGUE_AstralCharacterComponent_generated_h
 #error "AstralCharacterComponent.generated.h already included, missing '#pragma once' in AstralCharacterComponent.h"
@@ -17,6 +18,7 @@ class UAstralCharacterComponent;
 #define ASTRALPLAGUE_AstralCharacterComponent_generated_h
 
 #define FID_AstralPlague_Source_AstralPlague_Components_AstralCharacterComponent_h_32_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execGetAstralAbilitySystemComponent); \
 	DECLARE_FUNCTION(execFindCharacterComponent);
 
 

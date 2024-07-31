@@ -17,7 +17,7 @@ ASTRALPLAGUE_API UClass* Z_Construct_UClass_AAstralPlagueCharacter();
 ASTRALPLAGUE_API UClass* Z_Construct_UClass_AAstralPlagueCharacter_NoRegister();
 ASTRALPLAGUE_API UClass* Z_Construct_UClass_AAstralPlayerState_NoRegister();
 ASTRALPLAGUE_API UClass* Z_Construct_UClass_UAstralAbilitySystemComponent_NoRegister();
-ASTRALPLAGUE_API UClass* Z_Construct_UClass_UAstralCameraComponent_NoRegister();
+ASTRALPLAGUE_API UClass* Z_Construct_UClass_UAstralCharacterComponent_NoRegister();
 ASTRALPLAGUE_API UClass* Z_Construct_UClass_UAstralGameplayAbility_NoRegister();
 ASTRALPLAGUE_API UClass* Z_Construct_UClass_UAstralStatsComponent_NoRegister();
 ASTRALPLAGUE_API UEnum* Z_Construct_UEnum_AstralPlague_EAstralAbilityInputID();
@@ -31,7 +31,6 @@ COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_UAnimMontage_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_USkeletalMeshComponent_NoRegister();
-ENGINE_API UClass* Z_Construct_UClass_USpringArmComponent_NoRegister();
 ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FRepMovement();
 GAMEPLAYABILITIES_API UClass* Z_Construct_UClass_UAbilitySystemInterface_NoRegister();
 GAMEPLAYABILITIES_API UClass* Z_Construct_UClass_UGameplayCueInterface_NoRegister();
@@ -1252,21 +1251,6 @@ struct Z_Construct_UClass_AAstralPlagueCharacter_Statics
 		{ "ToolTip", "These effects are only applied one time on startup" },
 #endif
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_StatsComponent_MetaData[] = {
-		{ "Category", "Astral|Stats" },
-		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "Character/AstralPlagueCharacter.h" },
-	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CameraComponent_MetaData[] = {
-		{ "Category", "Astral|Camera" },
-		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "Character/AstralPlagueCharacter.h" },
-	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_SpringArmComponent_MetaData[] = {
-		{ "Category", "Astral|Camera" },
-		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "Character/AstralPlagueCharacter.h" },
-	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Weapon_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Character" },
@@ -1279,6 +1263,18 @@ struct Z_Construct_UClass_AAstralPlagueCharacter_Statics
 		{ "ToolTip", "The main skeletal mesh associated with this Character (optional sub-object)." },
 #endif
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CharacterComponent_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Astral|Character" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Character/AstralPlagueCharacter.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_StatsComponent_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Astral|Character" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Character/AstralPlagueCharacter.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FMulticastDelegatePropertyParams NewProp_ShowHitReact;
 	static const UECodeGen_Private::FMulticastDelegatePropertyParams NewProp_OnCharacterDied;
@@ -1289,10 +1285,9 @@ struct Z_Construct_UClass_AAstralPlagueCharacter_Statics
 	static const UECodeGen_Private::FClassPropertyParams NewProp_DefaultAttributes;
 	static const UECodeGen_Private::FClassPropertyParams NewProp_StartupEffects_Inner;
 	static const UECodeGen_Private::FArrayPropertyParams NewProp_StartupEffects;
-	static const UECodeGen_Private::FObjectPropertyParams NewProp_StatsComponent;
-	static const UECodeGen_Private::FObjectPropertyParams NewProp_CameraComponent;
-	static const UECodeGen_Private::FObjectPropertyParams NewProp_SpringArmComponent;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_Weapon;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_CharacterComponent;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_StatsComponent;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
@@ -1331,10 +1326,9 @@ const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AAstralPlagueCh
 const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_AAstralPlagueCharacter_Statics::NewProp_DefaultAttributes = { "DefaultAttributes", nullptr, (EPropertyFlags)0x0024080000000015, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AAstralPlagueCharacter, DefaultAttributes), Z_Construct_UClass_UClass, Z_Construct_UClass_UGameplayEffect_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_DefaultAttributes_MetaData), NewProp_DefaultAttributes_MetaData) };
 const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_AAstralPlagueCharacter_Statics::NewProp_StartupEffects_Inner = { "StartupEffects", nullptr, (EPropertyFlags)0x0004000000000000, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UClass_UClass, Z_Construct_UClass_UGameplayEffect_NoRegister, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AAstralPlagueCharacter_Statics::NewProp_StartupEffects = { "StartupEffects", nullptr, (EPropertyFlags)0x0024080000000015, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AAstralPlagueCharacter, StartupEffects), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_StartupEffects_MetaData), NewProp_StartupEffects_MetaData) };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AAstralPlagueCharacter_Statics::NewProp_StatsComponent = { "StatsComponent", nullptr, (EPropertyFlags)0x012408000008000d, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AAstralPlagueCharacter, StatsComponent), Z_Construct_UClass_UAstralStatsComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_StatsComponent_MetaData), NewProp_StatsComponent_MetaData) };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AAstralPlagueCharacter_Statics::NewProp_CameraComponent = { "CameraComponent", nullptr, (EPropertyFlags)0x012408000008000d, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AAstralPlagueCharacter, CameraComponent), Z_Construct_UClass_UAstralCameraComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CameraComponent_MetaData), NewProp_CameraComponent_MetaData) };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AAstralPlagueCharacter_Statics::NewProp_SpringArmComponent = { "SpringArmComponent", nullptr, (EPropertyFlags)0x012408000008000d, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AAstralPlagueCharacter, SpringArmComponent), Z_Construct_UClass_USpringArmComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SpringArmComponent_MetaData), NewProp_SpringArmComponent_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AAstralPlagueCharacter_Statics::NewProp_Weapon = { "Weapon", nullptr, (EPropertyFlags)0x01240800000a000d, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AAstralPlagueCharacter, Weapon), Z_Construct_UClass_USkeletalMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Weapon_MetaData), NewProp_Weapon_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AAstralPlagueCharacter_Statics::NewProp_CharacterComponent = { "CharacterComponent", nullptr, (EPropertyFlags)0x01440000000a001d, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AAstralPlagueCharacter, CharacterComponent), Z_Construct_UClass_UAstralCharacterComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CharacterComponent_MetaData), NewProp_CharacterComponent_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AAstralPlagueCharacter_Statics::NewProp_StatsComponent = { "StatsComponent", nullptr, (EPropertyFlags)0x01440000000a001d, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AAstralPlagueCharacter, StatsComponent), Z_Construct_UClass_UAstralStatsComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_StatsComponent_MetaData), NewProp_StatsComponent_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AAstralPlagueCharacter_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAstralPlagueCharacter_Statics::NewProp_ShowHitReact,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAstralPlagueCharacter_Statics::NewProp_OnCharacterDied,
@@ -1345,10 +1339,9 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AAstralPl
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAstralPlagueCharacter_Statics::NewProp_DefaultAttributes,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAstralPlagueCharacter_Statics::NewProp_StartupEffects_Inner,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAstralPlagueCharacter_Statics::NewProp_StartupEffects,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAstralPlagueCharacter_Statics::NewProp_StatsComponent,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAstralPlagueCharacter_Statics::NewProp_CameraComponent,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAstralPlagueCharacter_Statics::NewProp_SpringArmComponent,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAstralPlagueCharacter_Statics::NewProp_Weapon,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAstralPlagueCharacter_Statics::NewProp_CharacterComponent,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAstralPlagueCharacter_Statics::NewProp_StatsComponent,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AAstralPlagueCharacter_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_AAstralPlagueCharacter_Statics::DependentSingletons[])() = {
@@ -1400,10 +1393,10 @@ struct Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_Character_Astr
 		{ FSharedRepMovement::StaticStruct, Z_Construct_UScriptStruct_FSharedRepMovement_Statics::NewStructOps, TEXT("SharedRepMovement"), &Z_Registration_Info_UScriptStruct_SharedRepMovement, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FSharedRepMovement), 3118292124U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AAstralPlagueCharacter, AAstralPlagueCharacter::StaticClass, TEXT("AAstralPlagueCharacter"), &Z_Registration_Info_UClass_AAstralPlagueCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AAstralPlagueCharacter), 2131554373U) },
+		{ Z_Construct_UClass_AAstralPlagueCharacter, AAstralPlagueCharacter::StaticClass, TEXT("AAstralPlagueCharacter"), &Z_Registration_Info_UClass_AAstralPlagueCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AAstralPlagueCharacter), 2752233917U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_Character_AstralPlagueCharacter_h_2284777822(TEXT("/Script/AstralPlague"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_Character_AstralPlagueCharacter_h_246980123(TEXT("/Script/AstralPlague"),
 	Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_Character_AstralPlagueCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_Character_AstralPlagueCharacter_h_Statics::ClassInfo),
 	Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_Character_AstralPlagueCharacter_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_Character_AstralPlagueCharacter_h_Statics::ScriptStructInfo),
 	nullptr, 0);

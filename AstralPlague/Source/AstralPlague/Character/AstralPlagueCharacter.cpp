@@ -15,6 +15,7 @@
 #include "TimerManager.h"
 #include "AstralPlague/AstralGameplayTags.h"
 #include "AstralPlague/AbilitySystem/Attributes/ProgressionAttributeSet.h"
+#include "AstralPlague/Components/AstralCharacterComponent.h"
 
 #include UE_INLINE_GENERATED_CPP_BY_NAME(AstralPlagueCharacter)
 
@@ -64,15 +65,11 @@ AAstralPlagueCharacter::AAstralPlagueCharacter(const FObjectInitializer& ObjectI
 	StatsComponent->OnDeathStarted.AddDynamic(this, &ThisClass::OnDeathStarted);
 	StatsComponent->OnDeathFinished.AddDynamic(this, &ThisClass::OnDeathFinished);
 
-	SpringArmComponent = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArmComponent"));
-	SpringArmComponent->SetupAttachment(CapsuleComp);
+	//Because we merged the functionality of PawnExtensionComponent and HeroComponents from Lyra we can safely define it now rather than later down the line in Blueprints.
+	//Furthermore, practically all NPCs or characters that we interact with will need its functionality in some capacity.
+	CharacterComponent = CreateDefaultSubobject<UAstralCharacterComponent>(TEXT("CharacterComponent"));	
 	
-	CameraComponent = CreateDefaultSubobject<UAstralCameraComponent>(TEXT("CameraComponent"));
-	CameraComponent->SetRelativeLocation(FVector(-300.0f, 0.0f, 75.0f));
-	CameraComponent->SetupAttachment(SpringArmComponent);
 	
-	//CameraComponent->AttachToComponent(MeshComp, Worldtransform);
-
 	bUseControllerRotationPitch = false;
 	bUseControllerRotationYaw = true;
 	bUseControllerRotationRoll = false;
@@ -194,7 +191,12 @@ UAstralAbilitySystemComponent* AAstralPlagueCharacter::GetAstralAbilitySystemCom
 }
 UAbilitySystemComponent* AAstralPlagueCharacter::GetAbilitySystemComponent() const
 {
-	return AbilitySystemComponent.Get();
+	if(CharacterComponent == nullptr)
+	{
+		return nullptr;
+	}
+	
+	return CharacterComponent->GetAstralAbilitySystemComponent();
 }
 
 

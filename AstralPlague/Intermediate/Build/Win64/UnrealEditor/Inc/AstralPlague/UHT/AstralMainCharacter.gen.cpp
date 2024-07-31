@@ -13,8 +13,10 @@ void EmptyLinkFunctionForGeneratedCodeAstralMainCharacter() {}
 ASTRALPLAGUE_API UClass* Z_Construct_UClass_AAstralMainCharacter();
 ASTRALPLAGUE_API UClass* Z_Construct_UClass_AAstralMainCharacter_NoRegister();
 ASTRALPLAGUE_API UClass* Z_Construct_UClass_AAstralPlagueCharacter();
+ASTRALPLAGUE_API UClass* Z_Construct_UClass_UAstralCameraComponent_NoRegister();
 ASTRALPLAGUE_API UClass* Z_Construct_UClass_UAstralFloatingStatusBarWidget_NoRegister();
 COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
+ENGINE_API UClass* Z_Construct_UClass_USpringArmComponent_NoRegister();
 UMG_API UClass* Z_Construct_UClass_UWidgetComponent_NoRegister();
 UPackage* Z_Construct_UPackage__Script_AstralPlague();
 // End Cross Module References
@@ -50,10 +52,24 @@ struct Z_Construct_UClass_AAstralMainCharacter_Statics
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Character/Playable/AstralMainCharacter.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CameraComponent_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Astral|Camera" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Character/Playable/AstralMainCharacter.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_SpringArmComponent_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Astral|Camera" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Character/Playable/AstralMainCharacter.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FClassPropertyParams NewProp_UIFloatingStatusBarClass;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_UIFloatingStatusBar;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_UIFloatingStatusBarComponent;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_CameraComponent;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_SpringArmComponent;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -64,10 +80,14 @@ struct Z_Construct_UClass_AAstralMainCharacter_Statics
 const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_AAstralMainCharacter_Statics::NewProp_UIFloatingStatusBarClass = { "UIFloatingStatusBarClass", nullptr, (EPropertyFlags)0x0024080000000005, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AAstralMainCharacter, UIFloatingStatusBarClass), Z_Construct_UClass_UClass, Z_Construct_UClass_UAstralFloatingStatusBarWidget_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_UIFloatingStatusBarClass_MetaData), NewProp_UIFloatingStatusBarClass_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AAstralMainCharacter_Statics::NewProp_UIFloatingStatusBar = { "UIFloatingStatusBar", nullptr, (EPropertyFlags)0x0020080000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AAstralMainCharacter, UIFloatingStatusBar), Z_Construct_UClass_UAstralFloatingStatusBarWidget_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_UIFloatingStatusBar_MetaData), NewProp_UIFloatingStatusBar_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AAstralMainCharacter_Statics::NewProp_UIFloatingStatusBarComponent = { "UIFloatingStatusBarComponent", nullptr, (EPropertyFlags)0x00200800000a001d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AAstralMainCharacter, UIFloatingStatusBarComponent), Z_Construct_UClass_UWidgetComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_UIFloatingStatusBarComponent_MetaData), NewProp_UIFloatingStatusBarComponent_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AAstralMainCharacter_Statics::NewProp_CameraComponent = { "CameraComponent", nullptr, (EPropertyFlags)0x01440000000a001d, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AAstralMainCharacter, CameraComponent), Z_Construct_UClass_UAstralCameraComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CameraComponent_MetaData), NewProp_CameraComponent_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AAstralMainCharacter_Statics::NewProp_SpringArmComponent = { "SpringArmComponent", nullptr, (EPropertyFlags)0x01440000000a001d, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AAstralMainCharacter, SpringArmComponent), Z_Construct_UClass_USpringArmComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SpringArmComponent_MetaData), NewProp_SpringArmComponent_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AAstralMainCharacter_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAstralMainCharacter_Statics::NewProp_UIFloatingStatusBarClass,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAstralMainCharacter_Statics::NewProp_UIFloatingStatusBar,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAstralMainCharacter_Statics::NewProp_UIFloatingStatusBarComponent,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAstralMainCharacter_Statics::NewProp_CameraComponent,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AAstralMainCharacter_Statics::NewProp_SpringArmComponent,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AAstralMainCharacter_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_AAstralMainCharacter_Statics::DependentSingletons[])() = {
@@ -110,10 +130,10 @@ AAstralMainCharacter::~AAstralMainCharacter() {}
 struct Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_Character_Playable_AstralMainCharacter_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AAstralMainCharacter, AAstralMainCharacter::StaticClass, TEXT("AAstralMainCharacter"), &Z_Registration_Info_UClass_AAstralMainCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AAstralMainCharacter), 4251454644U) },
+		{ Z_Construct_UClass_AAstralMainCharacter, AAstralMainCharacter::StaticClass, TEXT("AAstralMainCharacter"), &Z_Registration_Info_UClass_AAstralMainCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AAstralMainCharacter), 1379459156U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_Character_Playable_AstralMainCharacter_h_2116258028(TEXT("/Script/AstralPlague"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_Character_Playable_AstralMainCharacter_h_622355574(TEXT("/Script/AstralPlague"),
 	Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_Character_Playable_AstralMainCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_Character_Playable_AstralMainCharacter_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

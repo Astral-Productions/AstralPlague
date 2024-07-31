@@ -64,6 +64,10 @@ public:
 	void SetPawnData(const UAstralPawnData* InPawnData);
 
 	
+	/** Gets the current ability system component, which may be owned by a different actor */
+	UFUNCTION(BlueprintPure, Category = "Astral|Pawn")
+	UAstralAbilitySystemComponent* GetAstralAbilitySystemComponent() const { return AbilitySystemComponent; }
+	
 	//~ Begin IGameFrameworkInitStateInterface interface
 	virtual FName GetFeatureName() const override { return NAME_ActorFeatureName; }
 	virtual bool CanChangeInitState(UGameFrameworkComponentManager* Manager, FGameplayTag CurrentState, FGameplayTag DesiredState) const override;
