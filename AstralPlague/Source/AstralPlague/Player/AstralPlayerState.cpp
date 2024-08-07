@@ -34,6 +34,8 @@ AAstralPlayerState::AAstralPlayerState(const FObjectInitializer& ObjectInitializ
 
 	// Cache tags
 	DeadTag = FGameplayTag::RequestGameplayTag(FName("State.Dead"));	
+	
+	NetUpdateFrequency = 100; 
 }
 
 TObjectPtr<const UCharacterAttributeSet> AAstralPlayerState::GetCharacterAttributeSet() const

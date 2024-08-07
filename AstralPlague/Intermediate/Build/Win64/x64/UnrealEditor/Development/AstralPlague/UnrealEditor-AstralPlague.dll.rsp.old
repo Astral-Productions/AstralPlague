@@ -42,6 +42,8 @@
 "D:\UnrealDev\AstralPlague - Dev\AstralPlague\Intermediate\Build\Win64\x64\UnrealEditor\Development\AstralPlague\AstralPlagueCharacter.cpp.obj"
 "D:\UnrealDev\AstralPlague - Dev\AstralPlague\Intermediate\Build\Win64\x64\UnrealEditor\Development\AstralPlague\AstralMainCharacter.cpp.obj"
 "D:\UnrealDev\AstralPlague - Dev\AstralPlague\Intermediate\Build\Win64\x64\UnrealEditor\Development\AstralPlague\AstralCharacterComponent.cpp.obj"
+"D:\UnrealDev\AstralPlague - Dev\AstralPlague\Intermediate\Build\Win64\x64\UnrealEditor\Development\AstralPlague\AstralMainCharacter.gen.cpp.obj"
+"D:\UnrealDev\AstralPlague - Dev\AstralPlague\Intermediate\Build\Win64\x64\UnrealEditor\Development\AstralPlague\AstralPlague.init.gen.cpp.obj"
 "D:\UnrealDev\AstralPlague - Dev\AstralPlague\Intermediate\Build\Win64\x64\UnrealEditor\Development\AstralPlague\Default.rc2.res"
 "..\Intermediate\Build\Win64\x64\UnrealEditor\Development\InputCore\UnrealEditor-InputCore.lib"
 "..\Intermediate\Build\Win64\x64\UnrealEditor\Development\Slate\UnrealEditor-Slate.lib"
