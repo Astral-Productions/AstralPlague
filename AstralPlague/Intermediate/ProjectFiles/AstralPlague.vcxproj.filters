@@ -12,6 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <None Include="..\..\.vsconfig" />
+    <None Include="..\..\AstralPlague.png" />
     <None Include="..\..\AstralPlague.uproject - Shortcut.lnk" />
     <Filter Include="Config">
       <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
@@ -169,6 +170,18 @@
     <Filter Include="Plugins\GameFeatures">
       <UniqueIdentifier>{33C51FE3-4BD4-3B9E-9F42-5CCDEE9DF75F}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Plugins\GameFeatures\Astral-OpenWorld-Manager">
+      <UniqueIdentifier>{BC4BDA9A-0A73-3F4E-82AB-80C7EC7D557F}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Plugins\GameFeatures\Astral-OpenWorld-Manager\Astral-OpenWorld-Manager.uplugin">
+      <Filter>Plugins\GameFeatures\Astral-OpenWorld-Manager</Filter>
+    </None>
+    <Filter Include="Plugins\GameFeatures\Astral-OpenWorld-Manager\Resources">
+      <UniqueIdentifier>{B81D900B-48B0-3A79-BDF0-2B2D72B32144}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Plugins\GameFeatures\Astral-OpenWorld-Manager\Resources\Icon128.png">
+      <Filter>Plugins\GameFeatures\Astral-OpenWorld-Manager\Resources</Filter>
+    </None>
     <Filter Include="Plugins\GameFeatures\AstralPlagueCore">
       <UniqueIdentifier>{98E57570-2956-3314-9834-0EBE6E3FAF63}</UniqueIdentifier>
     </Filter>
@@ -490,18 +503,6 @@
     <ClInclude Include="..\..\Source\AstralPlague\Camera\AstralCameraMode.h">
       <Filter>Source\AstralPlague\Camera</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\AstralPlague\Camera\AstralPlayerCameraManager.cpp">
-      <Filter>Source\AstralPlague\Camera</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\AstralPlague\Camera\AstralPlayerCameraManager.h">
-      <Filter>Source\AstralPlague\Camera</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\AstralPlague\Camera\AstralUICameraManagerComponent.cpp">
-      <Filter>Source\AstralPlague\Camera</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\AstralPlague\Camera\AstralUICameraManagerComponent.h">
-      <Filter>Source\AstralPlague\Camera</Filter>
-    </ClInclude>
     <Filter Include="Source\AstralPlague\Character">
       <UniqueIdentifier>{E805E4A2-76D7-3C53-9E48-0DDFBA1C370C}</UniqueIdentifier>
     </Filter>
@@ -666,6 +667,18 @@
     </ClCompile>
     <ClInclude Include="..\..\Source\AstralPlague\Messages\AstralVerbMessage.h">
       <Filter>Source\AstralPlague\Messages</Filter>
+    </ClInclude>
+    <Filter Include="Source\AstralPlague\OpenWorld">
+      <UniqueIdentifier>{88BF6A62-71E0-36DD-8EDF-50E25BEA3A65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\AstralPlague\OpenWorld\Data">
+      <UniqueIdentifier>{A428ABD8-37EC-3E4E-8997-FEAA50FB7795}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\AstralPlague\OpenWorld\Data\OpenWorldVillageData.cpp">
+      <Filter>Source\AstralPlague\OpenWorld\Data</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\AstralPlague\OpenWorld\Data\OpenWorldVillageData.h">
+      <Filter>Source\AstralPlague\OpenWorld\Data</Filter>
     </ClInclude>
     <Filter Include="Source\AstralPlague\Player">
       <UniqueIdentifier>{3DE32542-F2C2-33C4-9AEC-920A6F39F3F1}</UniqueIdentifier>

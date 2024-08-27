@@ -39,7 +39,7 @@ struct Z_Construct_UClass_UCharacterAttributeSet_Statics
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Health_MetaData[] = {
 		{ "AllowPrivateAccess", "TRUE" },
-		{ "Category", "Astral|Health" },
+		{ "Category", "Astral|Attribute|Health" },
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// The current health attribute.  The health will be capped by the max health attribute.  Health is hidden from modifiers so only executions can modify it.\n" },
 #endif
@@ -51,7 +51,7 @@ struct Z_Construct_UClass_UCharacterAttributeSet_Statics
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_MaxHealth_MetaData[] = {
 		{ "AllowPrivateAccess", "TRUE" },
-		{ "Category", "Astral|Health" },
+		{ "Category", "Astral|Attribute|Health" },
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// The current max health attribute.  Max health is an attribute since gameplay effects can modify it.\n" },
 #endif
@@ -62,7 +62,7 @@ struct Z_Construct_UClass_UCharacterAttributeSet_Statics
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_HealthRegenRate_MetaData[] = {
 		{ "AllowPrivateAccess", "TRUE" },
-		{ "Category", "Astral|Health" },
+		{ "Category", "Astral|Attribute|Health" },
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// The health regeneration rate. We can change this as needed if buffs are applied.\n" },
 #endif
@@ -73,7 +73,7 @@ struct Z_Construct_UClass_UCharacterAttributeSet_Statics
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_SoulEnergy_MetaData[] = {
 		{ "AllowPrivateAccess", "TRUE" },
-		{ "Category", "Astral|Health" },
+		{ "Category", "Astral|Attribute|Soul Energy" },
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// Soul Energy acts as mana for ability casts or special activations. It has a sister attribute called MaxSoulEnergy that can be referenced for the max energy/mana we can contain \n" },
 #endif
@@ -84,7 +84,7 @@ struct Z_Construct_UClass_UCharacterAttributeSet_Statics
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_MaxSoulEnergy_MetaData[] = {
 		{ "AllowPrivateAccess", "TRUE" },
-		{ "Category", "Astral|Health" },
+		{ "Category", "Astral|Attribute|Soul Energy" },
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// Soul Energy acts as mana for ability casts or special activations. This is the max energy/mana the player can have. \n" },
 #endif
@@ -95,7 +95,7 @@ struct Z_Construct_UClass_UCharacterAttributeSet_Statics
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Stamina_MetaData[] = {
 		{ "AllowPrivateAccess", "TRUE" },
-		{ "Category", "Astral|Health" },
+		{ "Category", "Astral|Attribute|Stamina" },
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// Stamina is an internal value that isn't shown to the player. Repeated actions of the same kind will slowly drain the player's stamina and cause them to get exhausted.\n" },
 #endif
@@ -106,7 +106,7 @@ struct Z_Construct_UClass_UCharacterAttributeSet_Statics
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_MaxStamina_MetaData[] = {
 		{ "AllowPrivateAccess", "TRUE" },
-		{ "Category", "Astral|Health" },
+		{ "Category", "Astral|Attribute|Stamina" },
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// Stamina is an internal value that isn't shown to the player. Repeated actions of the same kind will slowly drain the player's stamina and cause them to get exhausted.\n" },
 #endif
@@ -117,7 +117,7 @@ struct Z_Construct_UClass_UCharacterAttributeSet_Statics
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_StaminaRegenRate_MetaData[] = {
 		{ "AllowPrivateAccess", "TRUE" },
-		{ "Category", "Astral|Health" },
+		{ "Category", "Astral|Attribute|Health" },
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "//How quickly Stamina regenerates. \n" },
 #endif
@@ -128,7 +128,7 @@ struct Z_Construct_UClass_UCharacterAttributeSet_Statics
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_MoveSpeed_MetaData[] = {
 		{ "AllowPrivateAccess", "TRUE" },
-		{ "Category", "Astral|Health" },
+		{ "Category", "Astral|Attribute|Speed" },
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "//Gems are the game's currency acting as a way to purchase items or other things from shopkeepers.\n" },
 #endif
@@ -245,10 +245,10 @@ UCharacterAttributeSet::~UCharacterAttributeSet() {}
 struct Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_AbilitySystem_Attributes_CharacterAttributeSet_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UCharacterAttributeSet, UCharacterAttributeSet::StaticClass, TEXT("UCharacterAttributeSet"), &Z_Registration_Info_UClass_UCharacterAttributeSet, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCharacterAttributeSet), 361663300U) },
+		{ Z_Construct_UClass_UCharacterAttributeSet, UCharacterAttributeSet::StaticClass, TEXT("UCharacterAttributeSet"), &Z_Registration_Info_UClass_UCharacterAttributeSet, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCharacterAttributeSet), 3454264376U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_AbilitySystem_Attributes_CharacterAttributeSet_h_3903017434(TEXT("/Script/AstralPlague"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_AbilitySystem_Attributes_CharacterAttributeSet_h_659111376(TEXT("/Script/AstralPlague"),
 	Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_AbilitySystem_Attributes_CharacterAttributeSet_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_AbilitySystem_Attributes_CharacterAttributeSet_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

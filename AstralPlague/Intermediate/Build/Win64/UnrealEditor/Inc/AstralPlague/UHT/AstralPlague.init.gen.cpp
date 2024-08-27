@@ -27,13 +27,13 @@ void EmptyLinkFunctionForGeneratedCodeAstralPlague_init() {}
 				SingletonFuncArray,
 				UE_ARRAY_COUNT(SingletonFuncArray),
 				PKG_CompiledIn | 0x00000000,
-				0x2FDDF768,
-				0x6D478B8E,
+				0x4DD91F2D,
+				0xAB822C1E,
 				METADATA_PARAMS(0, nullptr)
 			};
 			UECodeGen_Private::ConstructUPackage(Z_Registration_Info_UPackage__Script_AstralPlague.OuterSingleton, PackageParams);
 		}
 		return Z_Registration_Info_UPackage__Script_AstralPlague.OuterSingleton;
 	}
-	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_AstralPlague(Z_Construct_UPackage__Script_AstralPlague, TEXT("/Script/AstralPlague"), Z_Registration_Info_UPackage__Script_AstralPlague, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x2FDDF768, 0x6D478B8E));
+	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_AstralPlague(Z_Construct_UPackage__Script_AstralPlague, TEXT("/Script/AstralPlague"), Z_Registration_Info_UPackage__Script_AstralPlague, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x4DD91F2D, 0xAB822C1E));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
