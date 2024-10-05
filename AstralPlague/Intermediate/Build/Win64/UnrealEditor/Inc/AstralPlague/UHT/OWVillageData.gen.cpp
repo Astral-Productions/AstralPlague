@@ -86,10 +86,10 @@ UOWVillageData::~UOWVillageData() {}
 struct Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_OpenWorld_Data_OWVillageData_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UOWVillageData, UOWVillageData::StaticClass, TEXT("UOWVillageData"), &Z_Registration_Info_UClass_UOWVillageData, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UOWVillageData), 3063538513U) },
+		{ Z_Construct_UClass_UOWVillageData, UOWVillageData::StaticClass, TEXT("UOWVillageData"), &Z_Registration_Info_UClass_UOWVillageData, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UOWVillageData), 1995261176U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_OpenWorld_Data_OWVillageData_h_1031739106(TEXT("/Script/AstralPlague"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_OpenWorld_Data_OWVillageData_h_2161777221(TEXT("/Script/AstralPlague"),
 	Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_OpenWorld_Data_OWVillageData_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_AstralPlague_Source_AstralPlague_OpenWorld_Data_OWVillageData_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

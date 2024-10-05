@@ -1,0 +1,6 @@
+Breadcrumbs 'RHIThread'
+Context 1/2
+	00 FRDGBuilder_Execute
+	01 Scene
+	02 PostProcessing
+	03 TemporalSuperResolution(sg.AntiAliasingQuality=3) 1153x929 -> 1525x1228

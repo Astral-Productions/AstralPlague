@@ -214,7 +214,7 @@ void AAstralPlayerState::CopyProperties(APlayerState* PlayerState)
 }
 
 
-void AAstralPlayerState::OnExperienceLoaded(const UAstralExperienceDefinition* CurrentExperience)
+void AAstralPlayerState::OnExperienceLoaded(const UAstralExperienceDefinition* /*CurrentExperience*/)
 {
 	if (AAstralGameMode* AstralGameMode = GetWorld()->GetAuthGameMode<AAstralGameMode>())
 	{

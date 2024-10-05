@@ -168,14 +168,14 @@ bool UAstralCharacterComponent::CanChangeInitState(UGameFrameworkComponentManage
 
 void UAstralCharacterComponent::HandleChangeInitState(UGameFrameworkComponentManager* Manager, FGameplayTag CurrentState, FGameplayTag DesiredState)
 {
-	if (CurrentState == AstralGameplayTags::InitState_DataAvailable && DesiredState == AstralGameplayTags::InitState_DataInitialized)
+	//if (CurrentState == AstralGameplayTags::InitState_DataAvailable && DesiredState == AstralGameplayTags::InitState_DataInitialized)
 	{
 		APawn* Pawn = GetPawn<APawn>();
 		
 		AAstralPlayerState* AstralPS = GetPlayerState<AAstralPlayerState>();
 		if (!ensure(Pawn && AstralPS))
 		{
-			//return;
+			return;
 		}		
 
 		if (PawnData)

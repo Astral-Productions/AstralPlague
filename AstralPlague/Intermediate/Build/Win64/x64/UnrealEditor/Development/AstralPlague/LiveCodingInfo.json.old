@@ -14,14 +14,12 @@
 			"AstralMainCharacter.gen.cpp.obj",
 			"AstralPawnData.gen.cpp.obj",
 			"AstralPlague.gen.cpp.obj",
-			"AstralPlague.init.gen.cpp.obj",
 			"AstralPlagueGameMode.gen.cpp.obj",
 			"AstralPlayerState.gen.cpp.obj",
 			"AstralSettingsLocal.gen.cpp.obj",
 			"AstralStatsComponent.gen.cpp.obj",
 			"AstralVerbMessage.gen.cpp.obj",
 			"CharacterAttributeSet.gen.cpp.obj",
-			"OpenWorldVillageData.gen.cpp.obj",
 			"ProgressionAttributeSet.gen.cpp.obj",
 			"AstralAbilityCost.cpp.obj",
 			"AstralAbilityCost_InventoryItem.cpp.obj",
@@ -47,7 +45,6 @@
 			"AstralPawnData.cpp.obj",
 			"AstralPlagueCharacter.cpp.obj",
 			"AstralMainCharacter.cpp.obj",
-			"AstralCharacterComponent.cpp.obj",
 			"AstralStatsComponent.cpp.obj",
 			"AstralGameFeaturePolicy.cpp.obj",
 			"GameFeatureAction_AddAbilities.cpp.obj",
@@ -67,6 +64,8 @@
 			"AstralInputConfig.cpp.obj",
 			"AstralMappableConfigPair.cpp.obj",
 			"AstralVerbMessage.cpp.obj",
+			"OWExperienceData.cpp.obj",
+			"OWVillageData.cpp.obj",
 			"AstralLocalPlayer.cpp.obj",
 			"AstralNPCController.cpp.obj",
 			"AstralPlayerController.cpp.obj",
@@ -82,7 +81,10 @@
 			"AstralFloatingStatusBarWidget.cpp.obj",
 			"AstralHUDWidget.cpp.obj",
 			"AstralUIManagerSubsystem.cpp.obj",
-			"OpenWorldVillageData.cpp.obj"
+			"AstralPlague.init.gen.cpp.obj",
+			"OWExperienceData.gen.cpp.obj",
+			"OWVillageData.gen.cpp.obj",
+			"AstralCharacterComponent.cpp.obj"
 		]
 	}
 }
