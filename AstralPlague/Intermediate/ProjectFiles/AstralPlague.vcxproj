@@ -773,11 +773,15 @@
     <ClInclude Include="..\..\Plugins\ModularGameplayActors\Source\ModularGameplayActors\Public\ModularPawn.h"/>
     <ClInclude Include="..\..\Plugins\ModularGameplayActors\Source\ModularGameplayActors\Public\ModularPlayerController.h"/>
     <ClInclude Include="..\..\Plugins\ModularGameplayActors\Source\ModularGameplayActors\Public\ModularPlayerState.h"/>
+    <ClCompile Include="..\..\Source\AstralPlague\AbilitySystem\AsyncTaskAttributeChanged.cpp" />
+    <ClCompile Include="..\..\Source\AstralPlague\AbilitySystem\AsyncTaskCooldownChanged.cpp" />
     <ClCompile Include="..\..\Source\AstralPlague\AstralGameplayTags.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_4)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles_4)</ForcedIncludeFiles>
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
+    <ClInclude Include="..\..\Source\AstralPlague\AbilitySystem\AsyncTaskAttributeChanged.h" />
+    <ClInclude Include="..\..\Source\AstralPlague\AbilitySystem\AsyncTaskCooldownChanged.h" />
     <ClInclude Include="..\..\Source\AstralPlague\AstralGameplayTags.h"/>
     <ClCompile Include="..\..\Source\AstralPlague\AstralLogChannels.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories_4)</AdditionalIncludeDirectories>

@@ -19,7 +19,10 @@
 			"AstralSettingsLocal.gen.cpp.obj",
 			"AstralStatsComponent.gen.cpp.obj",
 			"AstralVerbMessage.gen.cpp.obj",
+			"AsyncTaskCooldownChanged.gen.cpp.obj",
 			"CharacterAttributeSet.gen.cpp.obj",
+			"OWExperienceData.gen.cpp.obj",
+			"OWVillageData.gen.cpp.obj",
 			"ProgressionAttributeSet.gen.cpp.obj",
 			"AstralAbilityCost.cpp.obj",
 			"AstralAbilityCost_InventoryItem.cpp.obj",
@@ -45,6 +48,7 @@
 			"AstralPawnData.cpp.obj",
 			"AstralPlagueCharacter.cpp.obj",
 			"AstralMainCharacter.cpp.obj",
+			"AstralCharacterComponent.cpp.obj",
 			"AstralStatsComponent.cpp.obj",
 			"AstralGameFeaturePolicy.cpp.obj",
 			"GameFeatureAction_AddAbilities.cpp.obj",
@@ -82,9 +86,9 @@
 			"AstralHUDWidget.cpp.obj",
 			"AstralUIManagerSubsystem.cpp.obj",
 			"AstralPlague.init.gen.cpp.obj",
-			"OWExperienceData.gen.cpp.obj",
-			"OWVillageData.gen.cpp.obj",
-			"AstralCharacterComponent.cpp.obj"
+			"AsyncTaskAttributeChanged.gen.cpp.obj",
+			"AsyncTaskAttributeChanged.cpp.obj",
+			"AsyncTaskCooldownChanged.cpp.obj"
 		]
 	}
 }
